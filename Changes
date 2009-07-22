@@ -1,6 +1,13 @@
 Revision history for LBMA-Statistics
 
+        Not recommendedfor production use.
+
+0.02    2009-07.22/time
+	Fixed Typo in NAME Field 
+	Fixed tests for today to use gmtime instead localtime
+	Added test
+
 0.01    2009-07.21/time
         First version, released on an unsuspecting world.
-        Not recommend for production use.
+        Not recommended for production use.
 

@@ -11,6 +11,7 @@ META.yml
 README
 t/000-load.t
 t/001-isa.t
+t/002-can.t
 t/100-load.t
 t/101-isa.t
 t/102-can.t

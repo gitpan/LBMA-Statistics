@@ -10,7 +10,7 @@ use HTML::TableExtract;
 
 =head1 NAME
 
-LBMA::Statistics::Silverixing::Daily - Daily Prices Silver Fixings London Bullion Market 
+LBMA::Statistics::SilverFixing::Daily - Daily Prices Silver Fixings London Bullion Market (Internal only) 
 
 =head1 DESCRIPTION
 

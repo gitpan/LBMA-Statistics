@@ -22,7 +22,7 @@ This module is for internal use only. There's no need to access it directly.
 
 =head2 new - Constructor 
 
-=head3 PARAMETERS
+=head3 Parameters
 
 Parameters are all lowercase.
 
@@ -50,7 +50,7 @@ Parameters are all lowercase.
  	) or die $!;
 
 If no parameters are passed to this class, today is assumed.
-Today is determined  by your local time settings. In doubt pass a valid date.
+Today is determined using UTC. In doubt pass a valid date.
 
 
     my $date = LBMA::Statistics::Date->new( ); 

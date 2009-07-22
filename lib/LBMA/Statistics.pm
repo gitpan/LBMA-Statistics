@@ -3,13 +3,15 @@ package LBMA::Statistics;
 use warnings;
 use strict;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use LBMA::Statistics::Date;
 use LBMA::Statistics::GoldFixing::Daily;
 use LBMA::Statistics::SilverFixing::Daily;
 
-=head1 NAME LBMA::Statistics - Obtain Gold and Silver Fixings (Prices) from London Bullion Market 
+=head1 NAME
+
+LBMA::Statistics - Obtain Gold and Silver Fixings (Prices) from London Bullion Market 
 
 =head1 DESCRIPTION
 
@@ -40,35 +42,6 @@ Published once a day at 12:00 GMT.
 Historic daily prices are available back to 1968.
 
 =head1 SYNOPSIS
-
-=head2 Example 1 Daily Gold Fixing
-
-	#!/usr/bin/perl
-	use warnings;
-	use strict;
-
-	use LBMA::Statistics;
-
-	my $lbma =  LBMA::Statistics->new();
-
-	print join("|",$lbma->dailygoldfixing() ) ,"\n";
-	print join("|",$lbma->dailygoldfixing( year => 2009, month => 2, day => 2) ) , "\n";
-	print join("|",$lbma->dailygoldfixing( year => 2000, month => 1, day => 4) ) , "\n";
-
-
-=head2 Example 2 Daily Silver Fixing
-
-	#!/usr/bin/perl
-	use warnings;
-	use strict;
-
-	use LBMA::Statistics;
-
-	my $lbma =  LBMA::Statistics->new();
-
-	print join("|",$lbma->dailysilverfixing() ) ,"\n";
-	print join("|",$lbma->dailysilverfixing( year => 2009, month => 2, day => 2) ) , "\n";
-	print join("|",$lbma->dailysilverfixing( year => 2000, month => 1, day => 4) ) , "\n";
 
 =head2 new - Constructor 
 
@@ -110,8 +83,8 @@ Parameters are all lowercase.
                                day => $day,
                               ) or die;
 
-If no parameters are passed to this class, today is assumed.
-Today is determined  by your local time settings. In doubt pass a valid date.
+If no parameters are passed to this method, today is assumed.
+Today is determined using UTC . In doubt pass a valid date.
 
 	$lbma->dailygoldfixing( );
 
@@ -179,12 +152,12 @@ Parameters are all lowercase.
 =back
 
 	$lbma->dailysilverfixing(year => $year,
-                               month => $month,
-                               day => $day,
+                                 month => $month,
+                                 day => $day,
                               ) or die;
 
 If no parameters are passed to this class, today is assumed.
-Today is determined  by your local time settings. In doubt pass a valid date.
+Today is determined using UTC. In doubt pass a valid date.
 
 	$lbma->dailysilverfixing( );
 
@@ -227,6 +200,39 @@ sub dailysilverfixing {
 	my $silverfixing = $dailysilver->retrieve_row() ;
 	return wantarray ? @$silverfixing : $silverfixing;
 }
+
+
+=head1 EXAMPLES
+
+=head2 Example 1 Daily Gold Fixing
+
+        #!/usr/bin/perl
+        use warnings;
+        use strict;
+
+        use LBMA::Statistics;
+
+        my $lbma =  LBMA::Statistics->new();
+
+        print join("|",$lbma->dailygoldfixing() ) ,"\n";
+        print join("|",$lbma->dailygoldfixing( year => 2009, month => 2, day => 2) ) , "\n";
+        print join("|",$lbma->dailygoldfixing( year => 2000, month => 1, day => 4) ) , "\n";
+
+
+=head2 Example 2 Daily Silver Fixing
+
+        #!/usr/bin/perl
+        use warnings;
+        use strict;
+
+        use LBMA::Statistics;
+
+        my $lbma =  LBMA::Statistics->new();
+
+        print join("|",$lbma->dailysilverfixing() ) ,"\n";
+        print join("|",$lbma->dailysilverfixing( year => 2009, month => 2, day => 2) ) , "\n";
+        print join("|",$lbma->dailysilverfixing( year => 2000, month => 1, day => 4) ) , "\n";
+
 
 
 

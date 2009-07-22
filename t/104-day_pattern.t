@@ -73,11 +73,13 @@ SKIP: {
 ###############################################################################
 undef $date;
 $date = LBMA::Statistics::Date->new(); 
-$year = (localtime())[5];
+#$year = (localtime())[5];
+$year = (gmtime())[5];
 $year += 1900;
 	# Just the last two digits
 $year = substr($year,2,2);
-$day = (localtime())[3];
+#$day = (localtime())[3];
+$day = (gmtime())[3];
 $day = sprintf("%02d",$day);
 like($date->day_pattern(), qr/$day-...-$year/, 'Testing Today');
 

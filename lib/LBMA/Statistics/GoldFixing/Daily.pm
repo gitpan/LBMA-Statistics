@@ -10,7 +10,7 @@ use HTML::TableExtract;
 
 =head1 NAME
 
-LBMA::Statistics::GoldFixing::Daily - Daily Prices Gold Fixings London Bullion Market 
+LBMA::Statistics::GoldFixing::Daily - Daily Prices Gold Fixings London Bullion Market (Internal only) 
 
 =head1 DESCRIPTION
 

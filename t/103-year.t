@@ -45,7 +45,8 @@ SKIP: {
 ###############################################################################
 undef $date;
 $date = LBMA::Statistics::Date->new(); 
-$year = (localtime())[5];
+#$year = (localtime())[5];
+$year = (gmtime())[5];
 $year += 1900;
 ok($date->year() == $year, 'Testing Today');
 
