@@ -19,4 +19,4 @@ requires:
   DateTime: 0.41
   HTML::TableExtract: 2.10
   WWW::Mechanize: 1.34
-version: 0.02
+version: 0.03

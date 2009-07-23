@@ -8,13 +8,15 @@ use DateTime;
 
 =head1 NAME
 
-LBMA::Statistics::Date - Common date methods for LBMA::Statistics (internal only)
+LBMA::Statistics::Date - Common date methods for LBMA::Statistics (Internal only)
 
 =head1 DESCRIPTON
 
 LBMA::Statistics::Date handles common date methods for LBMA::Statistics.
 
 This module is for internal use only. There's no need to access it directly.
+
+See L<http://search.cpan.org/perldoc?LBMA::Statistics>
 
 
 =head1 SYNOPSIS

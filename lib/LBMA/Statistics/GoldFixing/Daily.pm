@@ -22,7 +22,7 @@ Does the hard work.
 
 This modul is for internal use only. There's no need to use it directly.
 
-Everthing is done through LBMA::Statistics.  
+Everthing is done by LBMA::Statistics (See L<http://search.cpan.org/perldoc?LBMA::Statistics>).  
 
 
 =head2 new - Constructor 

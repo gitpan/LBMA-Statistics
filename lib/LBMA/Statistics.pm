@@ -3,7 +3,7 @@ package LBMA::Statistics;
 use warnings;
 use strict;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use LBMA::Statistics::Date;
 use LBMA::Statistics::GoldFixing::Daily;
@@ -116,7 +116,11 @@ There were no EUR before 1999.
 
 In scalar context a reference to an array is returned.
 
-Returns undef or empty list if data can't be retrieved e.g. dates without fixing  like holydays.
+Returns undef or empty list if data can't be retrieved e.g. dates without fixing like holydays.
+
+Returns an array with the date slot filled and undef for all other slots if you're trying to fetch data before A.M. fixing.
+
+Returns an array with the date and A.M. slots filled and undef for all other slots if you're trying to fetch data before P.M. and after A.M. fixing.
 
 
 =cut
@@ -184,6 +188,8 @@ There were no EUR before 1999.
 In scalar context a reference to an array is returned.
 
 Returns undef or empty list if data can't be retrieved e.g. dates without fixing  like holydays.
+
+Returns an array(ref) with the date slot filled and undef for all other slots if you're trying to fetch data before the fixing.
 
 
 =cut
