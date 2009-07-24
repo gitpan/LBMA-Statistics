@@ -3,7 +3,7 @@ package LBMA::Statistics::GoldFixing::Daily;
 use warnings;
 use strict;
 
-our $VERSION = '0.01';
+our $VERSION = '0.03';
 
 use WWW::Mechanize;
 use HTML::TableExtract;
@@ -85,6 +85,46 @@ sub day_pattern {
 	return $self->{day_pattern};
 }
 
+=head2 dailystatsurl 
+
+determines url for daily goldstats 
+
+
+=cut
+
+sub dailystatsurl {
+	my $self = shift;
+        my $url  = 'http://www.lbma.org.uk/?area=stats&page=gold/';
+        $url    .= $self->year() ;
+        $url    .= 'dailygold';
+	return $url;
+} 
+
+=head2 retrieve_row_am 
+
+Just the A.M. Gold Fixing Data
+
+=cut
+
+sub retrieve_row_am {
+	my $self       = shift;
+	my $fixings    = $self->retrieve_row();
+	my $year       = $self->year();
+	my @am_fixings = ();
+	# Step by step
+	$am_fixings[0] = @$fixings[0]; # Date
+	$am_fixings[1] = @$fixings[1]; # USD
+	$am_fixings[2] = @$fixings[2]; # GBP
+	if ( $year >= 1999 ) {
+		$am_fixings[3] = @$fixings[3]; # EUR 
+	} 
+	else {
+		# No EUR before 1999 - do nothing
+	} 
+        return wantarray ? @am_fixings : \@am_fixings;
+}
+
+
 =head2 retrieve_row 
 
 Returns an array of fixings.
@@ -116,10 +156,7 @@ Returns undef or empty list if data can't be retrieved e.g. dates without fixing
 
 sub retrieve_row {
 	my $self = shift;
-
-        my $url = 'http://www.lbma.org.uk/?area=stats&page=gold/';
-        $url .= $self->year() ;
-        $url .= 'dailygold';
+	my $url = $self->dailystatsurl(); 
 
         my $browser = WWW::Mechanize->new(
                         stack_depth => 10,
@@ -128,13 +165,13 @@ sub retrieve_row {
 
         $browser->agent_alias( 'Windows IE 6' ); # Hide crawler
 
-        $browser->get($url) or die $! or die $!;
+        $browser->get($url) or die $!;
 
-        my $fixings = $self->_parse( $browser->content());
+        my $fixings = $self->_parse( $browser->content() );
         return wantarray ? @$fixings : $fixings;
 }
 
-=head2 
+=head2 _parse 
 
 parses the content of the retrieved HTML page
 
@@ -160,8 +197,6 @@ ROW:            foreach my $row ($ts->rows) {
         }
         return wantarray ? @fixings : \@fixings;
 }
-
-
 
 
 1;

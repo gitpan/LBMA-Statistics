@@ -83,4 +83,3 @@ $day = (gmtime())[3];
 $day = sprintf("%02d",$day);
 like($date->day_pattern(), qr/$day-...-$year/, 'Testing Today');
 
-diag( "Testing day_pattern() LBMA::Statistics::Date $LBMA::Statistics::Date::VERSION" );

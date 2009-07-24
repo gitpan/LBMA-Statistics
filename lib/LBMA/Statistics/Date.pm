@@ -2,7 +2,7 @@ package LBMA::Statistics::Date;
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use DateTime;
 
@@ -128,7 +128,7 @@ sub _init {
 
     # Sanity check for the wild ones
     if ( $year < 1968 ) {
-		die "Historic daily prices and monthly and annual averages are available back to 1968."; 
+		die "Year is $year - Historic daily prices and monthly and annual averages are available back to 1968."; 
     }
 
     # Format the date to match (DD-MMM-YY)
@@ -137,7 +137,6 @@ sub _init {
     # %y The year as a decimal number without a century (range 00 to 99).
     my $day_pattern = $dt->strftime('%d-%b-%y');
 
-    #print "Pattern: $day_pattern\n";
     $self->{day_pattern} = $day_pattern;
     $self->{year}        = $year;
     $self->{month}       = $month;
@@ -185,4 +184,4 @@ under the same terms as Perl itself.
 
 
 =cut
-
+ -

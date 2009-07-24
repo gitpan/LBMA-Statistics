@@ -10,6 +10,7 @@ build_requires 'Test::More';
 requires       'WWW::Mechanize'  => '1.34';
 requires       'HTML::TableExtract'  => '2.10';
 requires       'DateTime'  => '0.41';
+requires       'Module::Install'  => '0.68';
 
 auto_install;
 

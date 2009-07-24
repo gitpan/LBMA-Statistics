@@ -3,7 +3,7 @@ package LBMA::Statistics::SilverFixing::Daily;
 use warnings;
 use strict;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use WWW::Mechanize;
 use HTML::TableExtract;
@@ -49,9 +49,10 @@ sub new {
 
 =head2 _init 
 
-	private method to initialize the object
+private method to initialize the object
 
 =cut  
+
 sub _init {
 	my $self = shift;
 	my %args = @_;
@@ -84,6 +85,20 @@ sub day_pattern {
 	return $self->{day_pattern};
 }
 
+=head2 dailystatsurl 
+
+determines url for daily silverstats 
+
+=cut
+
+sub dailystatsurl {
+        my $self = shift;
+        my $url = 'http://www.lbma.org.uk/?area=stats&page=silver/';
+        $url .= $self->year() ;
+        $url .= 'dailysilver';
+	return $url;
+}
+
 =head2 retrieve_row 
 
 Returns an array of fixings
@@ -101,16 +116,11 @@ There were no EUR before 1999.
         # 1 SILVER USD 
         # 2 SILVER GBP
 
-
-
 =cut
 
 sub retrieve_row {
 	my $self = shift;
-
-        my $url = 'http://www.lbma.org.uk/?area=stats&page=silver/';
-        $url .= $self->year() ;
-        $url .= 'dailysilver';
+        my $url = $self->dailystatsurl();
 
         my $browser = WWW::Mechanize->new(
                         stack_depth => 10,
@@ -121,15 +131,13 @@ sub retrieve_row {
 
         $browser->get($url) or die $! or die $!;
 
-        my $fixings = $self->_parse( $browser->content());
+        my $fixings = $self->_parse( $browser->content() );
         return wantarray ? @$fixings : $fixings;
 }
 
 =head2 _parse 
 
-
 parses the content of the retrieved HTML page 
-
 
 =cut
 

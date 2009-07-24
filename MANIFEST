@@ -21,6 +21,7 @@ lib/LBMA/Statistics.pm
 lib/LBMA/Statistics/Date.pm
 lib/LBMA/Statistics/GoldFixing/Daily.pm
 lib/LBMA/Statistics/SilverFixing/Daily.pm
+Makefile
 Makefile.PL
 MANIFEST
 MANIFEST.SKIP
@@ -37,9 +38,18 @@ t/104-day_pattern.t
 t/200-load.t
 t/201-isa.t
 t/202-can.t
+t/203-year.t
+t/204-day_pattern.t
+t/210-parse.t
 t/300-load.t
 t/301-isa.t
 t/302-can.t
+t/303-year.t
+t/304-day_pattern.t
+t/310-parse.t
+t/9000.t
 t/boilerplate.t
+t/html/LBMA-Gold-2007-Statistics.html
+t/html/LBMA-Silver-2007-Statistics.html
 t/pod-coverage.t
 t/pod.t

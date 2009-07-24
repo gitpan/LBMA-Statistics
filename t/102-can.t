@@ -9,5 +9,4 @@ my @methods = qw(new  year day_pattern);
 can_ok($date, @methods);
 
 
-diag( "Testing can LBMA::Statistics::Date $LBMA::Statistics::Date::VERSION" );
 

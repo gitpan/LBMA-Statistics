@@ -3,7 +3,7 @@ package LBMA::Statistics;
 use warnings;
 use strict;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use LBMA::Statistics::Date;
 use LBMA::Statistics::GoldFixing::Daily;
@@ -97,6 +97,8 @@ Returns an array of fixings.
 The number and order of elements varies depending on the year data is retrieved.
 There were no EUR before 1999.
 
+Consider downloading the csv-Files from http://www.lbma.org.uk/stats/goldfixg for historical data.
+
 
         # @fixings 1999 --  
         # 0 date (DD-MMM-YY)
@@ -120,17 +122,17 @@ Returns undef or empty list if data can't be retrieved e.g. dates without fixing
 
 Returns an array with the date slot filled and undef for all other slots if you're trying to fetch data before A.M. fixing.
 
-Returns an array with the date and A.M. slots filled and undef for all other slots if you're trying to fetch data before P.M. and after A.M. fixing.
+Returns an array with the date and A.M. slots filled and whitespace for all other slots if you're trying to fetch data before P.M. and after A.M. fixing.
 
 
 =cut
 
 sub dailygoldfixing {
 	my $self        = shift;
-        my $date        =  LBMA::Statistics::Date->new( @_ );
+        my $date        = LBMA::Statistics::Date->new( @_ );
 	my $year        = $date->year();
 	my $day_pattern = $date->day_pattern();
-        my $dailygold  = LBMA::Statistics::GoldFixing::Daily->new(
+        my $dailygold   = LBMA::Statistics::GoldFixing::Daily->new(
 					                year => $year,
 					                day_pattern => $day_pattern,
                                                      );
@@ -138,6 +140,37 @@ sub dailygoldfixing {
 
 	return wantarray ? @$goldfixing : $goldfixing;
 }
+
+=head2 dailygoldfixing_am 
+
+same as dailygoldfixing but returns just the A.M. Fixing Data
+
+	# @fixings 1999 - ... 
+        # 0 date
+        # 1 GOLD A.M. USD 
+        # 2 GOLD A.M. GBP
+        # 3 GOLD A.M. EUR
+	# @fixings 1968 - 1998 
+        # 0 date
+        # 1 GOLD A.M. USD 
+        # 2 GOLD A.M. GBP
+
+=cut
+
+sub dailygoldfixing_am {
+	my $self        = shift;
+        my $date        = LBMA::Statistics::Date->new( @_ );
+	my $year        = $date->year();
+	my $day_pattern = $date->day_pattern();
+        my $dailygold   = LBMA::Statistics::GoldFixing::Daily->new(
+					                year => $year,
+					                day_pattern => $day_pattern,
+                                                     );
+	my $goldfixing = $dailygold->retrieve_row_am() ;
+
+	return wantarray ? @$goldfixing : $goldfixing;
+}
+
 
 =head2 dailysilverfixing
 
@@ -174,6 +207,8 @@ Returns an array of fixings
 The number and order of elements varies depending on the year data is retrieved.
 There were no EUR before 1999.
 
+Consider downloading the csv-Files from http://www.lbma.org.uk/stats/silvfixg for historical data.
+
         # @fixings 1999 -- 
         # 0 date
         # 1 SILVER USD 
@@ -196,10 +231,10 @@ Returns an array(ref) with the date slot filled and undef for all other slots if
 
 sub dailysilverfixing {
 	my $self = shift;
-        my $date        =  LBMA::Statistics::Date->new( @_ );
+        my $date        = LBMA::Statistics::Date->new( @_ );
 	my $year        = $date->year();
 	my $day_pattern = $date->day_pattern();
-        my $dailysilver  = LBMA::Statistics::SilverFixing::Daily->new(
+        my $dailysilver = LBMA::Statistics::SilverFixing::Daily->new(
 					                year => $year,
 					                day_pattern => $day_pattern,
                                                      );
@@ -225,7 +260,27 @@ sub dailysilverfixing {
         print join("|",$lbma->dailygoldfixing( year => 2000, month => 1, day => 4) ) , "\n";
 
 
-=head2 Example 2 Daily Silver Fixing
+=head2 Example 2 Daily Goldy Fixing A.M. data
+
+	#!/usr/bin/perl
+	use warnings;
+	use strict;
+
+	use LBMA::Statistics;
+
+	my $lbma =  LBMA::Statistics->new();
+
+        # @fixings 
+        # 0 date
+        # 1 GOLD A.M. USD 
+        # 2 GOLD A.M. GBP
+        # 3 GOLD A.M. EUR
+	print join("|",$lbma->dailygoldfixing_am() ) ,"\n";
+	print join("|",$lbma->dailygoldfixing_am( year => 2009, month => 2, day => 2) ) , "\n";
+	print join("|",$lbma->dailygoldfixing_am( year => 2000, month => 1, day => 4) ) , "\n";
+
+
+=head2 Example 3 Daily Silver Fixing
 
         #!/usr/bin/perl
         use warnings;

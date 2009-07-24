@@ -50,4 +50,3 @@ $year = (gmtime())[5];
 $year += 1900;
 ok($date->year() == $year, 'Testing Today');
 
-diag( "Testing year() LBMA::Statistics::Date $LBMA::Statistics::Date::VERSION" );
