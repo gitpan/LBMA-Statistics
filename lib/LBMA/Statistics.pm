@@ -3,7 +3,7 @@ package LBMA::Statistics;
 use warnings;
 use strict;
 
-our $VERSION = '0.04';
+our $VERSION = '0.041';
 
 use LBMA::Statistics::Date;
 use LBMA::Statistics::GoldFixing::Daily;
@@ -78,7 +78,7 @@ Parameters are all lowercase.
 
 =back
 
-	$lbma->dailygoldfixing(year => $year,
+	my @fixings = $lbma->dailygoldfixing(year => $year,
                                month => $month,
                                day => $day,
                               ) or die;
@@ -86,7 +86,7 @@ Parameters are all lowercase.
 If no parameters are passed to this method, today is assumed.
 Today is determined using UTC . In doubt pass a valid date.
 
-	$lbma->dailygoldfixing( );
+	my @fixings = $lbma->dailygoldfixing( );
 
 Dies if supplied date ain't valid or before 1968.
 
@@ -145,6 +145,13 @@ sub dailygoldfixing {
 
 same as dailygoldfixing but returns just the A.M. Fixing Data
 
+	my @fixings = $lbma->dailygoldfixing_am( );
+
+	my @fixings = $lbma->dailygoldfixing_am(year => $year,
+                               month => $month,
+                               day => $day,
+                              ) or die;
+
 	# @fixings 1999 - ... 
         # 0 date
         # 1 GOLD A.M. USD 
@@ -188,7 +195,7 @@ Parameters are all lowercase.
 
 =back
 
-	$lbma->dailysilverfixing(year => $year,
+	my @fixings = $lbma->dailysilverfixing(year => $year,
                                  month => $month,
                                  day => $day,
                               ) or die;
@@ -196,7 +203,7 @@ Parameters are all lowercase.
 If no parameters are passed to this class, today is assumed.
 Today is determined using UTC. In doubt pass a valid date.
 
-	$lbma->dailysilverfixing( );
+	my @fixings = $lbma->dailysilverfixing( );
 
 Dies if supplied date ain't valid or before 1968.
 

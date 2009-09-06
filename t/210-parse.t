@@ -1,13 +1,11 @@
 #!perl -T
 
-use Test::More tests => 6;
+use Test::More tests => 7 ;
 
 use LBMA::Statistics::GoldFixing::Daily;
 
 # The Basic Idea is to use a locally saved file to test the parsing stage
-SKIP: {
 
-	skip 'Test needs some investigation ', 6;
 
 	my $lbma =  LBMA::Statistics::GoldFixing::Daily->new( year => 2007, day_pattern => '01-Aug-07'); 
 
@@ -28,5 +26,4 @@ SKIP: {
 	ok($fixings[5] ==  327.568 );
 	ok($fixings[6] ==  486.055 );
 
-}
 

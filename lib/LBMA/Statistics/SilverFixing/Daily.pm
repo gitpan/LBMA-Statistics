@@ -3,10 +3,11 @@ package LBMA::Statistics::SilverFixing::Daily;
 use warnings;
 use strict;
 
-our $VERSION = '0.02';
+our $VERSION = '0.041';
 
 use WWW::Mechanize;
 use HTML::TableExtract;
+use Encode;
 
 =head1 NAME
 
@@ -145,6 +146,7 @@ parses the content of the retrieved HTML page
 sub _parse {
 	my $self = shift;
         my $content = shift @_;
+	$content = decode_utf8( $content);
         my $day_pattern = $self->day_pattern();
         my @fixings = ();
         my $te = HTML::TableExtract->new(  ) or die $!;

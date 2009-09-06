@@ -2,6 +2,13 @@ Revision history for LBMA-Statistics
 
         Not recommended for production use.
 
+0.041   2009-09.06/time
+	Added tests
+	Added Encode as required
+	Added UTF encoding to _parse
+	Cleaned Version Numbers (Set all to 0.041)
+	Added build_requires 'Test::Exception' 
+
 0.04    2009-07.24/time
 	Added method dailygoldfixing_am
 	Cleaned up Daily.pm for Gold and Silver
@@ -12,8 +19,8 @@ Revision history for LBMA-Statistics
 	Added tests
         Added two more examples (Dumpvalue)
 	make manifest
-	MANIFEST no includes inc/
-	tarball/tardist no includes inc/
+	MANIFEST now includes inc/
+	tarball/tardist now includes inc/
 
 0.02    2009-07.22/time
         Fixed Typo in NAME Field 
