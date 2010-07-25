@@ -2,6 +2,14 @@ Revision history for LBMA-Statistics
 
         Not recommended for production use.
 
+
+0.042   2010-07.25/time
+	Fixed Gold and Silver Daily to match new URLs
+	http://www.lbma.org.uk/pages/index.cfm?page_id=48
+	http://www.lbma.org.uk/pages/?page_id=54
+	http://www.lbma.org.uk/pages/?page_id=53
+	 
+
 0.041   2009-09.06/time
 	Added tests
 	Added Encode as required

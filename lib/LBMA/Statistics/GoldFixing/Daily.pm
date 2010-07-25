@@ -3,7 +3,7 @@ package LBMA::Statistics::GoldFixing::Daily;
 use warnings;
 use strict;
 
-our $VERSION = '0.041';
+our $VERSION = '0.042';
 
 use WWW::Mechanize;
 use HTML::TableExtract;
@@ -95,9 +95,9 @@ determines url for daily goldstats
 
 sub dailystatsurl {
 	my $self = shift;
-        my $url  = 'http://www.lbma.org.uk/?area=stats&page=gold/';
+        my $url  = 'http://www.lbma.org.uk/pages/index.cfm?page_id=53&title=gold_fixings&show=';
         $url    .= $self->year() ;
-        $url    .= 'dailygold';
+        $url    .= '&type=daily';
 	return $url;
 } 
 
@@ -216,7 +216,7 @@ automatically be notified of progress on your bug as I make changes.
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2009 Thomas Fahle
+Copyright 2009,2010 Thomas Fahle
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

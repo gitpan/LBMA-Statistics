@@ -2,7 +2,7 @@ package LBMA::Statistics::Date;
 use strict;
 use warnings;
 
-our $VERSION = '0.041';
+our $VERSION = '0.042';
 
 use DateTime;
 
@@ -177,7 +177,7 @@ You can find documentation for this module with the perldoc command.
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2009 Thomas Fahle
+Copyright 2009,2010 Thomas Fahle
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

@@ -3,7 +3,7 @@ package LBMA::Statistics;
 use warnings;
 use strict;
 
-our $VERSION = '0.041';
+our $VERSION = '0.042';
 
 use LBMA::Statistics::Date;
 use LBMA::Statistics::GoldFixing::Daily;
@@ -15,7 +15,7 @@ LBMA::Statistics - Obtain Gold and Silver Fixings (Prices) from London Bullion M
 
 =head1 DESCRIPTION
 
-This module obtains Gold and Silver Fixings (Prices) from Statistics of the London Bullion Market L<http://www.lbma.org.uk/stats>.
+This module obtains Gold and Silver Fixings (Prices) from Statistics of the London Bullion Market L<http://www.lbma.org.uk/pages/index.cfm?page_id=48&title=historical_statistics>.
 
 Information returned by this module is governed by LBMA's terms and conditions. 
 
@@ -96,8 +96,6 @@ Dies if supplied date ain't valid or before 1968.
 Returns an array of fixings.
 The number and order of elements varies depending on the year data is retrieved.
 There were no EUR before 1999.
-
-Consider downloading the csv-Files from http://www.lbma.org.uk/stats/goldfixg for historical data.
 
 
         # @fixings 1999 --  
@@ -214,8 +212,6 @@ Returns an array of fixings
 The number and order of elements varies depending on the year data is retrieved.
 There were no EUR before 1999.
 
-Consider downloading the csv-Files from http://www.lbma.org.uk/stats/silvfixg for historical data.
-
         # @fixings 1999 -- 
         # 0 date
         # 1 SILVER USD 
@@ -308,13 +304,11 @@ sub dailysilverfixing {
 
 =over 4
 
-=item * Statistics of the London Bullion Market L<http://www.lbma.org.uk/stats>
+=item * Statistics of the London Bullion Market L<http://www.lbma.org.uk/pages/index.cfm?page_id=48&title=historical_statistics>
 
-=item * FAQs on LBMA Statistics: L<http://www.lbma.org.uk/stats/statsfaqs>
+=item * LBMA Statistics Gold Fixing L<http://www.lbma.org.uk/pages/index.cfm?page_id=53&title=gold_fixings>
 
-=item * LBMA Statistics Gold Fixing L<http://www.lbma.org.uk/stats/goldfixg>
-
-=item * LBMA Statistics Silver Fixing L<http://www.lbma.org.uk/stats/silvfixg>
+=item * LBMA Statistics Silver Fixing L<http://www.lbma.org.uk/pages/?page_id=54&title=silver_fixings>
 
 =item * Finance::Quote::GoldMoney L<http://search.cpan.org/perldoc?Finance::Quote::GoldMoney>
 
@@ -391,7 +385,7 @@ L<http://search.cpan.org/dist/LBMA-Statistics/>
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2009 Thomas Fahle
+Copyright 2009, 2010 Thomas Fahle
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
