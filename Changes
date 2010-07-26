@@ -3,6 +3,9 @@ Revision history for LBMA-Statistics
         Not recommended for production use.
 
 
+0.043   2010-07.26/time
+	Added Folder inc due to some "UNKNOWN" results from CPAN-Tester
+
 0.042   2010-07.25/time
 	Fixed Gold and Silver Daily to match new URLs
 	http://www.lbma.org.uk/pages/index.cfm?page_id=48

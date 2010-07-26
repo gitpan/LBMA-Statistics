@@ -6,6 +6,8 @@ author   'Thomas Fahle <cpan@thomas-fahle.de>';
 license  'perl';
 
 
+configure_requires 'Module::Install' => '0.92';
+
 build_requires 'Test::More';
 build_requires 'Module::Install' => '0.92';
 build_requires 'Test::Exception' => '0.25';

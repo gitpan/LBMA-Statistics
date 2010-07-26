@@ -8,9 +8,9 @@ lib/LBMA/Statistics.pm
 lib/LBMA/Statistics/Date.pm
 lib/LBMA/Statistics/GoldFixing/Daily.pm
 lib/LBMA/Statistics/SilverFixing/Daily.pm
-Makefile.PL
-MANIFEST
+MANIFEST			This list of files
 MANIFEST.SKIP
+Makefile.PL
 META.yml
 README
 t/000-load.t
