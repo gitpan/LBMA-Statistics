@@ -2,7 +2,7 @@ LBMA-Statistics
 
 Web data extraction from Statistics of the London Bullion Market (London Gold Fixing, London Silver Fixing).
 
-See http://www.lbma.org.uk/stats for details on London Bullion Market and available Statistics.
+See http://www.lbma.org.uk/pages/index.cfm?page_id=48 for details on London Bullion Market and available Statistics.
 
 Information returned by this module is governed by LBMA's terms and conditions.
 
@@ -23,6 +23,8 @@ perldoc command.
 
     perldoc LBMA::Statistics
 
+Have a look at the examples directory, too.
+
 You can also look for information at:
 
     RT, CPAN's request tracker
@@ -40,7 +42,7 @@ You can also look for information at:
 
 COPYRIGHT AND LICENCE
 
-Copyright (C) 2009 Thomas Fahle
+Copyright (C) 2009, 2010 Thomas Fahle
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
