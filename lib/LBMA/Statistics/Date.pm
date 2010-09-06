@@ -2,9 +2,11 @@ package LBMA::Statistics::Date;
 use strict;
 use warnings;
 
-our $VERSION = '0.044';
+our $VERSION = '0.045';
 
 use DateTime;
+
+use Log::Log4perl qw/:easy/;
 
 =head1 NAME
 
@@ -105,22 +107,25 @@ sub _init {
     my ( $year, $month, $day );
     my $dt;
     if (@_) {
-	# Use supplied date
+
+        # Use supplied date
         my %args = @_;
         $year  = $args{year};
         $month = $args{month};
         $day   = $args{day};
-        $dt = DateTime->new(
+        $dt    = DateTime->new(
             year   => $year,
             day    => $day,
             month  => $month,
             locale => 'en_GB',    # It's a british site
-        ) or die $!;
+        ) or LOGDIE $!;
 
     }
     else {
-	# Use current date
-        $dt = DateTime->now( locale => 'en_GB' ) or die $!;    # It's a british site
+
+        # Use current date
+        $dt = DateTime->now( locale => 'en_GB' )
+          or LOGDIE $!;              # It's a british site
         $year  = $dt->year();
         $month = $dt->month();
         $day   = $dt->day();
@@ -128,11 +133,16 @@ sub _init {
 
     # Sanity check for the wild ones
     if ( $year < 1968 ) {
-		die "Year is $year - Historic daily prices and monthly and annual averages are available back to 1968."; 
+        LOGDIE "Year is $year - Historic daily prices and monthly and annual averages are available back to 1968.";
+    }
+    my $today = DateTime->now( locale => 'en_GB') or LOGDIE $!;
+    my $current_year = $today->year();
+    if ( $year > $current_year ) {
+        LOGDIE "Year is $year - This ain't a crystal ball!";
     }
 
     # Format the date to match (DD-MMM-YY)
-    # %b The abbreviated month name ( locale => 'en_GB' ) 
+    # %b The abbreviated month name ( locale => 'en_GB' )
     # %d The day of the month as a decimal number (range 01 to 31)
     # %y The year as a decimal number without a century (range 00 to 99).
     my $day_pattern = $dt->strftime('%d-%b-%y');
@@ -141,8 +151,11 @@ sub _init {
     $self->{year}        = $year;
     $self->{month}       = $month;
     $self->{day}         = $day;
+    DEBUG("day_pattern: $day_pattern");
+    DEBUG("year: $year");
+    DEBUG("month: $month");
+    DEBUG("day: $day");
 }
-
 
 # return true;
 1;
@@ -154,6 +167,7 @@ __END__
 =over 4
 
 =item *   DateTime L<http://search.cpan.org/perldoc?DateTime>
+=item *   Log::Log4perl L<http://search.cpan.org/perldoc?Log::Log4perl>
 
 =back
 
@@ -182,6 +196,5 @@ Copyright 2009,2010 Thomas Fahle
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
 
-
 =cut
- -
+ 

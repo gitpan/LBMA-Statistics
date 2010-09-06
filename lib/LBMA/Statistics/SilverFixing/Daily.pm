@@ -3,11 +3,12 @@ package LBMA::Statistics::SilverFixing::Daily;
 use warnings;
 use strict;
 
-our $VERSION = '0.044';
+our $VERSION = '0.045';
 
 use WWW::Mechanize;
 use HTML::TableExtract;
 use Encode;
+use Log::Log4perl qw/:easy/;
 
 =head1 NAME
 
@@ -34,7 +35,7 @@ Everthing is done by LBMA::Statistics (See L<http://search.cpan.org/perldoc?LBMA
     use LBMA::Statistics::SilverFixing::Daily;
 
     my $lbma = LBMA::Statistics::GoldFixing::Daily->new( 
-     						year => $year,
+     					year => $year,
 				 		day_pattern => $day_pattern
 					) or die $!;
 
@@ -42,8 +43,8 @@ Everthing is done by LBMA::Statistics (See L<http://search.cpan.org/perldoc?LBMA
 
 sub new {
     my $class = shift;
-    my $self = {};
-    bless $self , $class;
+    my $self  = {};
+    bless $self, $class;
     $self->_init(@_);
     return $self;
 }
@@ -55,12 +56,13 @@ private method to initialize the object
 =cut  
 
 sub _init {
-	my $self = shift;
-	my %args = @_;
-	$self->{year} = $args{year};
-	$self->{day_pattern} = $args{day_pattern};
-	die "Missing mandantory parameter year" unless $self->{year};
-	die "Missing mandantory parameter day_pattern" unless $self->{day_pattern};
+    my $self = shift;
+    my %args = @_;
+    $self->{year}        = $args{year};
+    $self->{day_pattern} = $args{day_pattern};
+    LOGDIE "Missing mandantory parameter year" unless $self->{year};
+    LOGDIE "Missing mandantory parameter day_pattern"
+      unless $self->{day_pattern};
 
 }
 
@@ -71,8 +73,8 @@ returns the year to look for
 =cut
 
 sub year {
-	my $self = shift;
-	return $self->{year};
+    my $self = shift;
+    return $self->{year};
 }
 
 =head2 day_pattern
@@ -82,8 +84,8 @@ returns the day_pattern to look for
 =cut 
 
 sub day_pattern {
-	my $self = shift;
-	return $self->{day_pattern};
+    my $self = shift;
+    return $self->{day_pattern};
 }
 
 =head2 dailystatsurl 
@@ -93,11 +95,12 @@ determines url for daily silverstats
 =cut
 
 sub dailystatsurl {
-        my $self = shift;
-        my $url = 'http://www.lbma.org.uk/pages/?page_id=54&title=silver_fixings&show=';
-        $url .= $self->year() ;
-        $url .= '&type=daily';
-	return $url;
+    my $self = shift;
+    my $url = 'http://www.lbma.org.uk/pages/?page_id=54&title=silver_fixings&show=';
+    $url .= $self->year();
+    $url .= '&type=daily';
+    DEBUG("url: $url");
+    return $url;
 }
 
 =head2 retrieve_row 
@@ -120,20 +123,20 @@ There were no EUR before 1999.
 =cut
 
 sub retrieve_row {
-	my $self = shift;
-        my $url = $self->dailystatsurl();
+    my $self = shift;
+    my $url  = $self->dailystatsurl();
 
-        my $browser = WWW::Mechanize->new(
-                        stack_depth => 10,
-                        autocheck => 1,
-                ) or die $!;
+    my $browser = WWW::Mechanize->new(
+        stack_depth => 10,
+        autocheck   => 1,
+    ) or die $!;
 
-        $browser->agent_alias( 'Windows IE 6' ); # Hide crawler
+    $browser->agent_alias('Windows IE 6');    # Hide crawler
 
-        $browser->get($url) or die $! or die $!;
+    $browser->get($url) or LOGDIE $!;
 
-        my $fixings = $self->_parse( $browser->content() );
-        return wantarray ? @$fixings : $fixings;
+    my $fixings = $self->_parse( $browser->content() );
+    return wantarray ? @$fixings : $fixings;
 }
 
 =head2 _parse 
@@ -142,26 +145,27 @@ parses the content of the retrieved HTML page
 
 =cut
 
-
 sub _parse {
-	my $self = shift;
-        my $content = shift @_;
-	$content = decode_utf8( $content);
-        my $day_pattern = $self->day_pattern();
-        my @fixings = ();
-        my $te = HTML::TableExtract->new(  ) or die $!;
-        $te->parse( $content ) or die $!;
-        my $ts; # table structure
-TABLE:  foreach $ts ($te->tables) {
-ROW:            foreach my $row ($ts->rows) {
-                        next ROW unless defined @$row[0];
-                        #print join("\t", @$row), "\n";
-                        next ROW unless @$row[0] =~ m/$day_pattern/;
-                        @fixings = @$row;
-                        last TABLE;
-                }
+    my $self    = shift;
+    my $content = shift @_;
+    $content = decode_utf8($content);
+    my $day_pattern = $self->day_pattern();
+    my @fixings     = ();
+    my $te          = HTML::TableExtract->new() or die $!;
+    $te->parse($content) or die $!;
+  TABLE: foreach my $ts ( $te->tables ) {
+      ROW: foreach my $row ( $ts->rows ) {
+            next ROW unless defined @$row[0];
+            {
+                no warnings;
+                TRACE( "Current Row: ", join( "|", @$row ) );
+            }
+            next ROW unless @$row[0] =~ m/$day_pattern/;
+            @fixings = @$row;
+            last TABLE;
         }
-        return wantarray ? @fixings : \@fixings;
+    }
+    return wantarray ? @fixings : \@fixings;
 }
 
 1;

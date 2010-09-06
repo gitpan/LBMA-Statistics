@@ -10,9 +10,11 @@ lib/LBMA/Statistics/GoldFixing/Daily.pm
 lib/LBMA/Statistics/SilverFixing/Daily.pm
 MANIFEST			This list of files
 MANIFEST.SKIP
+Makefile.PL
 META.yml
 README
 t/000-load.t
+t/0000-prerequisite.t
 t/001-isa.t
 t/002-can.t
 t/100-load.t
@@ -33,9 +35,9 @@ t/303-year.t
 t/304-day_pattern.t
 t/310-parse.t
 t/9000.t
+t/999_perlcritic.t
 t/boilerplate.t
 t/html/LBMA-Gold-2007-Statistics.html
 t/html/LBMA-Silver-2007-Statistics.html
 t/pod-coverage.t
 t/pod.t
-Makefile.PL

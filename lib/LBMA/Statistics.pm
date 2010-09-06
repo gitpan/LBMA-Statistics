@@ -3,11 +3,12 @@ package LBMA::Statistics;
 use warnings;
 use strict;
 
-our $VERSION = '0.044';
+our $VERSION = '0.045';
 
 use LBMA::Statistics::Date;
 use LBMA::Statistics::GoldFixing::Daily;
 use LBMA::Statistics::SilverFixing::Daily;
+use Log::Log4perl qw/:easy/;
 
 =head1 NAME
 
@@ -127,14 +128,21 @@ Returns an array with the date and A.M. slots filled and whitespace for all othe
 
 sub dailygoldfixing {
 	my $self        = shift;
-        my $date        = LBMA::Statistics::Date->new( @_ );
+    my $date        = LBMA::Statistics::Date->new( @_ );
 	my $year        = $date->year();
 	my $day_pattern = $date->day_pattern();
-        my $dailygold   = LBMA::Statistics::GoldFixing::Daily->new(
-					                year => $year,
-					                day_pattern => $day_pattern,
-                                                     );
+    my $dailygold   = LBMA::Statistics::GoldFixing::Daily->new(
+			                year => $year,
+			                day_pattern => $day_pattern,
+                         );
 	my $goldfixing = $dailygold->retrieve_row() ;
+
+    if ( scalar @$goldfixing ) {
+        DEBUG("Goldfixing Result: ", join(', ', @$goldfixing) );
+    }
+    else {
+        WARN("No Goldfixing Results: $year, $day_pattern");
+    }
 
 	return wantarray ? @$goldfixing : $goldfixing;
 }
@@ -164,14 +172,21 @@ same as dailygoldfixing but returns just the A.M. Fixing Data
 
 sub dailygoldfixing_am {
 	my $self        = shift;
-        my $date        = LBMA::Statistics::Date->new( @_ );
+    my $date        = LBMA::Statistics::Date->new( @_ );
 	my $year        = $date->year();
 	my $day_pattern = $date->day_pattern();
-        my $dailygold   = LBMA::Statistics::GoldFixing::Daily->new(
+    my $dailygold   = LBMA::Statistics::GoldFixing::Daily->new(
 					                year => $year,
 					                day_pattern => $day_pattern,
                                                      );
 	my $goldfixing = $dailygold->retrieve_row_am() ;
+
+    if ( scalar @$goldfixing ) {
+        DEBUG("Goldfixing AM Result: ", join(', ', @$goldfixing) );
+    }
+    else {
+        WARN("No Goldfixing AM Results: $year, $day_pattern");
+    }
 
 	return wantarray ? @$goldfixing : $goldfixing;
 }
@@ -234,14 +249,20 @@ Returns an array(ref) with the date slot filled and undef for all other slots if
 
 sub dailysilverfixing {
 	my $self = shift;
-        my $date        = LBMA::Statistics::Date->new( @_ );
+    my $date        = LBMA::Statistics::Date->new( @_ );
 	my $year        = $date->year();
 	my $day_pattern = $date->day_pattern();
-        my $dailysilver = LBMA::Statistics::SilverFixing::Daily->new(
+    my $dailysilver = LBMA::Statistics::SilverFixing::Daily->new(
 					                year => $year,
 					                day_pattern => $day_pattern,
                                                      );
 	my $silverfixing = $dailysilver->retrieve_row() ;
+    if ( scalar @$silverfixing ) {
+        DEBUG("Silverfixing Result: ", join(', ', @$silverfixing) );
+    }
+    else {
+        WARN("No Silverfixing Results: $year, $day_pattern");
+    }
 	return wantarray ? @$silverfixing : $silverfixing;
 }
 
@@ -255,6 +276,10 @@ sub dailysilverfixing {
         use strict;
 
         use LBMA::Statistics;
+
+        use Log::Log4perl qw/:easy/;
+
+        Log::Log4perl->easy_init();
 
         my $lbma =  LBMA::Statistics->new();
 
@@ -270,6 +295,10 @@ sub dailysilverfixing {
 	use strict;
 
 	use LBMA::Statistics;
+
+    use Log::Log4perl qw/:easy/;
+
+    Log::Log4perl->easy_init();
 
 	my $lbma =  LBMA::Statistics->new();
 
@@ -291,13 +320,15 @@ sub dailysilverfixing {
 
         use LBMA::Statistics;
 
+        use Log::Log4perl qw/:easy/;
+
+        Log::Log4perl->easy_init();
+
         my $lbma =  LBMA::Statistics->new();
 
         print join("|",$lbma->dailysilverfixing() ) ,"\n";
         print join("|",$lbma->dailysilverfixing( year => 2009, month => 2, day => 2) ) , "\n";
         print join("|",$lbma->dailysilverfixing( year => 2000, month => 1, day => 4) ) , "\n";
-
-
 
 
 =head1 SEE ALSO
@@ -324,6 +355,8 @@ sub dailysilverfixing {
 
 =item *   HTML::TableExtract L<http://search.cpan.org/perldoc?HTML::TableExtract>
 
+=item *   Log::Log4perl L<http://search.cpan.org/perldoc?Log::Log4perl>
+
 =back
 
 =head1 TODO
@@ -339,7 +372,6 @@ sub dailysilverfixing {
 
 
 =back
-
 
 
 =head1 AUTHOR
