@@ -4,6 +4,9 @@ Revision history for LBMA-Statistics
 
 
 
+0.046   2010-09.07/time
+    Bugfixes: Missing LOGDIE
+
 0.045   2010-09.06/time
     Added Logging through Log::Log4perl qw:/easy/
     Cleaned indention

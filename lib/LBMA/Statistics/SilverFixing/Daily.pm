@@ -3,7 +3,7 @@ package LBMA::Statistics::SilverFixing::Daily;
 use warnings;
 use strict;
 
-our $VERSION = '0.045';
+our $VERSION = '0.046';
 
 use WWW::Mechanize;
 use HTML::TableExtract;
@@ -129,7 +129,7 @@ sub retrieve_row {
     my $browser = WWW::Mechanize->new(
         stack_depth => 10,
         autocheck   => 1,
-    ) or die $!;
+    ) or LOGDIE $!;
 
     $browser->agent_alias('Windows IE 6');    # Hide crawler
 
@@ -151,8 +151,8 @@ sub _parse {
     $content = decode_utf8($content);
     my $day_pattern = $self->day_pattern();
     my @fixings     = ();
-    my $te          = HTML::TableExtract->new() or die $!;
-    $te->parse($content) or die $!;
+    my $te          = HTML::TableExtract->new() or LOGDIE $!;
+    $te->parse($content) or  LOGDIE $!;
   TABLE: foreach my $ts ( $te->tables ) {
       ROW: foreach my $row ( $ts->rows ) {
             next ROW unless defined @$row[0];
