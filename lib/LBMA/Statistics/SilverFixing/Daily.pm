@@ -3,7 +3,7 @@ package LBMA::Statistics::SilverFixing::Daily;
 use warnings;
 use strict;
 
-our $VERSION = '0.046';
+our $VERSION = '0.050';
 
 use WWW::Mechanize;
 use HTML::TableExtract;
@@ -61,8 +61,7 @@ sub _init {
     $self->{year}        = $args{year};
     $self->{day_pattern} = $args{day_pattern};
     LOGDIE "Missing mandantory parameter year" unless $self->{year};
-    LOGDIE "Missing mandantory parameter day_pattern"
-      unless $self->{day_pattern};
+    LOGDIE "Missing mandantory parameter day_pattern" unless $self->{day_pattern};
 
 }
 
@@ -127,7 +126,7 @@ sub retrieve_row {
     my $url  = $self->dailystatsurl();
 
     my $browser = WWW::Mechanize->new(
-        stack_depth => 10,
+        stack_depth => 0,
         autocheck   => 1,
     ) or LOGDIE $!;
 
@@ -136,7 +135,21 @@ sub retrieve_row {
     $browser->get($url) or LOGDIE $!;
 
     my $fixings = $self->_parse( $browser->content() );
-    return wantarray ? @$fixings : $fixings;
+
+    my @clean = ();
+    foreach my $fixing (@$fixings) {
+
+        # Clean Fixings
+        if ( defined $fixing ) {
+            push( @clean, $fixing );
+            TRACE("Fixing: $fixing");
+        }
+        else {
+            TRACE("Fixing: undef");
+        }
+    }
+
+    return wantarray ? @clean : \@clean;
 }
 
 =head2 _parse 
@@ -152,7 +165,7 @@ sub _parse {
     my $day_pattern = $self->day_pattern();
     my @fixings     = ();
     my $te          = HTML::TableExtract->new() or LOGDIE $!;
-    $te->parse($content) or  LOGDIE $!;
+    $te->parse($content) or LOGDIE $!;
   TABLE: foreach my $ts ( $te->tables ) {
       ROW: foreach my $row ( $ts->rows ) {
             next ROW unless defined @$row[0];

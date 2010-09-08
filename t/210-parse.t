@@ -1,29 +1,49 @@
 #!perl -T
+use strict;
 
-use Test::More tests => 7 ;
+use Test::More tests => 12 ;
 
 use LBMA::Statistics::GoldFixing::Daily;
 
 # The Basic Idea is to use a locally saved file to test the parsing stage
 
 
-	my $lbma =  LBMA::Statistics::GoldFixing::Daily->new( year => 2007, day_pattern => '01-Aug-07'); 
+my $lbma =  LBMA::Statistics::GoldFixing::Daily->new( year => 2009, day_pattern => '03-Aug-09'); 
+my @fixings = get_fixings($lbma,'./t/html/LBMA-Gold-2009-Statistics.html');
+
+ok($fixings[0] eq '03-Aug-09');
+ok($fixings[1] ==  954.25 );
+ok($fixings[2] ==  565.985 );
+ok($fixings[3] ==  667.635 );
+ok($fixings[4] ==  959.75 );
+ok($fixings[5] ==  568.034 );
+ok($fixings[6] ==  667.049 );
+
+$lbma =  LBMA::Statistics::GoldFixing::Daily->new( year => 1968, day_pattern => '05-Jul-68'); 
+@fixings = get_fixings($lbma,'./t/html/LBMA-Gold-1968-Statistics.html');
+
+ok($fixings[0] eq '05-Jul-68');
+ok($fixings[1] ==  41.100 );
+ok($fixings[2] ==  17.250 );
+ok($fixings[3] ==  41.000 );
+ok($fixings[4] ==  17.2083 );
 
 
-	my @fixings;
-	open(FH,"<", './t/html/LBMA-Gold-2007-Statistics.html') or die $!;
-	local undef $/;
-	my $content = <FH>;
-	close(FH) or die $!;
-	no warnings;
-	@fixings = $lbma->_parse( $content ) ;
+sub get_fixings {
+    my $lbma = shift @_;
+    my $file = shift;
 
-	ok($fixings[0] eq '01-Aug-07');
-	ok($fixings[1] ==  660.25 );
-	ok($fixings[2] ==  326.549 );
-	ok($fixings[3] ==  483.771 );
-	ok($fixings[4] ==  665.75 );
-	ok($fixings[5] ==  327.568 );
-	ok($fixings[6] ==  486.055 );
+    open(FH,"<", $file) or die $!;
+    local undef $/;
+    my $content = <FH>;
+    close(FH) or die $!;
 
+    my @fixings;
+
+    eval {
+        no warnings;
+        @fixings = $lbma->_parse( $content ) ;
+    };
+    return @fixings;
+}
 

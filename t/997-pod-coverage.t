@@ -1,6 +1,11 @@
 use strict;
 use warnings;
 use Test::More;
+BEGIN {
+    plan( skip_all => 'set AUTHOR_TEST to enable this test' )
+                    unless $ENV{AUTHOR_TEST};
+}
+
 
 # Ensure a recent version of Test::Pod::Coverage
 my $min_tpc = 1.08;

@@ -3,6 +3,11 @@
 use strict;
 use warnings;
 use Test::More;
+BEGIN {
+  plan( skip_all => 'set AUTHOR_TEST to enable this test' )
+                    unless $ENV{AUTHOR_TEST};
+}
+
 
 # Ensure a recent version of Test::Pod
 my $min_tp = 1.22;

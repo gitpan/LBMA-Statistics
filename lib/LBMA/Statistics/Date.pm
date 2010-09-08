@@ -2,7 +2,7 @@ package LBMA::Statistics::Date;
 use strict;
 use warnings;
 
-our $VERSION = '0.046';
+our $VERSION = '0.050';
 
 use DateTime;
 

@@ -3,7 +3,7 @@ package LBMA::Statistics::GoldFixing::Daily;
 use warnings;
 use strict;
 
-our $VERSION = '0.046';
+our $VERSION = '0.050';
 
 use WWW::Mechanize;
 use HTML::TableExtract;
@@ -118,11 +118,12 @@ sub retrieve_row_am {
     my @am_fixings = ();
 
     # Step by step
-    $am_fixings[0] = @$fixings[0];    # Date
-    $am_fixings[1] = @$fixings[1];    # USD
-    $am_fixings[2] = @$fixings[2];    # GBP
+    $am_fixings[0] = @$fixings[0] if defined @$fixings[0]; # Date    
+    $am_fixings[1] = @$fixings[1] if defined @$fixings[1]; # USD
+    $am_fixings[2] = @$fixings[2] if defined @$fixings[2]; # GBP
     if ( $year >= 1999 ) {
-        $am_fixings[3] = @$fixings[3];    # EUR
+        # EUR
+        $am_fixings[3] = @$fixings[3] if defined @$fixings[3];
     }
     else {
 
@@ -174,7 +175,19 @@ sub retrieve_row {
     $browser->get($url) or LOGDIE $!;
 
     my $fixings = $self->_parse( $browser->content() );
-    return wantarray ? @$fixings : $fixings;
+    my @clean = ();
+    foreach my $fixing ( @$fixings ) {
+            # Clean Fixings
+            if ( defined $fixing ) {
+                push(@clean, $fixing);
+                TRACE("Fixing: $fixing");
+            } 
+            else {
+                TRACE("Fixing: undef");
+            }
+    }
+
+    return wantarray ? @clean : \@clean;
 }
 
 =head2 _parse 

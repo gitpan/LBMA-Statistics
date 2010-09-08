@@ -9,6 +9,9 @@ Information returned by this module is governed by LBMA's terms and conditions.
 
 INSTALLATION
 
+Module::Install is needed as a prerequisite installer.
+That is, install a recent Module::Install first.
+
 To install this module, run the following commands:
 
 	perl Makefile.PL
@@ -18,8 +21,7 @@ To install this module, run the following commands:
 
 SUPPORT AND DOCUMENTATION
 
-After installing, you can find documentation for this module with the
-perldoc command.
+After installing, you can find documentation for this module with the perldoc command.
 
     perldoc LBMA::Statistics
 

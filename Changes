@@ -1,8 +1,17 @@
 Revision history for LBMA-Statistics
 
-        Not recommended for production use.
 
+0.050   2010-09.08/time
+    Added example Log::Log4perl config file
+    Added code to check for empty table rows 
+    Sometimes LBMA delivers data a bit late
 
+    Cleaned up tests
+    Updated and added _parse tests
+
+    Updated Author Tests
+    Introduced AUTHOR_TEST Enviroment to enable/skip author tests
+    AUTHOR_TEST=1 prove -l -v t/*
 
 0.046   2010-09.07/time
     Bugfixes: Missing LOGDIE
@@ -14,13 +23,10 @@ Revision history for LBMA-Statistics
     Added Tests for prerequisite modules
 
 0.044   2010-07.27/time
-    Still some "UNKNOWN" results from CPAN-Testers from Systems without Module::Install
-	Tested this on two systems with different Perls installed and different versions
-	
 	Corrected URL in README
 
 0.043   2010-07.26/time
-	Added configure_requires 'Module::Install' => '0.92' to Makefile.pl
+	Added configure_requires 'Module::Install' => '0.92' to Makefile.PL
      due to some "UNKNOWN" results from CPAN-Testers
 
 0.042   2010-07.25/time

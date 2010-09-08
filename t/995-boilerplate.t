@@ -2,7 +2,17 @@
 
 use strict;
 use warnings;
-use Test::More tests => 4;
+use Test::More;
+
+BEGIN {
+        if ( $ENV{AUTHOR_TEST} ) { 
+            plan( tests => 6 ); 
+        } 
+        else {
+            plan( skip_all => 'set AUTHOR_TEST to enable this test' );
+        }
+}
+
 
 sub not_in_file_ok {
     my ($filename, %regex) = @_;
@@ -49,8 +59,8 @@ TODO: {
   );
 
   module_boilerplate_ok('lib/LBMA/Statistics.pm');
-  module_boilerplate_ok('lib/LBMA/Statistics.pm');
-
-
+  module_boilerplate_ok('lib/LBMA/Statistics/Date.pm');
+  module_boilerplate_ok('lib/LBMA/Statistics/GoldFixing/Daily.pm');
+  module_boilerplate_ok('lib/LBMA/Statistics/SilverFixing/Daily.pm');
 }
 

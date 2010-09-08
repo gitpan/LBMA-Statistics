@@ -3,7 +3,7 @@ package LBMA::Statistics;
 use warnings;
 use strict;
 
-our $VERSION = '0.046';
+our $VERSION = '0.050';
 
 use LBMA::Statistics::Date;
 use LBMA::Statistics::GoldFixing::Daily;
@@ -79,9 +79,10 @@ Parameters are all lowercase.
 
 =back
 
-	my @fixings = $lbma->dailygoldfixing(year => $year,
+	my @fixings = $lbma->dailygoldfixing(
+                               year  => $year,
                                month => $month,
-                               day => $day,
+                               day   => $day,
                               ) or die;
 
 If no parameters are passed to this method, today is assumed.
@@ -96,7 +97,7 @@ Dies if supplied date ain't valid or before 1968.
 
 Returns an array of fixings.
 The number and order of elements varies depending on the year data is retrieved.
-There were no EUR before 1999.
+There is no EUR before 1999.
 
 
         # @fixings 1999 --  
@@ -137,7 +138,7 @@ sub dailygoldfixing {
                          );
 	my $goldfixing = $dailygold->retrieve_row() ;
 
-    if ( scalar @$goldfixing ) {
+    if ( scalar @$goldfixing > 1 ) {
         DEBUG("Goldfixing Result: ", join(', ', @$goldfixing) );
     }
     else {
@@ -153,9 +154,10 @@ same as dailygoldfixing but returns just the A.M. Fixing Data
 
 	my @fixings = $lbma->dailygoldfixing_am( );
 
-	my @fixings = $lbma->dailygoldfixing_am(year => $year,
+	my @fixings = $lbma->dailygoldfixing_am(
+                               year  => $year,
                                month => $month,
-                               day => $day,
+                               day   => $day,
                               ) or die;
 
 	# @fixings 1999 - ... 
@@ -181,7 +183,7 @@ sub dailygoldfixing_am {
                                                      );
 	my $goldfixing = $dailygold->retrieve_row_am() ;
 
-    if ( scalar @$goldfixing ) {
+    if ( scalar @$goldfixing > 1 ) {
         DEBUG("Goldfixing AM Result: ", join(', ', @$goldfixing) );
     }
     else {
@@ -208,9 +210,10 @@ Parameters are all lowercase.
 
 =back
 
-	my @fixings = $lbma->dailysilverfixing(year => $year,
+	my @fixings = $lbma->dailysilverfixing(
+                                 year  => $year,
                                  month => $month,
-                                 day => $day,
+                                 day   => $day,
                               ) or die;
 
 If no parameters are passed to this class, today is assumed.
@@ -225,7 +228,7 @@ Dies if supplied date ain't valid or before 1968.
 
 Returns an array of fixings
 The number and order of elements varies depending on the year data is retrieved.
-There were no EUR before 1999.
+There is no EUR before 1999.
 
         # @fixings 1999 -- 
         # 0 date
@@ -257,7 +260,7 @@ sub dailysilverfixing {
 					                day_pattern => $day_pattern,
                                                      );
 	my $silverfixing = $dailysilver->retrieve_row() ;
-    if ( scalar @$silverfixing ) {
+    if ( scalar @$silverfixing > 1 ) {
         DEBUG("Silverfixing Result: ", join(', ', @$silverfixing) );
     }
     else {
