@@ -3,7 +3,7 @@ package LBMA::Statistics;
 use warnings;
 use strict;
 
-our $VERSION = '0.050';
+our $VERSION = '0.051';
 
 use LBMA::Statistics::Date;
 use LBMA::Statistics::GoldFixing::Daily;
@@ -58,8 +58,8 @@ Historic daily prices are available back to 1968.
 
 sub new {
     my $class = shift;
-    my $self = {};
-    bless $self , $class;
+    my $self  = {};
+    bless $self, $class;
     return $self;
 }
 
@@ -79,7 +79,7 @@ Parameters are all lowercase.
 
 =back
 
-	my @fixings = $lbma->dailygoldfixing(
+    my @fixings = $lbma->dailygoldfixing(
                                year  => $year,
                                month => $month,
                                day   => $day,
@@ -88,7 +88,7 @@ Parameters are all lowercase.
 If no parameters are passed to this method, today is assumed.
 Today is determined using UTC . In doubt pass a valid date.
 
-	my @fixings = $lbma->dailygoldfixing( );
+    my @fixings = $lbma->dailygoldfixing( );
 
 Dies if supplied date ain't valid or before 1968.
 
@@ -128,44 +128,44 @@ Returns an array with the date and A.M. slots filled and whitespace for all othe
 =cut
 
 sub dailygoldfixing {
-	my $self        = shift;
-    my $date        = LBMA::Statistics::Date->new( @_ );
-	my $year        = $date->year();
-	my $day_pattern = $date->day_pattern();
+    my $self        = shift;
+    my $date        = LBMA::Statistics::Date->new(@_);
+    my $year        = $date->year();
+    my $day_pattern = $date->day_pattern();
     my $dailygold   = LBMA::Statistics::GoldFixing::Daily->new(
-			                year => $year,
-			                day_pattern => $day_pattern,
-                         );
-	my $goldfixing = $dailygold->retrieve_row() ;
+        year        => $year,
+        day_pattern => $day_pattern,
+    );
+    my $goldfixing = $dailygold->retrieve_row();
 
     if ( scalar @$goldfixing > 1 ) {
-        DEBUG("Goldfixing Result: ", join(', ', @$goldfixing) );
+        DEBUG( "Goldfixing Result: ", join( ', ', @$goldfixing ) );
     }
     else {
         WARN("No Goldfixing Results: $year, $day_pattern");
     }
 
-	return wantarray ? @$goldfixing : $goldfixing;
+    return wantarray ? @$goldfixing : $goldfixing;
 }
 
 =head2 dailygoldfixing_am 
 
 same as dailygoldfixing but returns just the A.M. Fixing Data
 
-	my @fixings = $lbma->dailygoldfixing_am( );
+        my @fixings = $lbma->dailygoldfixing_am( );
 
-	my @fixings = $lbma->dailygoldfixing_am(
+        my @fixings = $lbma->dailygoldfixing_am(
                                year  => $year,
                                month => $month,
                                day   => $day,
                               ) or die;
 
-	# @fixings 1999 - ... 
+        # @fixings 1999 - ... 
         # 0 date
         # 1 GOLD A.M. USD 
         # 2 GOLD A.M. GBP
         # 3 GOLD A.M. EUR
-	# @fixings 1968 - 1998 
+        # @fixings 1968 - 1998 
         # 0 date
         # 1 GOLD A.M. USD 
         # 2 GOLD A.M. GBP
@@ -173,26 +173,25 @@ same as dailygoldfixing but returns just the A.M. Fixing Data
 =cut
 
 sub dailygoldfixing_am {
-	my $self        = shift;
-    my $date        = LBMA::Statistics::Date->new( @_ );
-	my $year        = $date->year();
-	my $day_pattern = $date->day_pattern();
+    my $self        = shift;
+    my $date        = LBMA::Statistics::Date->new(@_);
+    my $year        = $date->year();
+    my $day_pattern = $date->day_pattern();
     my $dailygold   = LBMA::Statistics::GoldFixing::Daily->new(
-					                year => $year,
-					                day_pattern => $day_pattern,
-                                                     );
-	my $goldfixing = $dailygold->retrieve_row_am() ;
+        year        => $year,
+        day_pattern => $day_pattern,
+    );
+    my $goldfixing = $dailygold->retrieve_row_am();
 
     if ( scalar @$goldfixing > 1 ) {
-        DEBUG("Goldfixing AM Result: ", join(', ', @$goldfixing) );
+        DEBUG( "Goldfixing AM Result: ", join( ', ', @$goldfixing ) );
     }
     else {
         WARN("No Goldfixing AM Results: $year, $day_pattern");
     }
 
-	return wantarray ? @$goldfixing : $goldfixing;
+    return wantarray ? @$goldfixing : $goldfixing;
 }
-
 
 =head2 dailysilverfixing
 
@@ -210,7 +209,7 @@ Parameters are all lowercase.
 
 =back
 
-	my @fixings = $lbma->dailysilverfixing(
+        my @fixings = $lbma->dailysilverfixing(
                                  year  => $year,
                                  month => $month,
                                  day   => $day,
@@ -219,7 +218,7 @@ Parameters are all lowercase.
 If no parameters are passed to this class, today is assumed.
 Today is determined using UTC. In doubt pass a valid date.
 
-	my @fixings = $lbma->dailysilverfixing( );
+        my @fixings = $lbma->dailysilverfixing( );
 
 Dies if supplied date ain't valid or before 1968.
 
@@ -251,24 +250,23 @@ Returns an array(ref) with the date slot filled and undef for all other slots if
 =cut
 
 sub dailysilverfixing {
-	my $self = shift;
-    my $date        = LBMA::Statistics::Date->new( @_ );
-	my $year        = $date->year();
-	my $day_pattern = $date->day_pattern();
+    my $self        = shift;
+    my $date        = LBMA::Statistics::Date->new(@_);
+    my $year        = $date->year();
+    my $day_pattern = $date->day_pattern();
     my $dailysilver = LBMA::Statistics::SilverFixing::Daily->new(
-					                year => $year,
-					                day_pattern => $day_pattern,
-                                                     );
-	my $silverfixing = $dailysilver->retrieve_row() ;
+        year        => $year,
+        day_pattern => $day_pattern,
+    );
+    my $silverfixing = $dailysilver->retrieve_row();
     if ( scalar @$silverfixing > 1 ) {
-        DEBUG("Silverfixing Result: ", join(', ', @$silverfixing) );
+        DEBUG( "Silverfixing Result: ", join( ', ', @$silverfixing ) );
     }
     else {
         WARN("No Silverfixing Results: $year, $day_pattern");
     }
-	return wantarray ? @$silverfixing : $silverfixing;
+    return wantarray ? @$silverfixing : $silverfixing;
 }
-
 
 =head1 EXAMPLES
 
@@ -293,26 +291,26 @@ sub dailysilverfixing {
 
 =head2 Example 2 Daily Goldy Fixing A.M. data
 
-	#!/usr/bin/perl
-	use warnings;
-	use strict;
+    #!/usr/bin/perl
+    use warnings;
+    use strict;
 
-	use LBMA::Statistics;
+    use LBMA::Statistics;
 
     use Log::Log4perl qw/:easy/;
 
     Log::Log4perl->easy_init();
 
-	my $lbma =  LBMA::Statistics->new();
+    my $lbma =  LBMA::Statistics->new();
 
         # @fixings 
         # 0 date
         # 1 GOLD A.M. USD 
         # 2 GOLD A.M. GBP
         # 3 GOLD A.M. EUR
-	print join("|",$lbma->dailygoldfixing_am() ) ,"\n";
-	print join("|",$lbma->dailygoldfixing_am( year => 2009, month => 2, day => 2) ) , "\n";
-	print join("|",$lbma->dailygoldfixing_am( year => 2000, month => 1, day => 4) ) , "\n";
+    print join("|",$lbma->dailygoldfixing_am() ) ,"\n";
+    print join("|",$lbma->dailygoldfixing_am( year => 2009, month => 2, day => 2) ) , "\n";
+    print join("|",$lbma->dailygoldfixing_am( year => 2000, month => 1, day => 4) ) , "\n";
 
 
 =head2 Example 3 Daily Silver Fixing
@@ -428,4 +426,4 @@ under the same terms as Perl itself.
 
 =cut
 
-1; # End of LBMA::Statistics
+1;    # End of LBMA::Statistics

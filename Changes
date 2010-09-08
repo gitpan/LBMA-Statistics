@@ -1,6 +1,12 @@
 Revision history for LBMA-Statistics
 
 
+0.051   2010-09.08/time
+    Fixed MANIFEST and MANIFEST.skip to fix 
+    "The 'makemaker_args' method does not exist in the 'inc' path!
+    Please remove the 'inc' directory and run Makefile.PL again to load it."
+    Added folder inc to tardist
+
 0.050   2010-09.08/time
     Added example Log::Log4perl config file
     Added code to check for empty table rows 

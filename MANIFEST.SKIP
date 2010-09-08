@@ -1,7 +1,4 @@
 .git
-Makefile
-Makefile.old
-MANIFEST.bak
 Debian_CPANTS.txt
-blib/*
-inc/*
+MANIFEST.bak
+blib/

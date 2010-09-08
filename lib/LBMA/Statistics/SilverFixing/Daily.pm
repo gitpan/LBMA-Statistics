@@ -3,7 +3,7 @@ package LBMA::Statistics::SilverFixing::Daily;
 use warnings;
 use strict;
 
-our $VERSION = '0.050';
+our $VERSION = '0.051';
 
 use WWW::Mechanize;
 use HTML::TableExtract;
@@ -35,9 +35,9 @@ Everthing is done by LBMA::Statistics (See L<http://search.cpan.org/perldoc?LBMA
     use LBMA::Statistics::SilverFixing::Daily;
 
     my $lbma = LBMA::Statistics::GoldFixing::Daily->new( 
-     					year => $year,
-				 		day_pattern => $day_pattern
-					) or die $!;
+                                        year => $year,
+                                                day_pattern => $day_pattern
+                                        ) or die $!;
 
 =cut
 
@@ -61,7 +61,8 @@ sub _init {
     $self->{year}        = $args{year};
     $self->{day_pattern} = $args{day_pattern};
     LOGDIE "Missing mandantory parameter year" unless $self->{year};
-    LOGDIE "Missing mandantory parameter day_pattern" unless $self->{day_pattern};
+    LOGDIE "Missing mandantory parameter day_pattern"
+      unless $self->{day_pattern};
 
 }
 

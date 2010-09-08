@@ -33,4 +33,4 @@ requires:
 resources:
   license: http://dev.perl.org/licenses/
   repository: http://github.com/tomfahle/LBMA-Statistics
-version: 0.050
+version: 0.051

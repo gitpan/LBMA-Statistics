@@ -3,7 +3,7 @@ package LBMA::Statistics::GoldFixing::Daily;
 use warnings;
 use strict;
 
-our $VERSION = '0.050';
+our $VERSION = '0.051';
 
 use WWW::Mechanize;
 use HTML::TableExtract;
@@ -36,9 +36,9 @@ Everthing is done by LBMA::Statistics (See L<http://search.cpan.org/perldoc?LBMA
     use LBMA::Statistics::GoldFixing::Daily;
 
     my $lbma = LBMA::Statistics::GoldFixing::Daily->new( 
-     					year => $year,
-				 		day_pattern => $day_pattern
-					) or die $!;
+                                        year => $year,
+                                                day_pattern => $day_pattern
+                                        ) or die $!;
 
 =cut
 
@@ -52,7 +52,7 @@ sub new {
 
 =head2 _init 
 
-	private method to initialize the object
+        private method to initialize the object
 
 =cut  
 
@@ -118,10 +118,11 @@ sub retrieve_row_am {
     my @am_fixings = ();
 
     # Step by step
-    $am_fixings[0] = @$fixings[0] if defined @$fixings[0]; # Date    
-    $am_fixings[1] = @$fixings[1] if defined @$fixings[1]; # USD
-    $am_fixings[2] = @$fixings[2] if defined @$fixings[2]; # GBP
+    $am_fixings[0] = @$fixings[0] if defined @$fixings[0];    # Date
+    $am_fixings[1] = @$fixings[1] if defined @$fixings[1];    # USD
+    $am_fixings[2] = @$fixings[2] if defined @$fixings[2];    # GBP
     if ( $year >= 1999 ) {
+
         # EUR
         $am_fixings[3] = @$fixings[3] if defined @$fixings[3];
     }
@@ -175,16 +176,17 @@ sub retrieve_row {
     $browser->get($url) or LOGDIE $!;
 
     my $fixings = $self->_parse( $browser->content() );
-    my @clean = ();
-    foreach my $fixing ( @$fixings ) {
-            # Clean Fixings
-            if ( defined $fixing ) {
-                push(@clean, $fixing);
-                TRACE("Fixing: $fixing");
-            } 
-            else {
-                TRACE("Fixing: undef");
-            }
+    my @clean   = ();
+    foreach my $fixing (@$fixings) {
+
+        # Clean Fixings
+        if ( defined $fixing ) {
+            push( @clean, $fixing );
+            TRACE("Fixing: $fixing");
+        }
+        else {
+            TRACE("Fixing: undef");
+        }
     }
 
     return wantarray ? @clean : \@clean;

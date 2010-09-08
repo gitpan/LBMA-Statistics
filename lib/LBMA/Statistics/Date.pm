@@ -2,7 +2,7 @@ package LBMA::Statistics::Date;
 use strict;
 use warnings;
 
-our $VERSION = '0.050';
+our $VERSION = '0.051';
 
 use DateTime;
 
@@ -40,8 +40,6 @@ Parameters are all lowercase.
 
 =back
 
-
-
     use strict;
 
     use warnings;
@@ -49,9 +47,9 @@ Parameters are all lowercase.
     use LBMA::Statistics::Date;
 
     my $date = LBMA::Statistics::Date->new( year => $year,
-			                    month => $month,
-			                    day => $day, 
- 	) or die $!;
+                                            month => $month,
+                                            day => $day, 
+        ) or die $!;
 
 If no parameters are passed to this class, today is assumed.
 Today is determined using UTC. In doubt pass a valid date.
@@ -73,7 +71,7 @@ sub new {
 
 =head2 year - returns the year
 
-	print $date->year(), "\n";
+        print $date->year(), "\n";
 
 =cut
 
@@ -84,7 +82,7 @@ sub year {
 
 =head2 day_pattern - returns a date/day-pattern YY-MMM-DD  
 
-	print $date->day_pattern(), "\n";
+        print $date->day_pattern(), "\n";
 
 =cut
 
@@ -125,7 +123,7 @@ sub _init {
 
         # Use current date
         $dt = DateTime->now( locale => 'en_GB' )
-          or LOGDIE $!;              # It's a british site
+          or LOGDIE $!;           # It's a british site
         $year  = $dt->year();
         $month = $dt->month();
         $day   = $dt->day();
@@ -133,9 +131,10 @@ sub _init {
 
     # Sanity check for the wild ones
     if ( $year < 1968 ) {
-        LOGDIE "Year is $year - Historic daily prices and monthly and annual averages are available back to 1968.";
+        LOGDIE
+"Year is $year - Historic daily prices and monthly and annual averages are available back to 1968.";
     }
-    my $today = DateTime->now( locale => 'en_GB') or LOGDIE $!;
+    my $today = DateTime->now( locale => 'en_GB' ) or LOGDIE $!;
     my $current_year = $today->year();
     if ( $year > $current_year ) {
         LOGDIE "Year is $year - This ain't a crystal ball!";
