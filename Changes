@@ -1,5 +1,13 @@
 Revision history for LBMA-Statistics
 
+0.052   2010-09.10/time
+    Run Devel::Cover and added tests to complete coverage.
+    Coverage is now a 100% for subs and POD, 97.6% for stmt 
+    and 55.0% for branches. Overall coverage is 89.4%.
+
+    Added tests, that need a working internet connection.
+    To avoid a prompt, these tests are only available if
+    NETWORK_TEST is set, e.g. NETWORK_TEST=1 prove -l -v t/*
 
 0.051   2010-09.08/time
     Fixed MANIFEST and MANIFEST.skip to fix 
@@ -29,38 +37,37 @@ Revision history for LBMA-Statistics
     Added Tests for prerequisite modules
 
 0.044   2010-07.27/time
-	Corrected URL in README
+    Corrected URL in README
 
 0.043   2010-07.26/time
-	Added configure_requires 'Module::Install' => '0.92' to Makefile.PL
-     due to some "UNKNOWN" results from CPAN-Testers
+    Added configure_requires 'Module::Install' => '0.92' to Makefile.PL
+    due to some "UNKNOWN" results from CPAN-Testers
 
 0.042   2010-07.25/time
-	Fixed Gold and Silver Daily to match new URLs
-	http://www.lbma.org.uk/pages/index.cfm?page_id=48
-	http://www.lbma.org.uk/pages/?page_id=54
-	http://www.lbma.org.uk/pages/?page_id=53
-	 
+    Fixed Gold and Silver Daily to match new URLs
+    http://www.lbma.org.uk/pages/index.cfm?page_id=48
+    http://www.lbma.org.uk/pages/?page_id=54
+    http://www.lbma.org.uk/pages/?page_id=53
 
 0.041   2009-09.06/time
-	Added tests
-	Added Encode as required
-	Added UTF encoding to _parse
-	Cleaned Version Numbers (Set all to 0.041)
-	Added build_requires 'Test::Exception' 
+    Added tests
+    Added Encode as required
+    Added UTF encoding to _parse
+    Cleaned Version Numbers (Set all to 0.041)
+    Added build_requires 'Test::Exception' 
 
 0.04    2009-07.24/time
-	Added method dailygoldfixing_am
-	Cleaned up Daily.pm for Gold and Silver
-	Added Module::Install as required to Makefile.pl
-	Added tests
+    Added method dailygoldfixing_am
+    Cleaned up Daily.pm for Gold and Silver
+    Added Module::Install as required to Makefile.pl
+    Added tests
 
 0.03    2009-07.23/time
-	Added tests
-        Added two more examples (Dumpvalue)
-	make manifest
-	MANIFEST now includes inc/
-	tarball/tardist now includes inc/
+    Added tests
+    Added two more examples (Dumpvalue)
+    make manifest
+    MANIFEST now includes inc/
+    tarball/tardist now includes inc/
 
 0.02    2009-07.22/time
     Fixed Typo in NAME Field 

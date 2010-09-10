@@ -9,15 +9,22 @@ Information returned by this module is governed by LBMA's terms and conditions.
 
 INSTALLATION
 
-Module::Install is needed as a prerequisite installer.
-That is, install a recent Module::Install first.
-
 To install this module, run the following commands:
 
 	perl Makefile.PL
 	make
 	make test
 	make install
+
+EXTENDED NETWORK TESTS
+
+To enable extended tests set the NETWORK_TEST enviroment variable
+e.g. 
+    $ NETWORK_TEST=1 make test
+or
+    $ NETWORK_TEST=1 prove -l -v t/*
+
+These tests require a working internet connection.
 
 SUPPORT AND DOCUMENTATION
 
