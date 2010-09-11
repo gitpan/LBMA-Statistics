@@ -1,5 +1,27 @@
 Revision history for LBMA-Statistics
 
+0.053   2010-09.11/time
+
+    Rewrote Tracing in Daily-Silver.
+    Coverage is now a 100% for subs, POD and stmt, 
+    and 76.9% for branches. Overall coverage is 95.5%.
+
+    Added tests 205-retrieve_row.t and 305-retrieve_row.t
+    Coverage is now a 100% for subs and POD, 99.6% for stmt 
+    and 76.2% for branches. Overall coverage is 95.0%.
+
+    Added tests 206-die.t and 306-die.t
+    Coverage is now a 100% for subs and POD, 99.2% for stmt 
+    and 70.0% for branches. Overall coverage is 93.5%.
+
+    Added tests in 103-year.t.
+    Coverage is now a 100% for subs and POD, 99.2% for stmt 
+    and 65.0% for branches. Overall coverage is 92.5%.
+
+    Enabled Test::Warn
+    Coverage is now a 100% for subs and POD, 98.8% for stmt 
+    and 63.8% for branches. Overall coverage is 92.0%.
+
 0.052   2010-09.10/time
     Run Devel::Cover and added tests to complete coverage.
     Coverage is now a 100% for subs and POD, 97.6% for stmt 
@@ -77,4 +99,5 @@ Revision history for LBMA-Statistics
 0.01    2009-07.21/time
     First version, released on an unsuspecting world.
     Not recommended for production use.
+
 

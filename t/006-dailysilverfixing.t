@@ -13,7 +13,7 @@ BEGIN {
       unless $ENV{NETWORK_TEST};
 }
 
-plan( tests => 11 );
+plan( tests => 16 );
 
 my $lbma = LBMA::Statistics->new() or die;
 
@@ -39,5 +39,13 @@ ok( $fixings[0] eq '04-Jan-00', 'Date 04-Jan-00' );
 ok( $fixings[1] == 530.250, 'Silver USD' );
 ok( $fixings[2] == 323.225, 'Silver GBP' );
 ok( $fixings[3] == 513.808, 'Silver EUR' );
+
+@fixings = $lbma->dailysilverfixing( year => 1968, month => 1, day => 31 );
+ok( scalar @fixings > 0, 'Array Contains Data' );
+ok( $fixings[0] eq '31-Jan-68', 'Date 04-Jan-00' );
+ok( $fixings[1] == 196.000, 'Silver USD' );
+ok( $fixings[2] == 81.250,  'Silver GBP' );
+isnt( $fixings[3], defined,     'Ok undefined' );
+
 
 diag("LBMA::Statistics $LBMA::Statistics::VERSION. Test dailysilverfixing");

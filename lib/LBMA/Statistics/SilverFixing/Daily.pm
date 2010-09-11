@@ -3,7 +3,7 @@ package LBMA::Statistics::SilverFixing::Daily;
 use warnings;
 use strict;
 
-our $VERSION = '0.052';
+our $VERSION = '0.053';
 
 use WWW::Mechanize;
 use HTML::TableExtract;
@@ -107,7 +107,7 @@ sub dailystatsurl {
 
 Returns an array of fixings
 The number and order of elements varies depending on the year data is retrieved.
-There were no EUR before 1999.
+There is no EUR before 1999.
 
         # @fixings 1999 -- 
         # 0 date
@@ -136,21 +136,13 @@ sub retrieve_row {
     $browser->get($url) or LOGDIE $!;
 
     my $fixings = $self->_parse( $browser->content() );
-
-    my @clean = ();
-    foreach my $fixing (@$fixings) {
-
-        # Clean Fixings
-        if ( defined $fixing ) {
-            push( @clean, $fixing );
-            TRACE("Fixing: $fixing");
-        }
-        else {
-            TRACE("Fixing: undef");
+    {
+        no warnings;
+        foreach my $fixing ( @$fixings ) {
+                TRACE("Fixing: $fixing");
         }
     }
-
-    return wantarray ? @clean : \@clean;
+    return wantarray ? @$fixings : $fixings;
 }
 
 =head2 _parse 

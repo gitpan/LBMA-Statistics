@@ -3,7 +3,7 @@ package LBMA::Statistics::GoldFixing::Daily;
 use warnings;
 use strict;
 
-our $VERSION = '0.052';
+our $VERSION = '0.053';
 
 use WWW::Mechanize;
 use HTML::TableExtract;
@@ -138,7 +138,7 @@ sub retrieve_row_am {
 Returns an array of fixings.
 
 The number and order of elements varies depending on the year data is retrieved.
-There were no EUR befor 1999.
+There is no EUR befor 1999.
 
 
         # @fixings 1999 --  

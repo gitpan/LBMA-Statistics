@@ -3,7 +3,7 @@ package LBMA::Statistics;
 use warnings;
 use strict;
 
-our $VERSION = '0.052';
+our $VERSION = '0.053';
 
 use LBMA::Statistics::Date;
 use LBMA::Statistics::GoldFixing::Daily;
@@ -142,7 +142,7 @@ sub dailygoldfixing {
         DEBUG( "Goldfixing Result: ", join( ', ', @$goldfixing ) );
     }
     else {
-        WARN("No Goldfixing Results: $year, $day_pattern");
+        LOGWARN("No Goldfixing Results: $year, $day_pattern");
     }
 
     return wantarray ? @$goldfixing : $goldfixing;
@@ -187,7 +187,7 @@ sub dailygoldfixing_am {
         DEBUG( "Goldfixing AM Result: ", join( ', ', @$goldfixing ) );
     }
     else {
-        WARN("No Goldfixing AM Results: $year, $day_pattern");
+        LOGWARN("No Goldfixing AM Results: $year, $day_pattern");
     }
 
     return wantarray ? @$goldfixing : $goldfixing;
@@ -263,7 +263,7 @@ sub dailysilverfixing {
         DEBUG( "Silverfixing Result: ", join( ', ', @$silverfixing ) );
     }
     else {
-        WARN("No Silverfixing Results: $year, $day_pattern");
+        LOGWARN("No Silverfixing Results: $year, $day_pattern");
     }
     return wantarray ? @$silverfixing : $silverfixing;
 }

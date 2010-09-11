@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 4;
+use Test::More tests => 6 ;
 
 use LBMA::Statistics::Date;
 
@@ -37,8 +37,8 @@ ok( $date->year() == $year, "Today $year" );
 
 
 SKIP: {
-    eval { use Test::Exception };
-    skip 'Test::Exception not installed', 1 if $@;
+    eval {  use Test::Exception };
+    skip 'Test::Exception not installed', 3 if $@;
 
     # Invalid date
     $year  = 2001;
@@ -52,6 +52,31 @@ SKIP: {
         );
     }
     'expecting to die on invalid dates';
+
+    # No data before 1968
+    $year  = 1965;
+    $month = 1;
+    $day   = 1;
+    dies_ok {
+        $date = LBMA::Statistics::Date->new(
+            year  => $year,
+            month => $month,
+            day   => $day,
+        );
+    }
+    'No data before 1968';
+    # No data in the future 
+    $year  = 4999;
+    $month = 1;
+    $day   = 1;
+    dies_ok {
+        $date = LBMA::Statistics::Date->new(
+            year  => $year,
+            month => $month,
+            day   => $day,
+        );
+    }
+    'No data in the future';
 }
 
 

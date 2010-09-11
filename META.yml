@@ -5,13 +5,11 @@ author:
   - 'Thomas Fahle <cpan@thomas-fahle.de>'
 build_requires:
   ExtUtils::MakeMaker: 6.42
-  Module::Install: 1.00
   Test::Exception: 0.25
   Test::More: 0
+  Test::Warn: 0.22
 configure_requires:
   ExtUtils::MakeMaker: 6.42
-  Module::AutoInstall: 0
-  Module::Install: 1.00
 distribution_type: module
 generated_by: 'Module::Install version 1.00'
 license: perl
@@ -33,4 +31,4 @@ requires:
 resources:
   license: http://dev.perl.org/licenses/
   repository: http://github.com/tomfahle/LBMA-Statistics
-version: 0.052
+version: 0.053
