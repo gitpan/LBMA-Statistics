@@ -6,6 +6,14 @@ See http://www.lbma.org.uk/pages/index.cfm?page_id=48 for details on London Bull
 
 Information returned by this module is governed by LBMA's terms and conditions.
 
+"If you wish to use the gold or silver Fixing prices for commercial purposes,
+ including to incorporate them into commercial products which you intend to market,
+ sell or otherwise provide to third parties, you must pay the required fee and obtain
+ a licence from The London Gold Market Fixing Limited and / or The London Silver Market
+ Fixing Limited as appropriate. See www.goldfixing.com and www.silverfixing.com for full details."
+
+http://www.lbma.org.uk/pages/?page_id=53&title=gold_fixings
+
 
 INSTALLATION
 
@@ -51,7 +59,7 @@ You can also look for information at:
 
 COPYRIGHT AND LICENCE
 
-Copyright (C) 2009, 2010 Thomas Fahle
+Copyright (C) 2009, 2010, 2012 Thomas Fahle
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

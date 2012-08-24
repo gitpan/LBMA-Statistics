@@ -1,0 +1,58 @@
+{
+   "abstract" : "Obtain Gold and Silver Fixings (Prices) from London Bullion Market ",
+   "author" : [
+      "Thomas Fahle, C<< <cpan at thomas-fahle.de> >>",
+      "Thomas Fahle <cpan@thomas-fahle.de>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Module::Install version 1.00, CPAN::Meta::Converter version 2.120921",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "LBMA-Statistics",
+   "no_index" : {
+      "directory" : [
+         "examples",
+         "inc",
+         "t"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.42",
+            "Test::Exception" : "0.25",
+            "Test::More" : "0",
+            "Test::Warn" : "0.22"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.42"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "DateTime" : "0.41",
+            "Encode" : "2.23",
+            "HTML::TableExtract" : "2.10",
+            "Log::Log4perl" : "1.30",
+            "WWW::Mechanize" : "1.34"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "license" : [
+         "http://dev.perl.org/licenses/"
+      ],
+      "repository" : {
+         "url" : "http://github.com/tomfahle/LBMA-Statistics"
+      }
+   },
+   "version" : "0.053"
+}

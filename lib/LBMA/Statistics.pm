@@ -3,7 +3,7 @@ package LBMA::Statistics;
 use warnings;
 use strict;
 
-our $VERSION = '0.053';
+our $VERSION = '0.055';
 
 use LBMA::Statistics::Date;
 use LBMA::Statistics::GoldFixing::Daily;
@@ -20,7 +20,23 @@ This module obtains Gold and Silver Fixings (Prices) from Statistics of the Lond
 
 Information returned by this module is governed by LBMA's terms and conditions. 
 
-It's designed to use witch cron to retrieve data on a daily basis in the evening.
+C<If you wish to use the gold or silver Fixing prices for commercial purposes, including
+ to incorporate them into commercial products which you intend to market, sell or otherwise
+ provide to third parties, you must pay the required fee and obtain a licence from
+ The London Gold Market Fixing Limited and / or The London Silver Market Fixing Limited as appropriate.
+ See www.goldfixing.com and www.silverfixing.com for full details.>
+
+It's designed to use with cron to retrieve data on a B<daily> basis in the evening.
+
+If your looking for historical data (complete years) consider downloading CSV-Files instead.
+
+=over 4
+
+=item * Gold Fixings L<http://www.lbma.org.uk/pages/index.cfm?page_id=53&title=gold_fixings>
+
+=item * Silver Fixings L<http://www.lbma.org.uk/pages/index.cfm?page_id=54&title=silver_fixings> 
+
+=back
 
 =head2 London Gold Fixing
 
@@ -86,7 +102,8 @@ Parameters are all lowercase.
                               ) or die;
 
 If no parameters are passed to this method, today is assumed.
-Today is determined using UTC . In doubt pass a valid date.
+
+Today is determined using UTC. In doubt pass a valid date.
 
     my @fixings = $lbma->dailygoldfixing( );
 
@@ -96,6 +113,7 @@ Dies if supplied date ain't valid or before 1968.
 =head3 return values
 
 Returns an array of fixings.
+
 The number and order of elements varies depending on the year data is retrieved.
 There is no EUR before 1999.
 
@@ -118,7 +136,7 @@ There is no EUR before 1999.
 
 In scalar context a reference to an array is returned.
 
-Returns undef or empty list if data can't be retrieved e.g. dates without fixing like holydays.
+Returns undef or empty list if data can't be retrieved e.g. dates without fixing like holidays.
 
 Returns an array with the date slot filled and undef for all other slots if you're trying to fetch data before A.M. fixing.
 
@@ -242,7 +260,7 @@ There is no EUR before 1999.
 
 In scalar context a reference to an array is returned.
 
-Returns undef or empty list if data can't be retrieved e.g. dates without fixing  like holydays.
+Returns undef or empty list if data can't be retrieved e.g. dates without fixing like holidays.
 
 Returns an array(ref) with the date slot filled and undef for all other slots if you're trying to fetch data before the fixing.
 
@@ -418,7 +436,7 @@ L<http://search.cpan.org/dist/LBMA-Statistics/>
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2009, 2010 Thomas Fahle
+Copyright 2009, 2010, 2012 Thomas Fahle
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

@@ -3,7 +3,7 @@ package LBMA::Statistics::GoldFixing::Daily;
 use warnings;
 use strict;
 
-our $VERSION = '0.053';
+our $VERSION = '0.055';
 
 use WWW::Mechanize;
 use HTML::TableExtract;
@@ -236,7 +236,7 @@ automatically be notified of progress on your bug as I make changes.
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2009,2010 Thomas Fahle
+Copyright 2009, 2010, 2012 Thomas Fahle
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
