@@ -1,5 +1,9 @@
 Revision history for LBMA-Statistics
 
+0.056   2013-03-04/time
+    MYMETA.yml and MYMETA.json
+    See http://weblog.bulknews.net/post/44251476706/stop-shipping-mymeta-to-cpan
+
 0.055   2012-08-24/time
     Added a notice to licence fees for commercial use.
 
