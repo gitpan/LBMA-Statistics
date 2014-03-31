@@ -3,7 +3,7 @@ package LBMA::Statistics::GoldFixing::Daily;
 use warnings;
 use strict;
 
-our $VERSION = '0.056';
+our $VERSION = '0.060';
 
 use WWW::Mechanize;
 use HTML::TableExtract;
@@ -98,7 +98,7 @@ determines url for daily goldstats
 
 sub dailystatsurl {
     my $self = shift;
-    my $url = 'http://www.lbma.org.uk/pages/index.cfm?page_id=53&title=gold_fixings&show=';
+    my $url = 'http://lbma.oblive.co.uk/table?metal=gold&year=';
     $url .= $self->year();
     $url .= '&type=daily';
     DEBUG("url: $url");
@@ -177,16 +177,27 @@ sub retrieve_row {
 
     my $fixings = $self->_parse( $browser->content() );
     my @clean   = ();
-    foreach my $fixing (@$fixings) {
+    # Order of columns changed - we need to rearrange manually
 
-        # Clean Fixings
-        if ( defined $fixing ) {
-            push( @clean, $fixing );
-            TRACE("Fixing: $fixing");
-        }
-        else {
-            TRACE("Fixing: undef");
-        }
+    my $year       = $self->year();
+
+    # Got values
+    if ( scalar @$fixings ) {
+    	$clean[0] =  $fixings->[0]; # Date
+    	if ( $year >= 1999 ) {
+    		$clean[1] =  $fixings->[1]; # GOLD A.M. USD
+    		$clean[2] =  $fixings->[3]; # GOLD A.M. GBP
+    		$clean[3] =  $fixings->[5]; # GOLD A.M. EUR
+    		$clean[4] =  $fixings->[2]; # GOLD P.M. USD
+    		$clean[5] =  $fixings->[4]; # GOLD P.M. GBP
+    		$clean[6] =  $fixings->[6]; # GOLD P.M. EUR
+    	} else {
+        	# No EURO  before 1999
+    		$clean[1] =  $fixings->[1]; # GOLD A.M. USD
+    		$clean[2] =  $fixings->[3]; # GOLD A.M. GBP
+    		$clean[3] =  $fixings->[2]; # GOLD P.M. USD
+    		$clean[4] =  $fixings->[4]; # GOLD P.M. GBP
+    	}
     }
 
     return wantarray ? @clean : \@clean;
@@ -236,7 +247,7 @@ automatically be notified of progress on your bug as I make changes.
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2009, 2010, 2012 Thomas Fahle
+Copyright 2009, 2010, 2012, 2014 Thomas Fahle
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

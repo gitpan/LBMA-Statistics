@@ -25,7 +25,6 @@ $lbma = LBMA::Statistics::GoldFixing::Daily->new(
             day_pattern => $day_pattern
 ) or die $!;
 
-
 my @fixings = $lbma->retrieve_row();
 
 ok($fixings[0] eq '04-Feb-00');

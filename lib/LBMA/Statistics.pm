@@ -3,7 +3,7 @@ package LBMA::Statistics;
 use warnings;
 use strict;
 
-our $VERSION = '0.056';
+our $VERSION = '0.060';
 
 use LBMA::Statistics::Date;
 use LBMA::Statistics::GoldFixing::Daily;
@@ -16,7 +16,7 @@ LBMA::Statistics - Obtain Gold and Silver Fixings (Prices) from London Bullion M
 
 =head1 DESCRIPTION
 
-This module obtains Gold and Silver Fixings (Prices) from Statistics of the London Bullion Market L<http://www.lbma.org.uk/pages/index.cfm?page_id=48&title=historical_statistics>.
+This module obtains Gold and Silver Fixings (Prices) from Statistics of the London Bullion Market L<http://www.lbma.org.uk/pricing-and-statistics> and the underlying table L<http://lbma.oblive.co.uk/table>.
 
 Information returned by this module is governed by LBMA's terms and conditions. 
 
@@ -28,15 +28,6 @@ C<If you wish to use the gold or silver Fixing prices for commercial purposes, i
 
 It's designed to use with cron to retrieve data on a B<daily> basis in the evening.
 
-If your looking for historical data (complete years) consider downloading CSV-Files instead.
-
-=over 4
-
-=item * Gold Fixings L<http://www.lbma.org.uk/pages/index.cfm?page_id=53&title=gold_fixings>
-
-=item * Silver Fixings L<http://www.lbma.org.uk/pages/index.cfm?page_id=54&title=silver_fixings> 
-
-=back
 
 =head2 London Gold Fixing
 
@@ -356,9 +347,9 @@ sub dailysilverfixing {
 
 =item * Statistics of the London Bullion Market L<http://www.lbma.org.uk/pages/index.cfm?page_id=48&title=historical_statistics>
 
-=item * LBMA Statistics Gold Fixing L<http://www.lbma.org.uk/pages/index.cfm?page_id=53&title=gold_fixings>
+=item * LBMA Statistics Gold Fixing L<http://lbma.oblive.co.uk/table?metal=gold>
 
-=item * LBMA Statistics Silver Fixing L<http://www.lbma.org.uk/pages/?page_id=54&title=silver_fixings>
+=item * LBMA Statistics Silver Fixing L<http://lbma.oblive.co.uk/table?metal=silver>
 
 =item * Finance::Quote::GoldMoney L<http://search.cpan.org/perldoc?Finance::Quote::GoldMoney>
 
@@ -436,7 +427,7 @@ L<http://search.cpan.org/dist/LBMA-Statistics/>
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2009, 2010, 2012 Thomas Fahle
+Copyright 2009, 2010, 2012, 2014 Thomas Fahle
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

@@ -3,7 +3,7 @@ package LBMA::Statistics::SilverFixing::Daily;
 use warnings;
 use strict;
 
-our $VERSION = '0.056';
+our $VERSION = '0.060';
 
 use WWW::Mechanize;
 use HTML::TableExtract;
@@ -96,7 +96,7 @@ determines url for daily silverstats
 
 sub dailystatsurl {
     my $self = shift;
-    my $url = 'http://www.lbma.org.uk/pages/?page_id=54&title=silver_fixings&show=';
+    my $url = 'http://lbma.oblive.co.uk/table?metal=silver&year=';
     $url .= $self->year();
     $url .= '&type=daily';
     DEBUG("url: $url");
@@ -189,7 +189,7 @@ automatically be notified of progress on your bug as I make changes.
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2009, 2010, 2012 Thomas Fahle
+Copyright 2009, 2010, 2012, 2014 Thomas Fahle
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

@@ -1,392 +1,2463 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-<head><script type="text/javascript" src="/CFIDE/scripts/cfform.js"></script>
-<script type="text/javascript" src="/CFIDE/scripts/masks.js"></script>
-<script type="text/javascript" src="/CFIDE/scripts/cfform.js"></script>
-<script type="text/javascript" src="/CFIDE/scripts/masks.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Gold Fixings | LBMA</title>
-<meta name="author" content="The London Bullion Market Association - All rights reserved" />
-<meta name="company" content="The London Bullion Market Association" />
-<meta name="domain" content="www.lbma.org.uk" />
-<meta name="copyright" content="2010 The London Bullion Market Association" />
-<meta name="robots" content="index, follow" />
-<meta name="keywords" content="London, bullion, gold and silver market, LBMA" /> <meta name="description" content="The website of the London Bullion Market Association" /> 
-<meta name="google-site-verification" content="tstvMMgk32e-4eK-BpEcJuDQ94vQ1mHadQPp2a2-pRY" />
-<meta name="language" content="en" />
-<link href="../images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-<link href="../styles/lbma/reset.css" rel="stylesheet" type="text/css" />
-<link href="../styles/lbma/main.css" rel="stylesheet" type="text/css" />
-<link href="../styles/lbma/ui.tabs.css" rel="stylesheet" type="text/css" />
-<link href="../styles/lbma/slider.css" rel="stylesheet" type="text/css" />
-<!--[if lte IE 6]>
-<link href="../styles/lbma/ie6.css" rel="stylesheet" type="text/css" />
-<![endif]-->
-<script language="JavaScript" src="../scripts/main.js" type="text/javascript"></script>
-<script language="JavaScript" src="../scripts/activecontent/flash.js" type="text/javascript"></script>
-<script language="JavaScript" src="../scripts/activecontent/run.js" type="text/javascript"></script>
-<script language="JavaScript" src="../scripts/jquery/jquery-1.3.2.min.js" type="text/javascript"></script>
-<script language="JavaScript" src="../scripts/jquery/ui.core.js" type="text/javascript"></script>
-<script language="JavaScript" src="../scripts/jquery/ui.tabs.js" type="text/javascript"></script>
-<script language="JavaScript" src="../scripts/jquery/easySlider1.7.js" type="text/javascript"></script> 
-<script language="JavaScript" type="text/javascript"> 
-$(function() {
-$('#rotate > ul').tabs({ fx: { opacity: 'toggle' } });
-});
-</script>
-<!-- ULTIMATE DROP DOWN MENU Version 4.5 by Brothercake -->
-<!-- http://www.udm4.com/ -->
-<script type="text/javascript" src="../scripts/udm4/udm-resources/udm-custom.js"></script>
-<script type="text/javascript" src="../scripts/udm4/udm-resources/udm-control.js"></script>
-<link href="../scripts/udm4/udm-resources/udm-style.css" rel="stylesheet" type="text/css" media="screen,projection" /><script type="text/javascript">/* <![CDATA[ */
-if (window.ColdFusion) ColdFusion.required['criteria']=true;
-/* ]]> */</script>
-<script type="text/javascript">
-<!--
-    _CF_checksearch_form = function(_CF_this)
-    {
-        //reset on submit
-        _CF_error_exists = false;
-        _CF_error_messages = new Array();
-        _CF_error_fields = new Object();
-        _CF_FirstErrorField = null;        //form element criteria required check
-        if( !_CF_hasValue(_CF_this['criteria'], "TEXT", false ) )
-        {
-            _CF_onError(_CF_this, "criteria", _CF_this['criteria'].value, "Please enter a search term");
-            _CF_error_exists = true;
-        }
-        //display error messages and return success
-        if( _CF_error_exists )
-        {
-            if( _CF_error_messages.length > 0 )
-            {
-                // show alert() message
-                _CF_onErrorAlert(_CF_error_messages);
-                // set focus to first form error, if the field supports js focus().
-                if( _CF_this[_CF_FirstErrorField].type == "text" )
-                { _CF_this[_CF_FirstErrorField].focus(); }            }
-            return false;
-        }else {
-            return true;
-        }
-    }
-//-->
-</script>
-
-<script type="text/javascript">/* <![CDATA[ */
-	if (window.ColdFusion) ColdFusion.required['criteria']=true;
-/* ]]> */</script>
-<script type="text/javascript">
-<!--
-    _CF_checksearch_form = function(_CF_this)
-    {
-        //reset on submit
-        _CF_error_exists = false;
-        _CF_error_messages = new Array();
-        _CF_error_fields = new Object();
-        _CF_FirstErrorField = null;
-
-        //form element criteria required check
-        if( !_CF_hasValue(_CF_this['criteria'], "TEXT", false ) )
-        {
-            _CF_onError(_CF_this, "criteria", _CF_this['criteria'].value, "Please enter a search term");
-            _CF_error_exists = true;
-        }
-
-
-        //display error messages and return success
-        if( _CF_error_exists )
-        {
-            if( _CF_error_messages.length > 0 )
-            {
-                // show alert() message
-                _CF_onErrorAlert(_CF_error_messages);
-                // set focus to first form error, if the field supports js focus().
-                if( _CF_this[_CF_FirstErrorField].type == "text" )
-                { _CF_this[_CF_FirstErrorField].focus(); }
-
-            }
-            return false;
-        }else {
-            return true;
-        }
-    }
-//-->
-</script>
+<!DOCTYPE html>
+<head>
+  <script src='/js/jquery-1.7.1.min.js'></script>
+  <link href='/css/classic.css' rel='stylesheet'>
+  <style>
+    .ob-centering {
+      width: 98%;
+      margin: 0 auto;
+      padding: 10px 0; }
+    
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      padding: 0;
+      margin: 0; }
+      table td, table th {
+        padding: 3px 10px 3px 3px;
+        text-align: right;
+        font-size: 0.8em;
+        border-right: 1px solid #efefef;
+        font-weight: normal;
+        vertical-align: top; }
+        table td.left, table th.left {
+          text-align: left; }
+        table td.highlow, table th.highlow {
+          text-transform: uppercase;
+          text-align: center; }
+      table tr.currency th {
+        background: #cccccc; }
+        table tr.currency th:first-child {
+          background: none; }
+      table tr.currency td, table tr.currency th {
+        border-bottom: 1px solid #efefef; }
+      table tr.odd td {
+        background: #f1f1f1; }
+      table tr.timeofday th {
+        background: #e1e1e1;
+        border-bottom: 1px solid #efefef; }
+      table tr.odd.subrow td {
+        border-bottom: 1px solid white; }
+      table tr.even.subrow td {
+        border-bottom: 1px solid #efefef; }
+    
+    h3 {
+      background: #a59266;
+      color: white;
+      font-weight: normal;
+      padding: 5px; }
+    
+    th.timestamp {
+      text-align: left;
+      vertical-align: bottom;
+      border-bottom: 1px solid #efefef;
+      color: #999999;
+      width: 20%;
+      white-space: nowrap; }
+      th.timestamp .selector {
+        vertical-align: middle; }
+        th.timestamp .selector label {
+          display: inline-block;
+          margin-top: -10px; }
+        th.timestamp .selector select {
+          margin-right: 20px; }
+    
+    .clear {
+      clear: both;
+      height: 0; }
+  </style>
 </head>
 <body>
-<script type="text/javascript" src="../scripts/udm4/udm-resources/udm-dom.js"></script>
-<script type="text/javascript" src="../scripts/udm4/udm-resources/udm-mod-keyboard.js"></script>
-<div id="wrapper">
-  <div id="header">
-    <div id="header_top"> <a href="index.cfm?page_id=1" id="home_link" title="home page"></a>
-      <div id="search_bar">
-        <div id="search_prompt">Search&nbsp;&nbsp;</div>
-<form name="search_form" id="search_form" action="/pages/search.cfm" method="post" onsubmit="return _CF_checksearch_form(this)"><input name="criteria" type="text" id="criteria"  />
- <input type="image" src="../images/lbma/buttons/search.png" id="search_button" />
-</form>
-      </div>
-      <div id="navigation_bar">
-<ul id="udm" class="udm"><li id="navLink1" class="navLink"><a href="/pages/index.cfm?page_id=3&amp;title=the_london_market">The London Market</a> <ul><li><a href="/pages/index.cfm?page_id=15&amp;title=market_history">Market History</a>
-</li><li><a href="/pages/index.cfm?page_id=16&amp;title=loco_london">Loco London</a>
-</li><li><a href="/pages/index.cfm?page_id=17&amp;title=market_basics">Market Basics</a>
-</li><li><a href="/pages/index.cfm?page_id=18&amp;title=clearing">Clearing</a>
-</li><li><a href="/pages/index.cfm?page_id=19&amp;title=bullion_accounts">Bullion Accounts</a>
-</li><li><a href="/pages/index.cfm?page_id=20&amp;title=standard_documentation">Standard Documentation</a>
-</li><li><a href="/pages/index.cfm?page_id=21&amp;title=market_regulation">Market Regulation</a>
-</li><li><a href="/pages/index.cfm?page_id=22&amp;title=taxation">Taxation</a>
-</li><li><a href="/pages/index.cfm?page_id=24&amp;title=value_dates_2010">Value Dates 2010</a>
-</li><li><a href="/pages/index.cfm?page_id=25&amp;title=value_dates_2011">Value Dates 2011</a>
-</li><li><a href="/pages/index.cfm?page_id=89&amp;title=glossary_of_terms">Glossary of Terms</a>
-</li><li><a href="/pages/index.cfm?page_id=104&amp;title=useful_links">Useful Links</a>
-</li></ul></li><li id="navLink2" class="navLink"><a href="/pages/index.cfm?page_id=4&amp;title=good_delivery">Good Delivery</a> <ul><li><a href="/pages/index.cfm?page_id=27&amp;title=specifications">Specifications</a>
-</li><li><a href="/pages/index.cfm?page_id=28&amp;title=good_delivery_rules">Good Delivery Rules</a>
-</li><li><a href="/pages/index.cfm?page_id=29&amp;title=gold_list">Gold List</a>
-</li><li><a href="/pages/index.cfm?page_id=30&amp;title=silver_list">Silver List</a>
-</li><li><a href="/pages/index.cfm?page_id=31&amp;title=proactive_monitoring">Proactive Monitoring</a>
-</li><li><a href="/pages/index.cfm?page_id=32&amp;title=gdl_additions">GDL Additions</a>
-</li><li><a href="/pages/index.cfm?page_id=33&amp;title=faqs">FAQs</a>
-</li><li><a href="/pages/index.cfm?page_id=34&amp;title=alchemist_articles">Alchemist Articles</a>
-</li><li><a href="/pages/index.cfm?page_id=35&amp;title=press_releases">Press Releases</a>
-<ul><li><a href="/pages/?page_id=106&amp;title=good_delivery_press_release_archives">Good Delivery Press Release Archives</a>
-</li></ul> 
-</li><li><a href="/pages/index.cfm?page_id=36&amp;title=certified_reference_materials">Certified Reference Materials</a>
-</li><li><a href="/pages/index.cfm?page_id=37&amp;title=non-gd_bars">Non-GD Bars</a>
-</li></ul></li><li id="navLink3" class="navLink"><a href="/pages/index.cfm?page_id=5&amp;title=publications">Publications</a> <ul><li><a href="/pages/index.cfm?page_id=38&amp;title=forecasts">Forecasts</a>
-</li><li><a href="/pages/index.cfm?page_id=39&amp;title=otc_guide">OTC Guide</a>
-</li><li><a href="/pages/index.cfm?page_id=40&amp;title=press_releases">Press Releases</a>
-<ul><li><a href="/pages/?page_id=107&amp;title=publications_press_release_archives">Publications Press Release Archives</a>
-</li></ul> 
-</li><li><a href="/pages/index.cfm?page_id=41&amp;title=speeches">Speeches</a>
-</li><li><a href="/pages/index.cfm?page_id=91&amp;title=alchemist">Alchemist</a>
-<ul><li><a href="/pages/?page_id=70&amp;title=alchemist_archive">Alchemist Archive</a>
-<ul><li><a href="/pages/?page_id=93&amp;title=alchemist_2009">Alchemist 2009</a>
-</li><li><a href="/pages/?page_id=94&amp;title=alchemist_2008">Alchemist 2008</a>
-</li><li><a href="/pages/?page_id=95&amp;title=alchemist_2007">Alchemist 2007</a>
-</li><li><a href="/pages/?page_id=96&amp;title=alchemist_2006">Alchemist 2006</a>
-</li><li><a href="/pages/?page_id=97&amp;title=alchemist_2005">Alchemist 2005</a>
-</li><li><a href="/pages/?page_id=98&amp;title=alchemist_2004">Alchemist 2004</a>
-</li><li><a href="/pages/?page_id=99&amp;title=alchemist_2003">Alchemist 2003</a>
-</li><li><a href="/pages/?page_id=100&amp;title=alchemist_2002">Alchemist 2002</a>
-</li></ul> 
-</li></ul> 
-</li></ul></li><li id="navLink4" class="navLink"><a href="/pages/index.cfm?page_id=6&amp;title=statistics">Statistics</a> <ul><li><a href="/pages/index.cfm?page_id=46&amp;title=current_statistics">Current Statistics</a>
-</li><li><a href="/pages/index.cfm?page_id=48&amp;title=historical_statistics">Historical Statistics</a>
-<ul><li><a href="/pages/?page_id=53&amp;title=gold_fixings">Gold Fixings</a>
-</li><li><a href="/pages/?page_id=54&amp;title=silver_fixings">Silver Fixings</a>
-</li><li><a href="/pages/?page_id=55&amp;title=gold_forwards">Gold Forwards</a>
-</li><li><a href="/pages/?page_id=56&amp;title=silver_forwards">Silver Forwards</a>
-</li></ul> 
-</li><li><a href="/pages/index.cfm?page_id=49&amp;title=clearing_background">Clearing Background</a>
-</li><li><a href="/pages/index.cfm?page_id=50&amp;title=clearing_-_statistical_table">Clearing - Statistical Table</a>
-</li><li><a href="/pages/index.cfm?page_id=51&amp;title=clearing_-_most_recent_figures">Clearing - Most Recent Figures</a>
-</li><li><a href="/pages/index.cfm?page_id=52&amp;title=statistics_faqs">Statistics FAQs</a>
-</li></ul></li><li id="navLink5" class="navLink"><a href="/pages/index.cfm?page_id=7&amp;title=news">News</a> </li><li id="navLink6" class="navLink"><a href="/pages/index.cfm?page_id=8&amp;title=events">Events</a> <ul><li><a href="/pages/index.cfm?page_id=57&amp;title=seminars">Seminars</a>
-<ul><li><a href="/pages/?page_id=59&amp;title=assaying_and_refining_seminar_2009">Assaying and Refining Seminar 2009</a>
-</li><li><a href="/pages/?page_id=60&amp;title=reach_seminar">REACH Seminar</a>
-</li></ul> 
-</li><li><a href="/pages/index.cfm?page_id=58&amp;title=2010_lbma_conference">2010 LBMA Conference</a>
-<ul><li><a href="/pages/?page_id=108&amp;title=conference_programme">Conference Programme</a>
-</li></ul> 
-</li><li><a href="/pages/index.cfm?page_id=71&amp;title=annual_conference_archives">Annual Conference Archives</a>
-<ul><li><a href="/pages/?page_id=81&amp;title=conference_2009">Conference 2009</a>
-</li><li><a href="/pages/?page_id=82&amp;title=conference_2008">Conference 2008</a>
-</li><li><a href="/pages/?page_id=83&amp;title=conference_2007">Conference 2007</a>
-</li><li><a href="/pages/?page_id=84&amp;title=conference_2006">Conference 2006</a>
-</li><li><a href="/pages/?page_id=85&amp;title=conference_2005">Conference 2005</a>
-</li><li><a href="/pages/?page_id=86&amp;title=conference_2004">Conference 2004</a>
-</li><li><a href="/pages/?page_id=87&amp;title=conference_2003">Conference 2003</a>
-</li><li><a href="/pages/?page_id=88&amp;title=conference_2002">Conference 2002</a>
-</li></ul> 
-</li></ul></li><li id="navLink7" class="navLink"><a href="/pages/index.cfm?page_id=9&amp;title=about_the_lbma">About the LBMA</a> <ul><li><a href="/pages/index.cfm?page_id=61&amp;title=committees">Committees</a>
-</li><li><a href="/pages/index.cfm?page_id=62&amp;title=market-making_members">Market-Making Members</a>
-</li><li><a href="/pages/index.cfm?page_id=63&amp;title=full_members">Full Members</a>
-</li><li><a href="/pages/index.cfm?page_id=64&amp;title=associates">Associates</a>
-</li><li><a href="/pages/index.cfm?page_id=65&amp;title=joining_the_lbma">Joining the LBMA</a>
-</li><li><a href="/pages/index.cfm?page_id=66&amp;title=membership_benefits">Membership Benefits</a>
-</li><li><a href="/pages/index.cfm?page_id=92&amp;title=lbma_executive">LBMA Executive</a>
-</li></ul></li></ul>
-        
-      </div>
-    </div>
-    <div id="header_bottom">
-      <div id="breadcrumb">
-        <p><span>You are here: 
-<a href="/pages/index.cfm?page_id=1">Home</a> &gt;
-<a href="index.cfm?page_id=6">Statistics</a> &gt;
-<a href="index.cfm?page_id=48">Historical Statistics</a> &gt;
-<strong>Gold Fixings</strong>
-</span> 
-</p>
-      </div>
-    </div>
-    <div id="main">
-<div id="main_content">
-<div id="main_content_holder">
-<table width="100%" border="0">
-<tr>
-<td> </td>
-</tr>
-</table> 
-<div id="pricingData"><table class="pricing_detail "><caption>2009 London Gold Fixings</caption><tr><th></th><th></th><th>GOLD A.M.</th><th></th><th></th><th>GOLD P.M.</th><th></th></tr><tr><th>DATE</th><th>USD</th><th>GBP</th><th>EUR</th><th>USD</th><th>GBP</th><th>EUR</th></tr><tr><td class="left">02-Jan-09</td><td>869.75</td><td>598.795</td><td>623.656</td><td>874.50</td><td>601.651</td><td>627.106</td></tr><tr><td class="left">05-Jan-09</td><td>860.00</td><td>591.797</td><td>628.885</td><td>853.50</td><td>587.729</td><td>626.514</td></tr><tr><td class="left">06-Jan-09</td><td>844.00</td><td>574.854</td><td>630.321</td><td>848.25</td><td>580.397</td><td>632.456</td></tr><tr><td class="left">07-Jan-09</td><td>864.00</td><td>581.348</td><td>635.855</td><td>848.50</td><td>561.958</td><td>621.794</td></tr><tr><td class="left">08-Jan-09</td><td>842.50</td><td>560.657</td><td>621.129</td><td>855.75</td><td>561.516</td><td>623.270</td></tr><tr><td class="left">09-Jan-09</td><td>854.00</td><td>560.257</td><td>622.721</td><td>847.25</td><td>559.167</td><td>626.479</td></tr><tr><td class="left">12-Jan-09</td><td>848.50</td><td>567.938</td><td>634.345</td><td>827.00</td><td>556.528</td><td>618.688</td></tr><tr><td class="left">13-Jan-09</td><td>815.50</td><td>556.200</td><td>612.467</td><td>826.50</td><td>566.406</td><td>625.142</td></tr><tr><td class="left">14-Jan-09</td><td>827.25</td><td>568.400</td><td>624.670</td><td>821.50</td><td>562.440</td><td>625.143</td></tr><tr><td class="left">15-Jan-09</td><td>813.00</td><td>556.126</td><td>617.453</td><td>810.00</td><td>557.582</td><td>618.509</td></tr><tr><td class="left">16-Jan-09</td><td>824.25</td><td>551.670</td><td>622.029</td><td>833.75</td><td>560.617</td><td>628.392</td></tr><tr><td class="left">19-Jan-09</td><td>842.50</td><td>573.285</td><td>634.891</td><td>833.00</td><td>575.475</td><td>633.605</td></tr><tr><td class="left">20-Jan-09</td><td>835.00</td><td>595.450</td><td>643.545</td><td>853.25</td><td>612.307</td><td>661.383</td></tr><tr><td class="left">21-Jan-09</td><td>860.50</td><td>624.592</td><td>666.022</td><td>849.25</td><td>614.108</td><td>656.450</td></tr><tr><td class="left">22-Jan-09</td><td>847.75</td><td>612.669</td><td>651.064</td><td>860.00</td><td>626.138</td><td>663.376</td></tr><tr><td class="left">23-Jan-09</td><td>873.00</td><td>644.233</td><td>681.339</td><td>875.75</td><td>641.012</td><td>682.420</td></tr><tr><td class="left">26-Jan-09</td><td>906.50</td><td>656.646</td><td>699.676</td><td>910.25</td><td>653.821</td><td>691.627</td></tr><tr><td class="left">27-Jan-09</td><td>896.00</td><td>633.753</td><td>676.584</td><td>897.50</td><td>638.745</td><td>683.133</td></tr><tr><td class="left">28-Jan-09</td><td>891.25</td><td>624.737</td><td>673.302</td><td>895.25</td><td>627.409</td><td>676.069</td></tr><tr><td class="left">29-Jan-09</td><td>878.50</td><td>618.531</td><td>672.974</td><td>892.25</td><td>625.921</td><td>681.419</td></tr><tr><td class="left">30-Jan-09</td><td>918.50</td><td>641.635</td><td>713.398</td><td>919.50</td><td>642.288</td><td>715.620</td></tr><tr><td class="left">02-Feb-09</td><td>913.75</td><td>642.581</td><td>717.736</td><td>918.25</td><td>649.123</td><td>717.831</td></tr><tr><td class="left">03-Feb-09</td><td>902.00</td><td>636.017</td><td>702.930</td><td>904.50</td><td>631.458</td><td>699.536</td></tr><tr><td class="left">04-Feb-09</td><td>902.25</td><td>626.128</td><td>695.912</td><td>905.00</td><td>623.708</td><td>701.877</td></tr><tr><td class="left">05-Feb-09</td><td>914.75</td><td>629.430</td><td>709.438</td><td>920.00</td><td>628.544</td><td>719.199</td></tr><tr><td class="left">06-Feb-09</td><td>914.00</td><td>622.107</td><td>713.060</td><td>913.00</td><td>621.511</td><td>709.126</td></tr><tr><td class="left">09-Feb-09</td><td>901.00</td><td>606.857</td><td>696.075</td><td>895.00</td><td>599.866</td><td>686.244</td></tr><tr><td class="left">10-Feb-09</td><td>896.00</td><td>603.936</td><td>691.732</td><td>909.75</td><td>617.575</td><td>699.270</td></tr><tr><td class="left">11-Feb-09</td><td>922.00</td><td>637.180</td><td>711.804</td><td>938.00</td><td>653.795</td><td>727.583</td></tr><tr><td class="left">12-Feb-09</td><td>944.00</td><td>666.337</td><td>737.039</td><td>943.25</td><td>663.746</td><td>740.094</td></tr><tr><td class="left">13-Feb-09</td><td>939.25</td><td>645.843</td><td>728.327</td><td>935.50</td><td>649.022</td><td>727.732</td></tr><tr><td class="left">16-Feb-09</td><td>943.00</td><td>661.198</td><td>738.970</td><td>942.50</td><td>659.091</td><td>735.696</td></tr><tr><td class="left">17-Feb-09</td><td>962.25</td><td>674.932</td><td>761.515</td><td>968.00</td><td>678.584</td><td>766.976</td></tr><tr><td class="left">18-Feb-09</td><td>964.75</td><td>680.648</td><td>767.014</td><td>964.00</td><td>679.447</td><td>767.944</td></tr><tr><td class="left">19-Feb-09</td><td>973.50</td><td>677.925</td><td>768.169</td><td>980.50</td><td>684.133</td><td>771.561</td></tr><tr><td class="left">20-Feb-09</td><td>981.00</td><td>687.842</td><td>778.201</td><td>989.00</td><td>690.353</td><td>782.437</td></tr><tr><td class="left">23-Feb-09</td><td>987.00</td><td>674.641</td><td>768.093</td><td>985.75</td><td>677.678</td><td>771.866</td></tr><tr><td class="left">24-Feb-09</td><td>989.75</td><td>681.881</td><td>773.726</td><td>984.25</td><td>683.175</td><td>774.268</td></tr><tr><td class="left">25-Feb-09</td><td>956.25</td><td>660.850</td><td>744.743</td><td>978.50</td><td>685.560</td><td>767.571</td></tr><tr><td class="left">26-Feb-09</td><td>945.00</td><td>663.298</td><td>740.480</td><td>936.50</td><td>653.068</td><td>735.029</td></tr><tr><td class="left">27-Feb-09</td><td>943.75</td><td>666.020</td><td>745.046</td><td>952.00</td><td>669.809</td><td>752.807</td></tr><tr><td class="left">02-Mar-09</td><td>949.50</td><td>668.333</td><td>753.571</td><td>937.25</td><td>665.944</td><td>742.965</td></tr><tr><td class="left">03-Mar-09</td><td>924.75</td><td>656.689</td><td>732.475</td><td>913.75</td><td>651.608</td><td>726.409</td></tr><tr><td class="left">04-Mar-09</td><td>911.00</td><td>646.650</td><td>727.810</td><td>908.50</td><td>642.958</td><td>722.695</td></tr><tr><td class="left">05-Mar-09</td><td>913.25</td><td>644.655</td><td>725.954</td><td>913.00</td><td>646.143</td><td>728.942</td></tr><tr><td class="left">06-Mar-09</td><td>937.75</td><td>659.319</td><td>740.017</td><td>936.00</td><td>655.922</td><td>737.356</td></tr><tr><td class="left">09-Mar-09</td><td>934.75</td><td>671.516</td><td>741.100</td><td>923.75</td><td>669.675</td><td>731.278</td></tr><tr><td class="left">10-Mar-09</td><td>911.50</td><td>657.506</td><td>717.208</td><td>901.50</td><td>650.198</td><td>705.675</td></tr><tr><td class="left">11-Mar-09</td><td>900.00</td><td>653.215</td><td>707.380</td><td>899.50</td><td>654.039</td><td>703.999</td></tr><tr><td class="left">12-Mar-09</td><td>914.50</td><td>664.366</td><td>715.291</td><td>925.25</td><td>671.737</td><td>724.777</td></tr><tr><td class="left">13-Mar-09</td><td>920.00</td><td>655.271</td><td>713.953</td><td>928.00</td><td>663.473</td><td>718.377</td></tr><tr><td class="left">16-Mar-09</td><td>923.00</td><td>649.086</td><td>708.528</td><td>919.50</td><td>652.128</td><td>706.818</td></tr><tr><td class="left">17-Mar-09</td><td>920.00</td><td>653.548</td><td>707.203</td><td>915.50</td><td>653.695</td><td>705.805</td></tr><tr><td class="left">18-Mar-09</td><td>910.75</td><td>655.122</td><td>697.839</td><td>893.25</td><td>638.629</td><td>680.053</td></tr><tr><td class="left">19-Mar-09</td><td>937.25</td><td>655.190</td><td>694.105</td><td>956.50</td><td>656.937</td><td>698.481</td></tr><tr><td class="left">20-Mar-09</td><td>957.00</td><td>660.364</td><td>702.282</td><td>954.00</td><td>661.260</td><td>703.332</td></tr><tr><td class="left">23-Mar-09</td><td>952.75</td><td>653.240</td><td>697.321</td><td>949.25</td><td>656.012</td><td>701.123</td></tr><tr><td class="left">24-Mar-09</td><td>928.75</td><td>633.786</td><td>685.576</td><td>923.75</td><td>629.901</td><td>682.591</td></tr><tr><td class="left">25-Mar-09</td><td>921.25</td><td>630.432</td><td>682.205</td><td>929.00</td><td>635.214</td><td>684.497</td></tr><tr><td class="left">26-Mar-09</td><td>935.50</td><td>643.575</td><td>689.236</td><td>938.25</td><td>647.114</td><td>692.129</td></tr><tr><td class="left">27-Mar-09</td><td>927.00</td><td>647.799</td><td>690.606</td><td>924.00</td><td>644.801</td><td>694.163</td></tr><tr><td class="left">30-Mar-09</td><td>923.00</td><td>652.297</td><td>700.463</td><td>928.00</td><td>655.691</td><td>706.456</td></tr><tr><td class="left">31-Mar-09</td><td>918.50</td><td>643.523</td><td>691.433</td><td>916.50</td><td>640.909</td><td>688.994</td></tr><tr><td class="left">01-Apr-09</td><td>919.50</td><td>639.430</td><td>696.274</td><td>924.50</td><td>643.713</td><td>697.315</td></tr><tr><td class="left">02-Apr-09</td><td>914.75</td><td>625.513</td><td>687.989</td><td>897.75</td><td>610.964</td><td>668.068</td></tr><tr><td class="left">03-Apr-09</td><td>901.50</td><td>610.111</td><td>670.410</td><td>905.00</td><td>610.085</td><td>674.668</td></tr><tr><td class="left">06-Apr-09</td><td>879.50</td><td>589.477</td><td>650.422</td><td>870.25</td><td>586.857</td><td>646.930</td></tr><tr><td class="left">07-Apr-09</td><td>879.25</td><td>600.909</td><td>662.385</td><td>879.75</td><td>597.981</td><td>663.361</td></tr><tr><td class="left">08-Apr-09</td><td>887.25</td><td>604.311</td><td>671.396</td><td>880.00</td><td>600.683</td><td>664.904</td></tr><tr><td class="left">09-Apr-09</td><td>883.75</td><td>602.420</td><td>664.924</td><td>880.50</td><td>597.963</td><td>663.127</td></tr><tr><td class="left">14-Apr-09</td><td>895.00</td><td>601.317</td><td>673.540</td><td>887.50</td><td>596.639</td><td>668.903</td></tr><tr><td class="left">15-Apr-09</td><td>892.25</td><td>597.822</td><td>673.498</td><td>891.00</td><td>595.270</td><td>675.870</td></tr><tr><td class="left">16-Apr-09</td><td>889.00</td><td>597.366</td><td>676.869</td><td>880.50</td><td>590.147</td><td>666.793</td></tr><tr><td class="left">17-Apr-09</td><td>872.00</td><td>590.866</td><td>667.279</td><td>870.50</td><td>586.195</td><td>666.488</td></tr><tr><td class="left">20-Apr-09</td><td>870.00</td><td>597.527</td><td>671.607</td><td>877.00</td><td>603.745</td><td>678.950</td></tr><tr><td class="left">21-Apr-09</td><td>888.75</td><td>609.067</td><td>685.447</td><td>888.75</td><td>608.233</td><td>685.817</td></tr><tr><td class="left">22-Apr-09</td><td>885.00</td><td>608.457</td><td>684.032</td><td>886.00</td><td>610.908</td><td>680.805</td></tr><tr><td class="left">23-Apr-09</td><td>894.50</td><td>613.848</td><td>684.811</td><td>897.50</td><td>617.688</td><td>689.695</td></tr><tr><td class="left">24-Apr-09</td><td>909.00</td><td>621.496</td><td>686.504</td><td>907.50</td><td>614.588</td><td>683.719</td></tr><tr><td class="left">27-Apr-09</td><td>911.75</td><td>627.193</td><td>693.715</td><td>907.50</td><td>621.916</td><td>693.013</td></tr><tr><td class="left">28-Apr-09</td><td>897.00</td><td>617.046</td><td>689.576</td><td>891.00</td><td>606.907</td><td>681.610</td></tr><tr><td class="left">29-Apr-09</td><td>894.50</td><td>605.866</td><td>676.166</td><td>898.25</td><td>608.529</td><td>678.078</td></tr><tr><td class="left">30-Apr-09</td><td>889.00</td><td>598.976</td><td>667.919</td><td>883.25</td><td>599.789</td><td>668.218</td></tr><tr><td class="left">01-May-09</td><td>881.50</td><td>591.650</td><td>664.781</td><td>884.50</td><td>594.822</td><td>666.541</td></tr><tr><td class="left">05-May-09</td><td>903.00</td><td>598.251</td><td>674.132</td><td>910.00</td><td>603.088</td><td>679.612</td></tr><tr><td class="left">06-May-09</td><td>903.50</td><td>599.536</td><td>678.609</td><td>910.00</td><td>605.657</td><td>685.241</td></tr><tr><td class="left">07-May-09</td><td>912.75</td><td>602.993</td><td>685.402</td><td>912.25</td><td>605.342</td><td>680.276</td></tr><tr><td class="left">08-May-09</td><td>917.50</td><td>609.837</td><td>684.446</td><td>907.00</td><td>602.578</td><td>672.499</td></tr><tr><td class="left">11-May-09</td><td>912.50</td><td>603.905</td><td>671.746</td><td>913.00</td><td>604.236</td><td>670.978</td></tr><tr><td class="left">12-May-09</td><td>920.00</td><td>602.094</td><td>673.204</td><td>917.00</td><td>601.114</td><td>672.041</td></tr><tr><td class="left">13-May-09</td><td>925.75</td><td>607.049</td><td>676.471</td><td>924.00</td><td>610.707</td><td>679.662</td></tr><tr><td class="left">14-May-09</td><td>923.25</td><td>610.010</td><td>678.711</td><td>925.25</td><td>610.726</td><td>680.531</td></tr><tr><td class="left">15-May-09</td><td>925.00</td><td>610.078</td><td>682.103</td><td>929.50</td><td>609.109</td><td>683.858</td></tr><tr><td class="left">18-May-09</td><td>929.75</td><td>610.463</td><td>690.596</td><td>921.00</td><td>602.552</td><td>682.677</td></tr><tr><td class="left">19-May-09</td><td>921.50</td><td>595.746</td><td>676.281</td><td>924.75</td><td>598.311</td><td>681.316</td></tr><tr><td class="left">20-May-09</td><td>928.50</td><td>598.260</td><td>680.569</td><td>939.50</td><td>601.742</td><td>681.686</td></tr><tr><td class="left">21-May-09</td><td>940.00</td><td>602.757</td><td>681.703</td><td>937.50</td><td>596.754</td><td>680.927</td></tr><tr><td class="left">22-May-09</td><td>952.50</td><td>600.946</td><td>682.551</td><td>959.75</td><td>604.148</td><td>685.291</td></tr><tr><td class="left">26-May-09</td><td>942.00</td><td>596.391</td><td>678.381</td><td>945.00</td><td>594.340</td><td>677.225</td></tr><tr><td class="left">27-May-09</td><td>949.50</td><td>593.586</td><td>680.206</td><td>951.00</td><td>594.524</td><td>682.699</td></tr><tr><td class="left">28-May-09</td><td>949.75</td><td>596.015</td><td>684.998</td><td>957.75</td><td>600.847</td><td>688.039</td></tr><tr><td class="left">29-May-09</td><td>972.00</td><td>604.027</td><td>692.554</td><td>975.50</td><td>605.600</td><td>691.060</td></tr><tr><td class="left">01-Jun-09</td><td>987.00</td><td>602.417</td><td>693.946</td><td>981.75</td><td>598.409</td><td>690.887</td></tr><tr><td class="left">02-Jun-09</td><td>973.50</td><td>595.923</td><td>689.350</td><td>980.00</td><td>593.652</td><td>686.948</td></tr><tr><td class="left">03-Jun-09</td><td>979.00</td><td>591.541</td><td>689.048</td><td>976.75</td><td>594.600</td><td>688.531</td></tr><tr><td class="left">04-Jun-09</td><td>967.25</td><td>589.499</td><td>680.922</td><td>970.75</td><td>598.859</td><td>686.236</td></tr><tr><td class="left">05-Jun-09</td><td>977.75</td><td>609.570</td><td>689.139</td><td>962.00</td><td>600.387</td><td>685.771</td></tr><tr><td class="left">08-Jun-09</td><td>946.50</td><td>597.953</td><td>683.739</td><td>943.75</td><td>593.479</td><td>682.344</td></tr><tr><td class="left">09-Jun-09</td><td>952.50</td><td>591.248</td><td>685.252</td><td>956.00</td><td>588.308</td><td>682.857</td></tr><tr><td class="left">10-Jun-09</td><td>961.25</td><td>587.956</td><td>681.883</td><td>953.75</td><td>582.692</td><td>680.958</td></tr><tr><td class="left">11-Jun-09</td><td>953.00</td><td>579.507</td><td>679.889</td><td>947.50</td><td>574.765</td><td>675.098</td></tr><tr><td class="left">12-Jun-09</td><td>950.00</td><td>577.157</td><td>676.012</td><td>937.25</td><td>572.891</td><td>672.201</td></tr><tr><td class="left">15-Jun-09</td><td>932.00</td><td>569.682</td><td>672.196</td><td>932.25</td><td>569.939</td><td>673.105</td></tr><tr><td class="left">16-Jun-09</td><td>936.75</td><td>569.453</td><td>673.921</td><td>934.00</td><td>570.208</td><td>673.687</td></tr><tr><td class="left">17-Jun-09</td><td>933.75</td><td>573.204</td><td>673.361</td><td>930.50</td><td>572.087</td><td>670.969</td></tr><tr><td class="left">18-Jun-09</td><td>936.75</td><td>576.391</td><td>671.794</td><td>940.50</td><td>575.863</td><td>672.074</td></tr><tr><td class="left">19-Jun-09</td><td>933.75</td><td>568.113</td><td>670.942</td><td>935.25</td><td>570.274</td><td>671.778</td></tr><tr><td class="left">22-Jun-09</td><td>924.00</td><td>561.566</td><td>667.678</td><td>919.25</td><td>561.477</td><td>664.006</td></tr><tr><td class="left">23-Jun-09</td><td>920.25</td><td>565.785</td><td>660.625</td><td>920.75</td><td>564.531</td><td>657.491</td></tr><tr><td class="left">24-Jun-09</td><td>928.75</td><td>560.467</td><td>659.015</td><td>933.50</td><td>566.032</td><td>666.025</td></tr><tr><td class="left">25-Jun-09</td><td>934.25</td><td>573.160</td><td>669.090</td><td>937.25</td><td>575.318</td><td>672.057</td></tr><tr><td class="left">26-Jun-09</td><td>943.00</td><td>572.566</td><td>671.892</td><td>942.00</td><td>571.394</td><td>669.272</td></tr><tr><td class="left">29-Jun-09</td><td>939.75</td><td>570.133</td><td>671.250</td><td>935.50</td><td>565.701</td><td>665.576</td></tr><tr><td class="left">30-Jun-09</td><td>941.00</td><td>566.697</td><td>666.903</td><td>934.50</td><td>566.364</td><td>664.888</td></tr><tr><td class="left">01-Jul-09</td><td>931.50</td><td>567.296</td><td>662.565</td><td>938.25</td><td>568.051</td><td>663.496</td></tr><tr><td class="left">02-Jul-09</td><td>936.00</td><td>571.708</td><td>663.594</td><td>929.50</td><td>568.328</td><td>662.367</td></tr><tr><td class="left">03-Jul-09</td><td>932.50</td><td>569.918</td><td>666.214</td><td>932.50</td><td>570.965</td><td>665.834</td></tr><tr><td class="left">06-Jul-09</td><td>921.50</td><td>571.827</td><td>662.235</td><td>924.50</td><td>570.327</td><td>663.580</td></tr><tr><td class="left">07-Jul-09</td><td>925.75</td><td>570.148</td><td>662.291</td><td>924.00</td><td>572.101</td><td>661.039</td></tr><tr><td class="left">08-Jul-09</td><td>920.75</td><td>571.362</td><td>661.601</td><td>918.00</td><td>569.691</td><td>659.388</td></tr><tr><td class="left">09-Jul-09</td><td>914.75</td><td>565.009</td><td>655.265</td><td>911.75</td><td>562.045</td><td>652.835</td></tr><tr><td class="left">10-Jul-09</td><td>910.00</td><td>559.587</td><td>655.100</td><td>913.00</td><td>563.789</td><td>654.762</td></tr><tr><td class="left">13-Jul-09</td><td>908.50</td><td>565.726</td><td>651.208</td><td>908.50</td><td>564.636</td><td>652.471</td></tr><tr><td class="left">14-Jul-09</td><td>921.75</td><td>565.006</td><td>659.099</td><td>924.75</td><td>567.192</td><td>661.291</td></tr><tr><td class="left">15-Jul-09</td><td>930.00</td><td>568.008</td><td>661.404</td><td>938.00</td><td>570.629</td><td>666.335</td></tr><tr><td class="left">16-Jul-09</td><td>935.25</td><td>570.866</td><td>664.429</td><td>935.00</td><td>569.775</td><td>662.604</td></tr><tr><td class="left">17-Jul-09</td><td>934.50</td><td>572.997</td><td>662.390</td><td>937.50</td><td>573.851</td><td>664.328</td></tr><tr><td class="left">20-Jul-09</td><td>952.25</td><td>576.842</td><td>668.997</td><td>952.75</td><td>577.459</td><td>670.007</td></tr><tr><td class="left">21-Jul-09</td><td>947.75</td><td>577.263</td><td>666.444</td><td>947.75</td><td>576.595</td><td>666.397</td></tr><tr><td class="left">22-Jul-09</td><td>945.50</td><td>577.510</td><td>666.408</td><td>948.25</td><td>578.236</td><td>668.064</td></tr><tr><td class="left">23-Jul-09</td><td>955.25</td><td>577.749</td><td>671.340</td><td>950.00</td><td>575.967</td><td>668.073</td></tr><tr><td class="left">24-Jul-09</td><td>949.75</td><td>577.531</td><td>668.603</td><td>951.50</td><td>579.441</td><td>669.222</td></tr><tr><td class="left">27-Jul-09</td><td>956.00</td><td>580.379</td><td>670.595</td><td>955.00</td><td>578.788</td><td>669.705</td></tr><tr><td class="left">28-Jul-09</td><td>955.00</td><td>577.912</td><td>668.908</td><td>944.25</td><td>574.187</td><td>665.715</td></tr><tr><td class="left">29-Jul-09</td><td>935.50</td><td>571.996</td><td>661.786</td><td>931.00</td><td>566.371</td><td>660.612</td></tr><tr><td class="left">30-Jul-09</td><td>932.00</td><td>564.985</td><td>661.697</td><td>932.50</td><td>565.734</td><td>664.458</td></tr><tr><td class="left">31-Jul-09</td><td>936.50</td><td>565.246</td><td>663.902</td><td>939.00</td><td>568.919</td><td>664.591</td></tr><tr><td class="left">03-Aug-09</td><td>954.25</td><td>565.985</td><td>667.635</td><td>959.75</td><td>568.034</td><td>667.049</td></tr><tr><td class="left">04-Aug-09</td><td>953.50</td><td>563.102</td><td>662.935</td><td>960.50</td><td>566.600</td><td>666.227</td></tr><tr><td class="left">05-Aug-09</td><td>964.50</td><td>568.021</td><td>670.071</td><td>960.50</td><td>566.500</td><td>668.546</td></tr><tr><td class="left">06-Aug-09</td><td>960.75</td><td>565.646</td><td>667.234</td><td>964.00</td><td>573.468</td><td>671.543</td></tr><tr><td class="left">07-Aug-09</td><td>960.50</td><td>573.570</td><td>668.593</td><td>956.00</td><td>571.497</td><td>670.407</td></tr><tr><td class="left">10-Aug-09</td><td>953.50</td><td>572.810</td><td>671.715</td><td>945.00</td><td>570.239</td><td>667.232</td></tr><tr><td class="left">11-Aug-09</td><td>946.00</td><td>575.076</td><td>668.221</td><td>942.75</td><td>572.265</td><td>667.717</td></tr><tr><td class="left">12-Aug-09</td><td>943.50</td><td>574.779</td><td>667.775</td><td>947.25</td><td>573.743</td><td>667.501</td></tr><tr><td class="left">13-Aug-09</td><td>956.00</td><td>576.147</td><td>669.843</td><td>953.50</td><td>575.368</td><td>667.717</td></tr><tr><td class="left">14-Aug-09</td><td>957.50</td><td>578.305</td><td>670.518</td><td>953.50</td><td>576.481</td><td>669.734</td></tr><tr><td class="left">17-Aug-09</td><td>937.50</td><td>573.886</td><td>664.658</td><td>932.75</td><td>572.520</td><td>663.407</td></tr><tr><td class="left">18-Aug-09</td><td>938.25</td><td>570.816</td><td>664.154</td><td>935.00</td><td>568.044</td><td>663.921</td></tr><tr><td class="left">19-Aug-09</td><td>934.25</td><td>570.221</td><td>662.636</td><td>943.00</td><td>573.461</td><td>666.007</td></tr><tr><td class="left">20-Aug-09</td><td>943.50</td><td>571.022</td><td>662.989</td><td>940.50</td><td>570.104</td><td>661.253</td></tr><tr><td class="left">21-Aug-09</td><td>941.50</td><td>570.952</td><td>658.300</td><td>952.50</td><td>574.072</td><td>663.578</td></tr><tr><td class="left">24-Aug-09</td><td>953.75</td><td>577.925</td><td>667.005</td><td>951.50</td><td>577.261</td><td>663.853</td></tr><tr><td class="left">25-Aug-09</td><td>947.50</td><td>578.061</td><td>662.773</td><td>950.50</td><td>578.480</td><td>662.323</td></tr><tr><td class="left">26-Aug-09</td><td>949.50</td><td>582.015</td><td>663.290</td><td>940.50</td><td>581.201</td><td>661.021</td></tr><tr><td class="left">27-Aug-09</td><td>943.50</td><td>582.228</td><td>661.919</td><td>943.00</td><td>583.467</td><td>662.731</td></tr><tr><td class="left">28-Aug-09</td><td>950.75</td><td>582.104</td><td>661.898</td><td>955.50</td><td>585.657</td><td>665.297</td></tr><tr><td class="left">01-Sep-09</td><td>949.75</td><td>585.182</td><td>662.770</td><td>955.00</td><td>588.054</td><td>666.667</td></tr><tr><td class="left">02-Sep-09</td><td>955.00</td><td>590.600</td><td>671.448</td><td>964.75</td><td>594.314</td><td>678.684</td></tr><tr><td class="left">03-Sep-09</td><td>982.50</td><td>600.734</td><td>687.303</td><td>983.00</td><td>600.856</td><td>688.568</td></tr><tr><td class="left">04-Sep-09</td><td>987.25</td><td>604.007</td><td>692.030</td><td>989.00</td><td>605.931</td><td>695.597</td></tr><tr><td class="left">07-Sep-09</td><td>992.75</td><td>604.819</td><td>692.101</td><td>993.00</td><td>606.264</td><td>692.952</td></tr><tr><td class="left">08-Sep-09</td><td>1004.50</td><td>608.530</td><td>696.312</td><td>1000.75</td><td>604.902</td><td>690.983</td></tr><tr><td class="left">09-Sep-09</td><td>995.75</td><td>603.119</td><td>686.582</td><td>999.50</td><td>603.199</td><td>685.011</td></tr><tr><td class="left">10-Sep-09</td><td>988.50</td><td>598.366</td><td>679.989</td><td>990.75</td><td>595.761</td><td>681.631</td></tr><tr><td class="left">11-Sep-09</td><td>998.25</td><td>597.504</td><td>684.389</td><td>1008.25</td><td>604.177</td><td>690.961</td></tr><tr><td class="left">14-Sep-09</td><td>994.25</td><td>601.628</td><td>684.227</td><td>999.25</td><td>602.357</td><td>683.669</td></tr><tr><td class="left">15-Sep-09</td><td>997.50</td><td>603.996</td><td>683.594</td><td>996.00</td><td>605.803</td><td>682.893</td></tr><tr><td class="left">16-Sep-09</td><td>1017.00</td><td>615.617</td><td>691.743</td><td>1015.75</td><td>616.802</td><td>692.447</td></tr><tr><td class="left">17-Sep-09</td><td>1020.50</td><td>616.877</td><td>692.005</td><td>1018.50</td><td>616.525</td><td>691.118</td></tr><tr><td class="left">18-Sep-09</td><td>1014.00</td><td>619.994</td><td>690.219</td><td>1012.00</td><td>620.288</td><td>687.967</td></tr><tr><td class="left">21-Sep-09</td><td>999.25</td><td>618.233</td><td>681.756</td><td>997.00</td><td>616.307</td><td>680.871</td></tr><tr><td class="left">22-Sep-09</td><td>1015.75</td><td>622.396</td><td>686.550</td><td>1014.00</td><td>620.639</td><td>686.109</td></tr><tr><td class="left">23-Sep-09</td><td>1014.75</td><td>617.658</td><td>686.105</td><td>1010.25</td><td>615.256</td><td>684.127</td></tr><tr><td class="left">24-Sep-09</td><td>1014.00</td><td>626.700</td><td>686.527</td><td>1009.75</td><td>626.979</td><td>685.413</td></tr><tr><td class="left">25-Sep-09</td><td>997.00</td><td>622.736</td><td>678.878</td><td>991.50</td><td>619.455</td><td>674.398</td></tr><tr><td class="left">28-Sep-09</td><td>990.50</td><td>623.466</td><td>676.941</td><td>991.75</td><td>625.749</td><td>676.593</td></tr><tr><td class="left">29-Sep-09</td><td>991.75</td><td>625.986</td><td>680.259</td><td>989.50</td><td>620.765</td><td>680.349</td></tr><tr><td class="left">30-Sep-09</td><td>1001.25</td><td>622.126</td><td>682.608</td><td>995.75</td><td>624.099</td><td>682.628</td></tr><tr><td class="left">01-Oct-09</td><td>1005.75</td><td>628.594</td><td>689.768</td><td>1004.75</td><td>629.543</td><td>690.407</td></tr><tr><td class="left">02-Oct-09</td><td>998.00</td><td>628.266</td><td>686.482</td><td>1003.50</td><td>630.735</td><td>684.414</td></tr><tr><td class="left">05-Oct-09</td><td>1004.25</td><td>628.049</td><td>686.479</td><td>1005.50</td><td>630.984</td><td>687.945</td></tr><tr><td class="left">06-Oct-09</td><td>1020.25</td><td>639.455</td><td>692.258</td><td>1038.75</td><td>652.235</td><td>704.954</td></tr><tr><td class="left">07-Oct-09</td><td>1047.00</td><td>658.946</td><td>711.422</td><td>1040.25</td><td>655.234</td><td>709.100</td></tr><tr><td class="left">08-Oct-09</td><td>1054.75</td><td>657.083</td><td>713.971</td><td>1045.00</td><td>650.807</td><td>709.340</td></tr><tr><td class="left">09-Oct-09</td><td>1046.75</td><td>656.270</td><td>710.239</td><td>1051.50</td><td>660.573</td><td>712.881</td></tr><tr><td class="left">12-Oct-09</td><td>1052.00</td><td>667.132</td><td>714.189</td><td>1058.75</td><td>669.163</td><td>715.710</td></tr><tr><td class="left">13-Oct-09</td><td>1064.50</td><td>675.744</td><td>719.500</td><td>1057.50</td><td>668.331</td><td>713.755</td></tr><tr><td class="left">14-Oct-09</td><td>1066.00</td><td>666.458</td><td>715.148</td><td>1059.50</td><td>665.348</td><td>711.511</td></tr><tr><td class="left">15-Oct-09</td><td>1052.50</td><td>649.010</td><td>705.713</td><td>1053.50</td><td>648.867</td><td>707.000</td></tr><tr><td class="left">16-Oct-09</td><td>1047.75</td><td>640.747</td><td>702.999</td><td>1047.50</td><td>641.143</td><td>704.344</td></tr><tr><td class="left">19-Oct-09</td><td>1054.50</td><td>647.767</td><td>706.296</td><td>1050.50</td><td>643.295</td><td>704.041</td></tr><tr><td class="left">20-Oct-09</td><td>1064.00</td><td>648.504</td><td>710.755</td><td>1061.75</td><td>644.853</td><td>709.916</td></tr><tr><td class="left">21-Oct-09</td><td>1053.50</td><td>635.366</td><td>705.060</td><td>1053.75</td><td>633.949</td><td>703.062</td></tr><tr><td class="left">22-Oct-09</td><td>1054.75</td><td>638.778</td><td>705.188</td><td>1053.00</td><td>635.908</td><td>702.937</td></tr><tr><td class="left">23-Oct-09</td><td>1061.25</td><td>645.411</td><td>705.900</td><td>1061.75</td><td>649.786</td><td>707.456</td></tr><tr><td class="left">26-Oct-09</td><td>1055.00</td><td>646.446</td><td>701.649</td><td>1054.00</td><td>642.879</td><td>702.199</td></tr><tr><td class="left">27-Oct-09</td><td>1040.75</td><td>633.831</td><td>698.959</td><td>1036.50</td><td>635.110</td><td>699.818</td></tr><tr><td class="left">28-Oct-09</td><td>1035.50</td><td>633.993</td><td>699.851</td><td>1031.75</td><td>629.692</td><td>698.923</td></tr><tr><td class="left">29-Oct-09</td><td>1034.00</td><td>628.495</td><td>700.922</td><td>1040.50</td><td>627.147</td><td>702.566</td></tr><tr><td class="left">30-Oct-09</td><td>1044.50</td><td>630.737</td><td>703.272</td><td>1040.00</td><td>629.616</td><td>704.607</td></tr><tr><td class="left">02-Nov-09</td><td>1052.00</td><td>641.776</td><td>712.255</td><td>1062.00</td><td>647.521</td><td>716.841</td></tr><tr><td class="left">03-Nov-09</td><td>1058.00</td><td>648.881</td><td>721.593</td><td>1061.00</td><td>649.526</td><td>723.343</td></tr><tr><td class="left">04-Nov-09</td><td>1091.75</td><td>659.987</td><td>739.568</td><td>1090.00</td><td>660.046</td><td>736.089</td></tr><tr><td class="left">05-Nov-09</td><td>1088.00</td><td>657.879</td><td>732.660</td><td>1089.00</td><td>656.815</td><td>731.904</td></tr><tr><td class="left">06-Nov-09</td><td>1095.00</td><td>659.599</td><td>735.047</td><td>1096.75</td><td>661.290</td><td>735.679</td></tr><tr><td class="left">09-Nov-09</td><td>1108.50</td><td>658.802</td><td>738.901</td><td>1106.75</td><td>659.762</td><td>737.833</td></tr><tr><td class="left">10-Nov-09</td><td>1099.75</td><td>658.809</td><td>732.727</td><td>1101.50</td><td>659.028</td><td>735.314</td></tr><tr><td class="left">11-Nov-09</td><td>1114.75</td><td>667.515</td><td>741.930</td><td>1115.25</td><td>669.820</td><td>742.263</td></tr><tr><td class="left">12-Nov-09</td><td>1116.00</td><td>672.897</td><td>746.189</td><td>1114.75</td><td>673.646</td><td>747.753</td></tr><tr><td class="left">13-Nov-09</td><td>1107.50</td><td>664.048</td><td>744.588</td><td>1104.00</td><td>663.541</td><td>744.236</td></tr><tr><td class="left">16-Nov-09</td><td>1128.75</td><td>676.830</td><td>759.258</td><td>1130.00</td><td>674.788</td><td>729.424</td></tr><tr><td class="left">17-Nov-09</td><td>1131.75</td><td>673.100</td><td>759.258</td><td>1134.75</td><td>675.326</td><td>763.576</td></tr><tr><td class="left">18-Nov-09</td><td>1146.00</td><td>681.615</td><td>767.068</td><td>1149.00</td><td>684.825</td><td>768.613</td></tr><tr><td class="left">19-Nov-09</td><td>1136.00</td><td>681.545</td><td>763.852</td><td>1135.50</td><td>682.843</td><td>763.361</td></tr><tr><td class="left">20-Nov-09</td><td>1142.50</td><td>690.833</td><td>768.067</td><td>1140.00</td><td>691.035</td><td>768.298</td></tr><tr><td class="left">23-Nov-09</td><td>1166.00</td><td>702.410</td><td>778.527</td><td>1169.50</td><td>702.867</td><td>780.083</td></tr><tr><td class="left">24-Nov-09</td><td>1170.25</td><td>708.813</td><td>782.933</td><td>1163.25</td><td>703.295</td><td>778.510</td></tr><tr><td class="left">25-Nov-09</td><td>1176.50</td><td>704.449</td><td>782.924</td><td>1179.75</td><td>706.733</td><td>783.107</td></tr><tr><td class="left">26-Nov-09</td><td>1183.00</td><td>714.458</td><td>784.223</td><td>1182.75</td><td>716.297</td><td>787.240</td></tr><tr><td class="left">27-Nov-09</td><td>1164.50</td><td>708.980</td><td>780.758</td><td>1166.50</td><td>709.119</td><td>781.313</td></tr><tr><td class="left">30-Nov-09</td><td>1172.00</td><td>709.228</td><td>778.686</td><td>1175.75</td><td>714.742</td><td>782.321</td></tr><tr><td class="left">01-Dec-09</td><td>1193.50</td><td>720.930</td><td>791.761</td><td>1192.50</td><td>718.547</td><td>790.678</td></tr><tr><td class="left">02-Dec-09</td><td>1211.50</td><td>727.104</td><td>802.105</td><td>1212.50</td><td>727.922</td><td>804.312</td></tr><tr><td class="left">03-Dec-09</td><td>1218.25</td><td>731.594</td><td>805.455</td><td>1208.75</td><td>728.382</td><td>805.455</td></tr><tr><td class="left">04-Dec-09</td><td>1203.25</td><td>723.672</td><td>798.865</td><td>1190.25</td><td>717.450</td><td>796.953</td></tr><tr><td class="left">07-Dec-09</td><td>1147.50</td><td>700.421</td><td>773.978</td><td>1142.50</td><td>697.923</td><td>771.438</td></tr><tr><td class="left">08-Dec-09</td><td>1164.25</td><td>713.039</td><td>784.218</td><td>1146.75</td><td>703.657</td><td>776.563</td></tr><tr><td class="left">09-Dec-09</td><td>1142.25</td><td>699.694</td><td>773.568</td><td>1141.00</td><td>703.669</td><td>774.820</td></tr><tr><td class="left">10-Dec-09</td><td>1125.75</td><td>690.687</td><td>764.205</td><td>1128.50</td><td>694.804</td><td>766.800</td></tr><tr><td class="left">11-Dec-09</td><td>1140.00</td><td>698.572</td><td>771.730</td><td>1124.00</td><td>692.545</td><td>768.074</td></tr><tr><td class="left">14-Dec-09</td><td>1120.00</td><td>690.420</td><td>764.610</td><td>1123.75</td><td>691.666</td><td>767.327</td></tr><tr><td class="left">15-Dec-09</td><td>1115.00</td><td>685.943</td><td>766.428</td><td>1122.00</td><td>690.589</td><td>771.028</td></tr><tr><td class="left">16-Dec-09</td><td>1134.00</td><td>693.875</td><td>778.686</td><td>1137.50</td><td>694.656</td><td>780.178</td></tr><tr><td class="left">17-Dec-09</td><td>1121.50</td><td>696.022</td><td>781.533</td><td>1117.00</td><td>692.069</td><td>777.855</td></tr><tr><td class="left">18-Dec-09</td><td>1106.50</td><td>682.056</td><td>769.044</td><td>1104.50</td><td>682.253</td><td>769.365</td></tr><tr><td class="left">21-Dec-09</td><td>1113.25</td><td>690.174</td><td>776.921</td><td>1105.50</td><td>687.286</td><td>771.243</td></tr><tr><td class="left">22-Dec-09</td><td>1094.25</td><td>683.735</td><td>765.103</td><td>1084.00</td><td>678.773</td><td>759.316</td></tr><tr><td class="left">23-Dec-09</td><td>1080.50</td><td>677.472</td><td>758.299</td><td>1085.25</td><td>680.408</td><td>759.022</td></tr><tr><th>24-Dec-09</th><th>1104.50</th><th>690.183</th><th>766.482</th><th>No Fix</th><th>       </th><th>       </th></tr><tr><td class="left">29-Dec-09</td><td>1103.00</td><td>689.375</td><td>765.122</td><td>1106.00</td><td>691.120</td><td>766.618</td></tr><tr><td class="left">30-Dec-09</td><td>1092.50</td><td>688.319</td><td>761.006</td><td>1087.50</td><td>682.974</td><td>760.702</td></tr><tr><th>31-Dec-09</th><th>1104.00</th><th>684.184</th><th>766.401</th><th>No Fix</th><th></th><th></th></tr><tr><td class="left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table><p>Updated 15:59 19/5/2010</p> 
-<p>Prices are per troy ounce.<br />
-Data reproduced by kind permission of The London Gold Market Fixing Ltd.</p>
-<p>
-Whilst great care has been taken to ensure that the data contained in this website is accurate, the LBMA can accept no responsibility for any mistakes, errors or omissions or for any action taken in reliance thereon.</p> 
-<p><a href="javascript:window.history.back();">Back</a></p>
-</div> 
-  </div>
-</div>
-     
-<div id="main_sidebar">
-      
-<div id="pod_cream" class="pod">
-        <div id="pod_cream_header"></div>
-        <div id="pod_cream_inner">
-          <div class="variable_height_wide">
-            <div id="rotate">
-              <ul>
-                <li><a href="#fragment-1"><span>Login</span></a></li>
-                <li><a href="#fragment-2"><span>Contact</span></a></li>
-              </ul>
-              <div id="fragment-1">
-                <form action="/pages/members/index.cfm" method="post" id="loginForm" name="loginForm">
-<input type="hidden" name="login" />
-<input type="hidden" name="authenticatedURL" value="/pages/members/index.cfm" /> 
-                 <fieldset>
-                  <label for="username">Username</label>
-                  <br />
-                  <input type="text" name="mname" id="mname" />
-                  <br />
-                  <label for="password">Password</label>
-                  <br />
-                  <input type="password" name="mpass" id="mpass" />
-                  <br />
-                  <input id="login_button" name="login_button" type="image" value="Login" src="../images/lbma/buttons/login.jpg" alt="Login" />
-                  <br />
-                  <br />
-                  <a href="/register/index.cfm?p_mode=lost" id="forgotten_password" target="_blank">Forgotten password?</a>
-                  </fieldset>
-                </form>
-              </div>
-              <div id="fragment-2"> <strong class="alt_strong large">The London Bullion Market Association</strong><br /><br />
-                13-14 Basinghall Street<br />
-                London EC2V 5BQ<br />
-<br />
-                <strong class="alt_strong">Tel:</strong> +44 (0) 20 7796 3067<br />
-                <strong class="alt_strong">Fax:</strong> +44 (0) 20 7796 2112<br />
-                <strong class="alt_strong">Email:</strong> <a href="mailto:mail@lbma.org.uk">mail@lbma.org.uk</a><br />
-                <br />
-                <strong class="alt_strong">Directions:</strong> <a href="index.cfm?page_id=10">Map</a><br />
-                <br />
-                <br />
-              </div>
-            </div>
+  <div class='table-frame'>
+    <div class='ob-centering'>
+      <form action='/table' class='controls'>
+        <div class='other-selectors'>
+          <div class='selector floatleft'>
+            <label>
+              Price for
+              <select id='metal' name='metal'>
+                <option selected value='gold'>Gold</option>
+                <option value='silver'>Silver</option>
+                <option value='gofo'>GOFO/LIBOR</option>
+              </select>
+            </label>
           </div>
-          <div id="pod_cream_inside" class="pod">
-            <div id="pod_cream_inside_header">
-              <div>Join the LBMA</div>
-            </div>
-            <div id="pod_cream_inside_inner">
-              <div class="variable_height"> The LBMA's membership stands at 119 companies in 20 countries. <br />
-                Join <a href="index.cfm?page_id=65">now</a>. </div>
-            </div>
-            <div id="pod_cream_inside_footer"></div>
+          <div class='selector floatleft'>
+            <label>
+              Year
+              <select id='year' name='year'>
+                <option>2014</option>
+                <option>2013</option>
+                <option>2012</option>
+                <option>2011</option>
+                <option>2010</option>
+                <option selected>2009</option>
+                <option>2008</option>
+                <option>2007</option>
+                <option>2006</option>
+                <option>2005</option>
+                <option>2004</option>
+                <option>2003</option>
+                <option>2002</option>
+                <option>2001</option>
+                <option>2000</option>
+                <option>1999</option>
+                <option>1998</option>
+                <option>1997</option>
+                <option>1996</option>
+                <option>1995</option>
+                <option>1994</option>
+                <option>1993</option>
+                <option>1992</option>
+                <option>1991</option>
+                <option>1990</option>
+                <option>1989</option>
+                <option>1988</option>
+                <option>1987</option>
+                <option>1986</option>
+                <option>1985</option>
+                <option>1984</option>
+                <option>1983</option>
+                <option>1982</option>
+                <option>1981</option>
+                <option>1980</option>
+                <option>1979</option>
+                <option>1978</option>
+                <option>1977</option>
+                <option>1976</option>
+                <option>1975</option>
+                <option>1974</option>
+                <option>1973</option>
+                <option>1972</option>
+                <option>1971</option>
+                <option>1970</option>
+                <option>1969</option>
+                <option>1968</option>
+              </select>
+            </label>
           </div>
+          <div class='selector floatleft'>
+            <label>
+              Date
+              <select id='type' name='type'>
+                <option selected value='daily'>Daily Prices</option>
+                <option value='monthly'>Monthly Prices</option>
+              </select>
+            </label>
+          </div>
+          <div class='clear'></div>
         </div>
-        <div id="pod_cream_footer"></div>
-<div class="pod_spacer">&nbsp;</div>
-      
-<div id="pod_grey" class="pod  pod_sidebar_resize">
-        <div id="pod_grey_header"></div>
-        <div id="pod_grey_inner">
-          <div id="pod_grey_inside" class="pod">
-            <div id="pod_grey_inside_header">
-              <div>Prices</div>
-            </div>
-            <div id="pod_grey_inside_inner">
-              <div class="pod_grey_inside_header_alt">
-                <div>London Gold Fixing - <a href="index.cfm?page_id=53&amp;title=gold_fixings&amp;show=2010&amp;type=daily#latest">More</a></div>
-              </div>
-              <table border="0" cellspacing="0" cellpadding="0" summary="London Gold Fixing Prices" id="table_gold_price">
-                <tr>
-                  <td width="40">&nbsp;</td>
-                  <td width="55">USD</td>
-                  <td width="55">GBP</td>
-                  <td width="55">EUR</td>
-                </tr><!--London Gold Fixing--><tr><td>AM</td><td class="pricing">1247.25</td><td class="pricing">811.536</td><td class="pricing">977.315</td></tr><tr><td>PM</td><td class="pricing">1256.75</td><td class="pricing">820.333</td><td class="pricing">985.686</td></tr><!--Updated 15:3 7/9/2010-->
-                <tr>
-                  <td>&nbsp;</td>
-                  <td colspan="3" align="right">Updated <span class="pricing">15:03 07/9</span>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                </tr>
-              </table>
-              <div class="pod_grey_inside_header_alt">
-                <div>London Silver Fixing - <a href="index.cfm?page_id=54&amp;title=silver_fixings&amp;show=2010&amp;type=daily#latest">More</a></div>
-              </div>
-              <table border="0" cellspacing="0" cellpadding="0" summary="London Silver Fixing Prices" id="table_silver_price">
-                <tr>
-                  <td width="55">CENTS</td>
-                  <td width="55">PENCE</td>
-                  <td width="55">EUR-CTS</td>
-                </tr><!--London Silver Fixing--><tr><td class="pricing">1965.00</td><td class="pricing">1278.880</td><td class="pricing">1541.420</td></tr><!--Updated 12:6 7/9/2010-->
-                <tr>
-                  <td colspan="3" align="right">Updated <span class="pricing">12:06 07/9</span></td>
-                </tr>
-              </table>
-            </div>
-            <div id="pod_grey_inside_footer"></div>
-          </div>
-          <div class="variable_height">
-            <h2>More Information</h2>
-            <br />
-See also <a href="/pages/index.cfm?page_id=55&amp;title=gold_forwards&amp;show=2010&amp;type=daily#latest">Gold Forwards</a> - <a href="/pages/index.cfm?page_id=56&amp;title=silver_forwards&amp;show=2010&amp;type=daily#latest">Silver Forwards</a>
-            Useful information 
-<a href="/pages/index.cfm?page_id=6">about these prices</a><br />
-          </div>
-        </div>
-        <div id="pod_grey_footer"></div>
-      
-        <div class="pod_spacer">&nbsp;</div>
+      </form>
+      <div class='stuff'>
+        <h3>
+          Gold Fixing Prices
+        </h3>
+        <table class='data'>
+          <thead>
+            <tr class='currency gold'>
+              <th class='timestamp' colspan='1' rowspan='2'>
+                <div style='float: left'>Timestamp:&nbsp;</div>
+                <div style='float: left'>2014-03-31&nbsp;</div>
+                <div style='float: left'>10:33:00</div>
+              </th>
+              <th colspan='2'>USD</th>
+              <th colspan='2'>GBP</th>
+              <th colspan='2'>EUR</th>
+            </tr>
+            <tr class='timeofday'>
+              <th>AM</th>
+              <th>PM</th>
+              <th>AM</th>
+              <th>PM</th>
+              <th>AM</th>
+              <th>PM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class='even'>
+              <td class='left'>31-Dec-09</td>
+              <td>1104.00</td>
+              <td></td>
+              <td>684.184</td>
+              <td></td>
+              <td>766.401</td>
+              <td></td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>30-Dec-09</td>
+              <td>1092.50</td>
+              <td>1087.50</td>
+              <td>688.319</td>
+              <td>682.974</td>
+              <td>761.006</td>
+              <td>760.702</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>29-Dec-09</td>
+              <td>1103.00</td>
+              <td>1106.00</td>
+              <td>689.375</td>
+              <td>691.120</td>
+              <td>765.122</td>
+              <td>766.618</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>24-Dec-09</td>
+              <td>1104.50</td>
+              <td></td>
+              <td>690.183</td>
+              <td></td>
+              <td>766.482</td>
+              <td></td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>23-Dec-09</td>
+              <td>1080.50</td>
+              <td>1085.25</td>
+              <td>677.472</td>
+              <td>680.408</td>
+              <td>758.299</td>
+              <td>759.022</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>22-Dec-09</td>
+              <td>1094.25</td>
+              <td>1084.00</td>
+              <td>683.735</td>
+              <td>678.773</td>
+              <td>765.103</td>
+              <td>759.316</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>21-Dec-09</td>
+              <td>1113.25</td>
+              <td>1105.50</td>
+              <td>690.174</td>
+              <td>687.286</td>
+              <td>776.921</td>
+              <td>771.243</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>18-Dec-09</td>
+              <td>1106.50</td>
+              <td>1104.50</td>
+              <td>682.056</td>
+              <td>682.253</td>
+              <td>769.044</td>
+              <td>769.365</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>17-Dec-09</td>
+              <td>1121.50</td>
+              <td>1117.00</td>
+              <td>696.022</td>
+              <td>692.069</td>
+              <td>781.533</td>
+              <td>777.855</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>16-Dec-09</td>
+              <td>1134.00</td>
+              <td>1137.50</td>
+              <td>693.875</td>
+              <td>694.656</td>
+              <td>778.686</td>
+              <td>780.178</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>15-Dec-09</td>
+              <td>1115.00</td>
+              <td>1122.00</td>
+              <td>685.943</td>
+              <td>690.589</td>
+              <td>766.428</td>
+              <td>771.028</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>14-Dec-09</td>
+              <td>1120.00</td>
+              <td>1123.75</td>
+              <td>690.420</td>
+              <td>691.666</td>
+              <td>764.610</td>
+              <td>767.327</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>11-Dec-09</td>
+              <td>1140.00</td>
+              <td>1124.00</td>
+              <td>698.572</td>
+              <td>692.545</td>
+              <td>771.730</td>
+              <td>768.074</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>10-Dec-09</td>
+              <td>1125.75</td>
+              <td>1128.50</td>
+              <td>690.687</td>
+              <td>694.804</td>
+              <td>764.205</td>
+              <td>766.800</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>09-Dec-09</td>
+              <td>1142.25</td>
+              <td>1141.00</td>
+              <td>699.694</td>
+              <td>703.669</td>
+              <td>773.568</td>
+              <td>774.820</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>08-Dec-09</td>
+              <td>1164.25</td>
+              <td>1146.75</td>
+              <td>713.039</td>
+              <td>703.657</td>
+              <td>784.218</td>
+              <td>776.563</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>07-Dec-09</td>
+              <td>1147.50</td>
+              <td>1142.50</td>
+              <td>700.421</td>
+              <td>697.923</td>
+              <td>773.978</td>
+              <td>771.438</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>04-Dec-09</td>
+              <td>1203.25</td>
+              <td>1190.25</td>
+              <td>723.672</td>
+              <td>717.450</td>
+              <td>798.865</td>
+              <td>796.953</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>03-Dec-09</td>
+              <td>1218.25</td>
+              <td>1208.75</td>
+              <td>731.594</td>
+              <td>728.382</td>
+              <td>805.455</td>
+              <td>805.455</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>02-Dec-09</td>
+              <td>1211.50</td>
+              <td>1212.50</td>
+              <td>727.104</td>
+              <td>727.922</td>
+              <td>802.105</td>
+              <td>804.312</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>01-Dec-09</td>
+              <td>1193.50</td>
+              <td>1192.50</td>
+              <td>720.930</td>
+              <td>718.547</td>
+              <td>791.761</td>
+              <td>790.678</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>30-Nov-09</td>
+              <td>1172.00</td>
+              <td>1175.75</td>
+              <td>709.228</td>
+              <td>714.742</td>
+              <td>778.686</td>
+              <td>782.321</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>27-Nov-09</td>
+              <td>1164.50</td>
+              <td>1166.50</td>
+              <td>708.980</td>
+              <td>709.119</td>
+              <td>780.758</td>
+              <td>781.313</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>26-Nov-09</td>
+              <td>1183.00</td>
+              <td>1182.75</td>
+              <td>714.458</td>
+              <td>716.297</td>
+              <td>784.223</td>
+              <td>787.240</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>25-Nov-09</td>
+              <td>1176.50</td>
+              <td>1179.75</td>
+              <td>704.449</td>
+              <td>706.733</td>
+              <td>782.924</td>
+              <td>783.107</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>24-Nov-09</td>
+              <td>1170.25</td>
+              <td>1163.25</td>
+              <td>708.813</td>
+              <td>703.295</td>
+              <td>782.933</td>
+              <td>778.510</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>23-Nov-09</td>
+              <td>1166.00</td>
+              <td>1169.50</td>
+              <td>702.410</td>
+              <td>702.867</td>
+              <td>778.527</td>
+              <td>780.083</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>20-Nov-09</td>
+              <td>1142.50</td>
+              <td>1140.00</td>
+              <td>690.833</td>
+              <td>691.035</td>
+              <td>768.067</td>
+              <td>768.298</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>19-Nov-09</td>
+              <td>1136.00</td>
+              <td>1135.50</td>
+              <td>681.545</td>
+              <td>682.843</td>
+              <td>763.852</td>
+              <td>763.361</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>18-Nov-09</td>
+              <td>1146.00</td>
+              <td>1149.00</td>
+              <td>681.615</td>
+              <td>684.825</td>
+              <td>767.068</td>
+              <td>768.613</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>17-Nov-09</td>
+              <td>1131.75</td>
+              <td>1134.75</td>
+              <td>673.100</td>
+              <td>675.326</td>
+              <td>759.258</td>
+              <td>763.576</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>16-Nov-09</td>
+              <td>1128.75</td>
+              <td>1130.00</td>
+              <td>676.830</td>
+              <td>674.788</td>
+              <td>759.258</td>
+              <td>729.424</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>13-Nov-09</td>
+              <td>1107.50</td>
+              <td>1104.00</td>
+              <td>664.048</td>
+              <td>663.541</td>
+              <td>744.588</td>
+              <td>744.236</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>12-Nov-09</td>
+              <td>1116.00</td>
+              <td>1114.75</td>
+              <td>672.897</td>
+              <td>673.646</td>
+              <td>746.189</td>
+              <td>747.753</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>11-Nov-09</td>
+              <td>1114.75</td>
+              <td>1115.25</td>
+              <td>667.515</td>
+              <td>669.820</td>
+              <td>741.930</td>
+              <td>742.263</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>10-Nov-09</td>
+              <td>1099.75</td>
+              <td>1101.50</td>
+              <td>658.809</td>
+              <td>659.028</td>
+              <td>732.727</td>
+              <td>735.314</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>09-Nov-09</td>
+              <td>1108.50</td>
+              <td>1106.75</td>
+              <td>658.802</td>
+              <td>659.762</td>
+              <td>738.901</td>
+              <td>737.833</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>06-Nov-09</td>
+              <td>1095.00</td>
+              <td>1096.75</td>
+              <td>659.599</td>
+              <td>661.290</td>
+              <td>735.047</td>
+              <td>735.679</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>05-Nov-09</td>
+              <td>1088.00</td>
+              <td>1089.00</td>
+              <td>657.879</td>
+              <td>656.815</td>
+              <td>732.660</td>
+              <td>731.904</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>04-Nov-09</td>
+              <td>1091.75</td>
+              <td>1090.00</td>
+              <td>659.987</td>
+              <td>660.046</td>
+              <td>739.568</td>
+              <td>736.089</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>03-Nov-09</td>
+              <td>1058.00</td>
+              <td>1061.00</td>
+              <td>648.881</td>
+              <td>649.526</td>
+              <td>721.593</td>
+              <td>723.343</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>02-Nov-09</td>
+              <td>1052.00</td>
+              <td>1062.00</td>
+              <td>641.776</td>
+              <td>647.521</td>
+              <td>712.255</td>
+              <td>716.841</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>30-Oct-09</td>
+              <td>1044.50</td>
+              <td>1040.00</td>
+              <td>630.737</td>
+              <td>629.616</td>
+              <td>703.272</td>
+              <td>704.607</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>29-Oct-09</td>
+              <td>1034.00</td>
+              <td>1040.50</td>
+              <td>628.495</td>
+              <td>627.147</td>
+              <td>700.922</td>
+              <td>702.566</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>28-Oct-09</td>
+              <td>1035.50</td>
+              <td>1031.75</td>
+              <td>633.993</td>
+              <td>629.692</td>
+              <td>699.851</td>
+              <td>698.923</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>27-Oct-09</td>
+              <td>1040.75</td>
+              <td>1036.50</td>
+              <td>633.831</td>
+              <td>635.110</td>
+              <td>698.959</td>
+              <td>699.818</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>26-Oct-09</td>
+              <td>1055.00</td>
+              <td>1054.00</td>
+              <td>646.446</td>
+              <td>642.879</td>
+              <td>701.649</td>
+              <td>702.199</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>23-Oct-09</td>
+              <td>1061.25</td>
+              <td>1061.75</td>
+              <td>645.411</td>
+              <td>649.786</td>
+              <td>705.900</td>
+              <td>707.456</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>22-Oct-09</td>
+              <td>1054.75</td>
+              <td>1053.00</td>
+              <td>638.778</td>
+              <td>635.908</td>
+              <td>705.188</td>
+              <td>702.937</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>21-Oct-09</td>
+              <td>1053.50</td>
+              <td>1053.75</td>
+              <td>635.366</td>
+              <td>633.949</td>
+              <td>705.060</td>
+              <td>703.062</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>20-Oct-09</td>
+              <td>1064.00</td>
+              <td>1061.75</td>
+              <td>648.504</td>
+              <td>644.853</td>
+              <td>710.755</td>
+              <td>709.916</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>19-Oct-09</td>
+              <td>1054.50</td>
+              <td>1050.50</td>
+              <td>647.767</td>
+              <td>643.295</td>
+              <td>706.296</td>
+              <td>704.041</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>16-Oct-09</td>
+              <td>1047.75</td>
+              <td>1047.50</td>
+              <td>640.747</td>
+              <td>641.143</td>
+              <td>702.999</td>
+              <td>704.344</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>15-Oct-09</td>
+              <td>1052.50</td>
+              <td>1053.50</td>
+              <td>649.010</td>
+              <td>648.867</td>
+              <td>705.713</td>
+              <td>707.000</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>14-Oct-09</td>
+              <td>1066.00</td>
+              <td>1059.50</td>
+              <td>666.458</td>
+              <td>665.348</td>
+              <td>715.148</td>
+              <td>711.511</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>13-Oct-09</td>
+              <td>1064.50</td>
+              <td>1057.50</td>
+              <td>675.744</td>
+              <td>668.331</td>
+              <td>719.500</td>
+              <td>713.755</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>12-Oct-09</td>
+              <td>1052.00</td>
+              <td>1058.75</td>
+              <td>667.132</td>
+              <td>669.163</td>
+              <td>714.189</td>
+              <td>715.710</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>09-Oct-09</td>
+              <td>1046.75</td>
+              <td>1051.50</td>
+              <td>656.270</td>
+              <td>660.573</td>
+              <td>710.239</td>
+              <td>712.881</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>08-Oct-09</td>
+              <td>1054.75</td>
+              <td>1045.00</td>
+              <td>657.083</td>
+              <td>650.807</td>
+              <td>713.971</td>
+              <td>709.340</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>07-Oct-09</td>
+              <td>1047.00</td>
+              <td>1040.25</td>
+              <td>658.946</td>
+              <td>655.234</td>
+              <td>711.422</td>
+              <td>709.100</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>06-Oct-09</td>
+              <td>1020.25</td>
+              <td>1038.75</td>
+              <td>639.455</td>
+              <td>652.235</td>
+              <td>692.258</td>
+              <td>704.954</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>05-Oct-09</td>
+              <td>1004.25</td>
+              <td>1005.50</td>
+              <td>628.049</td>
+              <td>630.984</td>
+              <td>686.479</td>
+              <td>687.945</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>02-Oct-09</td>
+              <td>998.00</td>
+              <td>1003.50</td>
+              <td>628.266</td>
+              <td>630.735</td>
+              <td>686.482</td>
+              <td>684.414</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>01-Oct-09</td>
+              <td>1005.75</td>
+              <td>1004.75</td>
+              <td>628.594</td>
+              <td>629.543</td>
+              <td>689.768</td>
+              <td>690.407</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>30-Sep-09</td>
+              <td>1001.25</td>
+              <td>995.75</td>
+              <td>622.126</td>
+              <td>624.099</td>
+              <td>682.608</td>
+              <td>682.628</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>29-Sep-09</td>
+              <td>991.75</td>
+              <td>989.50</td>
+              <td>625.986</td>
+              <td>620.765</td>
+              <td>680.259</td>
+              <td>680.349</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>28-Sep-09</td>
+              <td>990.50</td>
+              <td>991.75</td>
+              <td>623.466</td>
+              <td>625.749</td>
+              <td>676.941</td>
+              <td>676.593</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>25-Sep-09</td>
+              <td>997.00</td>
+              <td>991.50</td>
+              <td>622.736</td>
+              <td>619.455</td>
+              <td>678.878</td>
+              <td>674.398</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>24-Sep-09</td>
+              <td>1014.00</td>
+              <td>1009.75</td>
+              <td>626.700</td>
+              <td>626.979</td>
+              <td>686.527</td>
+              <td>685.413</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>23-Sep-09</td>
+              <td>1014.75</td>
+              <td>1010.25</td>
+              <td>617.658</td>
+              <td>615.256</td>
+              <td>686.105</td>
+              <td>684.127</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>22-Sep-09</td>
+              <td>1015.75</td>
+              <td>1014.00</td>
+              <td>622.396</td>
+              <td>620.639</td>
+              <td>686.550</td>
+              <td>686.109</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>21-Sep-09</td>
+              <td>999.25</td>
+              <td>997.00</td>
+              <td>618.233</td>
+              <td>616.307</td>
+              <td>681.756</td>
+              <td>680.871</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>18-Sep-09</td>
+              <td>1014.00</td>
+              <td>1012.00</td>
+              <td>619.994</td>
+              <td>620.288</td>
+              <td>690.219</td>
+              <td>687.967</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>17-Sep-09</td>
+              <td>1020.50</td>
+              <td>1018.50</td>
+              <td>616.877</td>
+              <td>616.525</td>
+              <td>692.005</td>
+              <td>691.118</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>16-Sep-09</td>
+              <td>1017.00</td>
+              <td>1015.75</td>
+              <td>615.617</td>
+              <td>616.802</td>
+              <td>691.743</td>
+              <td>692.447</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>15-Sep-09</td>
+              <td>997.50</td>
+              <td>996.00</td>
+              <td>603.996</td>
+              <td>605.803</td>
+              <td>683.594</td>
+              <td>682.893</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>14-Sep-09</td>
+              <td>994.25</td>
+              <td>999.25</td>
+              <td>601.628</td>
+              <td>602.357</td>
+              <td>684.227</td>
+              <td>683.669</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>11-Sep-09</td>
+              <td>998.25</td>
+              <td>1008.25</td>
+              <td>597.504</td>
+              <td>604.177</td>
+              <td>684.389</td>
+              <td>690.961</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>10-Sep-09</td>
+              <td>988.50</td>
+              <td>990.75</td>
+              <td>598.366</td>
+              <td>595.761</td>
+              <td>679.989</td>
+              <td>681.631</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>09-Sep-09</td>
+              <td>995.75</td>
+              <td>999.50</td>
+              <td>603.119</td>
+              <td>603.199</td>
+              <td>686.582</td>
+              <td>685.011</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>08-Sep-09</td>
+              <td>1004.50</td>
+              <td>1000.75</td>
+              <td>608.530</td>
+              <td>604.902</td>
+              <td>696.312</td>
+              <td>690.983</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>07-Sep-09</td>
+              <td>992.75</td>
+              <td>993.00</td>
+              <td>604.819</td>
+              <td>606.264</td>
+              <td>692.101</td>
+              <td>692.952</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>04-Sep-09</td>
+              <td>987.25</td>
+              <td>989.00</td>
+              <td>604.007</td>
+              <td>605.931</td>
+              <td>692.030</td>
+              <td>695.597</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>03-Sep-09</td>
+              <td>982.50</td>
+              <td>983.00</td>
+              <td>600.734</td>
+              <td>600.856</td>
+              <td>687.303</td>
+              <td>688.568</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>02-Sep-09</td>
+              <td>955.00</td>
+              <td>964.75</td>
+              <td>590.600</td>
+              <td>594.314</td>
+              <td>671.448</td>
+              <td>678.684</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>01-Sep-09</td>
+              <td>949.75</td>
+              <td>955.00</td>
+              <td>585.182</td>
+              <td>588.054</td>
+              <td>662.770</td>
+              <td>666.667</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>28-Aug-09</td>
+              <td>950.75</td>
+              <td>955.50</td>
+              <td>582.104</td>
+              <td>585.657</td>
+              <td>661.898</td>
+              <td>665.297</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>27-Aug-09</td>
+              <td>943.50</td>
+              <td>943.00</td>
+              <td>582.228</td>
+              <td>583.467</td>
+              <td>661.919</td>
+              <td>662.731</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>26-Aug-09</td>
+              <td>949.50</td>
+              <td>940.50</td>
+              <td>582.015</td>
+              <td>581.201</td>
+              <td>663.290</td>
+              <td>661.021</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>25-Aug-09</td>
+              <td>947.50</td>
+              <td>950.50</td>
+              <td>578.061</td>
+              <td>578.480</td>
+              <td>662.773</td>
+              <td>662.323</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>24-Aug-09</td>
+              <td>953.75</td>
+              <td>951.50</td>
+              <td>577.925</td>
+              <td>577.261</td>
+              <td>667.005</td>
+              <td>663.853</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>21-Aug-09</td>
+              <td>941.50</td>
+              <td>952.50</td>
+              <td>570.952</td>
+              <td>574.072</td>
+              <td>658.300</td>
+              <td>663.578</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>20-Aug-09</td>
+              <td>943.50</td>
+              <td>940.50</td>
+              <td>571.022</td>
+              <td>570.104</td>
+              <td>662.989</td>
+              <td>661.253</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>19-Aug-09</td>
+              <td>934.25</td>
+              <td>943.00</td>
+              <td>570.221</td>
+              <td>573.461</td>
+              <td>662.636</td>
+              <td>666.007</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>18-Aug-09</td>
+              <td>938.25</td>
+              <td>935.00</td>
+              <td>570.816</td>
+              <td>568.044</td>
+              <td>664.154</td>
+              <td>663.921</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>17-Aug-09</td>
+              <td>937.50</td>
+              <td>932.75</td>
+              <td>573.886</td>
+              <td>572.520</td>
+              <td>664.658</td>
+              <td>663.407</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>14-Aug-09</td>
+              <td>957.50</td>
+              <td>953.50</td>
+              <td>578.305</td>
+              <td>576.481</td>
+              <td>670.518</td>
+              <td>669.734</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>13-Aug-09</td>
+              <td>956.00</td>
+              <td>953.50</td>
+              <td>576.147</td>
+              <td>575.368</td>
+              <td>669.843</td>
+              <td>667.717</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>12-Aug-09</td>
+              <td>943.50</td>
+              <td>947.25</td>
+              <td>574.779</td>
+              <td>573.743</td>
+              <td>667.775</td>
+              <td>667.501</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>11-Aug-09</td>
+              <td>946.00</td>
+              <td>942.75</td>
+              <td>575.076</td>
+              <td>572.265</td>
+              <td>668.221</td>
+              <td>667.717</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>10-Aug-09</td>
+              <td>953.50</td>
+              <td>945.00</td>
+              <td>572.810</td>
+              <td>570.239</td>
+              <td>671.715</td>
+              <td>667.232</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>07-Aug-09</td>
+              <td>960.50</td>
+              <td>956.00</td>
+              <td>573.570</td>
+              <td>571.497</td>
+              <td>668.593</td>
+              <td>670.407</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>06-Aug-09</td>
+              <td>960.75</td>
+              <td>964.00</td>
+              <td>565.646</td>
+              <td>573.468</td>
+              <td>667.234</td>
+              <td>671.543</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>05-Aug-09</td>
+              <td>964.50</td>
+              <td>960.50</td>
+              <td>568.021</td>
+              <td>566.500</td>
+              <td>670.071</td>
+              <td>668.546</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>04-Aug-09</td>
+              <td>953.50</td>
+              <td>960.50</td>
+              <td>563.102</td>
+              <td>566.600</td>
+              <td>662.935</td>
+              <td>666.227</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>03-Aug-09</td>
+              <td>954.25</td>
+              <td>959.75</td>
+              <td>565.985</td>
+              <td>568.034</td>
+              <td>667.635</td>
+              <td>667.049</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>31-Jul-09</td>
+              <td>936.50</td>
+              <td>939.00</td>
+              <td>565.246</td>
+              <td>568.919</td>
+              <td>663.902</td>
+              <td>664.591</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>30-Jul-09</td>
+              <td>932.00</td>
+              <td>932.50</td>
+              <td>564.985</td>
+              <td>565.734</td>
+              <td>661.697</td>
+              <td>664.458</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>29-Jul-09</td>
+              <td>935.50</td>
+              <td>931.00</td>
+              <td>571.996</td>
+              <td>566.371</td>
+              <td>661.786</td>
+              <td>660.612</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>28-Jul-09</td>
+              <td>955.00</td>
+              <td>944.25</td>
+              <td>577.912</td>
+              <td>574.187</td>
+              <td>668.908</td>
+              <td>665.715</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>27-Jul-09</td>
+              <td>956.00</td>
+              <td>955.00</td>
+              <td>580.379</td>
+              <td>578.788</td>
+              <td>670.595</td>
+              <td>669.705</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>24-Jul-09</td>
+              <td>949.75</td>
+              <td>951.50</td>
+              <td>577.531</td>
+              <td>579.441</td>
+              <td>668.603</td>
+              <td>669.222</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>23-Jul-09</td>
+              <td>955.25</td>
+              <td>950.00</td>
+              <td>577.749</td>
+              <td>575.967</td>
+              <td>671.340</td>
+              <td>668.073</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>22-Jul-09</td>
+              <td>945.50</td>
+              <td>948.25</td>
+              <td>577.510</td>
+              <td>578.236</td>
+              <td>666.408</td>
+              <td>668.064</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>21-Jul-09</td>
+              <td>947.75</td>
+              <td>947.75</td>
+              <td>577.263</td>
+              <td>576.595</td>
+              <td>666.444</td>
+              <td>666.397</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>20-Jul-09</td>
+              <td>952.25</td>
+              <td>952.75</td>
+              <td>576.842</td>
+              <td>577.459</td>
+              <td>668.997</td>
+              <td>670.007</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>17-Jul-09</td>
+              <td>934.50</td>
+              <td>937.50</td>
+              <td>572.997</td>
+              <td>573.851</td>
+              <td>662.390</td>
+              <td>664.328</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>16-Jul-09</td>
+              <td>935.25</td>
+              <td>935.00</td>
+              <td>570.866</td>
+              <td>569.775</td>
+              <td>664.429</td>
+              <td>662.604</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>15-Jul-09</td>
+              <td>930.00</td>
+              <td>938.00</td>
+              <td>568.008</td>
+              <td>570.629</td>
+              <td>661.404</td>
+              <td>666.335</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>14-Jul-09</td>
+              <td>921.75</td>
+              <td>924.75</td>
+              <td>565.006</td>
+              <td>567.192</td>
+              <td>659.099</td>
+              <td>661.291</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>13-Jul-09</td>
+              <td>908.50</td>
+              <td>908.50</td>
+              <td>565.726</td>
+              <td>564.636</td>
+              <td>651.208</td>
+              <td>652.471</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>10-Jul-09</td>
+              <td>910.00</td>
+              <td>913.00</td>
+              <td>559.587</td>
+              <td>563.789</td>
+              <td>655.100</td>
+              <td>654.762</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>09-Jul-09</td>
+              <td>914.75</td>
+              <td>911.75</td>
+              <td>565.009</td>
+              <td>562.045</td>
+              <td>655.265</td>
+              <td>652.835</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>08-Jul-09</td>
+              <td>920.75</td>
+              <td>918.00</td>
+              <td>571.362</td>
+              <td>569.691</td>
+              <td>661.601</td>
+              <td>659.388</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>07-Jul-09</td>
+              <td>925.75</td>
+              <td>924.00</td>
+              <td>570.148</td>
+              <td>572.101</td>
+              <td>662.291</td>
+              <td>661.039</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>06-Jul-09</td>
+              <td>921.50</td>
+              <td>924.50</td>
+              <td>571.827</td>
+              <td>570.327</td>
+              <td>662.235</td>
+              <td>663.580</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>03-Jul-09</td>
+              <td>932.50</td>
+              <td>932.50</td>
+              <td>569.918</td>
+              <td>570.965</td>
+              <td>666.214</td>
+              <td>665.834</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>02-Jul-09</td>
+              <td>936.00</td>
+              <td>929.50</td>
+              <td>571.708</td>
+              <td>568.328</td>
+              <td>663.594</td>
+              <td>662.367</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>01-Jul-09</td>
+              <td>931.50</td>
+              <td>938.25</td>
+              <td>567.296</td>
+              <td>568.051</td>
+              <td>662.565</td>
+              <td>663.496</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>30-Jun-09</td>
+              <td>941.00</td>
+              <td>934.50</td>
+              <td>566.697</td>
+              <td>566.364</td>
+              <td>666.903</td>
+              <td>664.888</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>29-Jun-09</td>
+              <td>939.75</td>
+              <td>935.50</td>
+              <td>570.133</td>
+              <td>565.701</td>
+              <td>671.250</td>
+              <td>665.576</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>26-Jun-09</td>
+              <td>943.00</td>
+              <td>942.00</td>
+              <td>572.566</td>
+              <td>571.394</td>
+              <td>671.892</td>
+              <td>669.272</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>25-Jun-09</td>
+              <td>934.25</td>
+              <td>937.25</td>
+              <td>573.160</td>
+              <td>575.318</td>
+              <td>669.090</td>
+              <td>672.057</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>24-Jun-09</td>
+              <td>928.75</td>
+              <td>933.50</td>
+              <td>560.467</td>
+              <td>566.032</td>
+              <td>659.015</td>
+              <td>666.025</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>23-Jun-09</td>
+              <td>920.25</td>
+              <td>920.75</td>
+              <td>565.785</td>
+              <td>564.531</td>
+              <td>660.625</td>
+              <td>657.491</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>22-Jun-09</td>
+              <td>924.00</td>
+              <td>919.25</td>
+              <td>561.566</td>
+              <td>561.477</td>
+              <td>667.678</td>
+              <td>664.006</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>19-Jun-09</td>
+              <td>933.75</td>
+              <td>935.25</td>
+              <td>568.113</td>
+              <td>570.274</td>
+              <td>670.942</td>
+              <td>671.778</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>18-Jun-09</td>
+              <td>936.75</td>
+              <td>940.50</td>
+              <td>576.391</td>
+              <td>575.863</td>
+              <td>671.794</td>
+              <td>672.074</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>17-Jun-09</td>
+              <td>933.75</td>
+              <td>930.50</td>
+              <td>573.204</td>
+              <td>572.087</td>
+              <td>673.361</td>
+              <td>670.969</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>16-Jun-09</td>
+              <td>936.75</td>
+              <td>934.00</td>
+              <td>569.453</td>
+              <td>570.208</td>
+              <td>673.921</td>
+              <td>673.687</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>15-Jun-09</td>
+              <td>932.00</td>
+              <td>932.25</td>
+              <td>569.682</td>
+              <td>569.939</td>
+              <td>672.196</td>
+              <td>673.105</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>12-Jun-09</td>
+              <td>950.00</td>
+              <td>937.25</td>
+              <td>577.157</td>
+              <td>572.891</td>
+              <td>676.012</td>
+              <td>672.201</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>11-Jun-09</td>
+              <td>953.00</td>
+              <td>947.50</td>
+              <td>579.507</td>
+              <td>574.765</td>
+              <td>679.889</td>
+              <td>675.098</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>10-Jun-09</td>
+              <td>961.25</td>
+              <td>953.75</td>
+              <td>587.956</td>
+              <td>582.692</td>
+              <td>681.883</td>
+              <td>680.958</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>09-Jun-09</td>
+              <td>952.50</td>
+              <td>956.00</td>
+              <td>591.248</td>
+              <td>588.308</td>
+              <td>685.252</td>
+              <td>682.857</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>08-Jun-09</td>
+              <td>946.50</td>
+              <td>943.75</td>
+              <td>597.953</td>
+              <td>593.479</td>
+              <td>683.739</td>
+              <td>682.344</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>05-Jun-09</td>
+              <td>977.75</td>
+              <td>962.00</td>
+              <td>609.570</td>
+              <td>600.387</td>
+              <td>689.139</td>
+              <td>685.771</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>04-Jun-09</td>
+              <td>967.25</td>
+              <td>970.75</td>
+              <td>589.499</td>
+              <td>598.859</td>
+              <td>680.922</td>
+              <td>686.236</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>03-Jun-09</td>
+              <td>979.00</td>
+              <td>976.75</td>
+              <td>591.541</td>
+              <td>594.600</td>
+              <td>689.048</td>
+              <td>688.531</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>02-Jun-09</td>
+              <td>973.50</td>
+              <td>980.00</td>
+              <td>595.923</td>
+              <td>593.652</td>
+              <td>689.350</td>
+              <td>686.948</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>01-Jun-09</td>
+              <td>987.00</td>
+              <td>981.75</td>
+              <td>602.417</td>
+              <td>598.409</td>
+              <td>693.946</td>
+              <td>690.887</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>29-May-09</td>
+              <td>972.00</td>
+              <td>975.50</td>
+              <td>604.027</td>
+              <td>605.600</td>
+              <td>692.554</td>
+              <td>691.060</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>28-May-09</td>
+              <td>949.75</td>
+              <td>957.75</td>
+              <td>596.015</td>
+              <td>600.847</td>
+              <td>684.998</td>
+              <td>688.039</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>27-May-09</td>
+              <td>949.50</td>
+              <td>951.00</td>
+              <td>593.586</td>
+              <td>594.524</td>
+              <td>680.206</td>
+              <td>682.699</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>26-May-09</td>
+              <td>942.00</td>
+              <td>945.00</td>
+              <td>596.391</td>
+              <td>594.340</td>
+              <td>678.381</td>
+              <td>677.225</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>22-May-09</td>
+              <td>952.50</td>
+              <td>959.75</td>
+              <td>600.946</td>
+              <td>604.148</td>
+              <td>682.551</td>
+              <td>685.291</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>21-May-09</td>
+              <td>940.00</td>
+              <td>937.50</td>
+              <td>602.757</td>
+              <td>596.754</td>
+              <td>681.703</td>
+              <td>680.927</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>20-May-09</td>
+              <td>928.50</td>
+              <td>939.50</td>
+              <td>598.260</td>
+              <td>601.742</td>
+              <td>680.569</td>
+              <td>681.686</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>19-May-09</td>
+              <td>921.50</td>
+              <td>924.75</td>
+              <td>595.746</td>
+              <td>598.311</td>
+              <td>676.281</td>
+              <td>681.316</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>18-May-09</td>
+              <td>929.75</td>
+              <td>921.00</td>
+              <td>610.463</td>
+              <td>602.552</td>
+              <td>690.596</td>
+              <td>682.677</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>15-May-09</td>
+              <td>925.00</td>
+              <td>929.50</td>
+              <td>610.078</td>
+              <td>609.109</td>
+              <td>682.103</td>
+              <td>683.858</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>14-May-09</td>
+              <td>923.25</td>
+              <td>925.25</td>
+              <td>610.010</td>
+              <td>610.726</td>
+              <td>678.711</td>
+              <td>680.531</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>13-May-09</td>
+              <td>925.75</td>
+              <td>924.00</td>
+              <td>607.049</td>
+              <td>610.707</td>
+              <td>676.471</td>
+              <td>679.662</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>12-May-09</td>
+              <td>920.00</td>
+              <td>917.00</td>
+              <td>602.094</td>
+              <td>601.114</td>
+              <td>673.204</td>
+              <td>672.041</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>11-May-09</td>
+              <td>912.50</td>
+              <td>913.00</td>
+              <td>603.905</td>
+              <td>604.236</td>
+              <td>671.746</td>
+              <td>670.978</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>08-May-09</td>
+              <td>917.50</td>
+              <td>907.00</td>
+              <td>609.837</td>
+              <td>602.578</td>
+              <td>684.446</td>
+              <td>672.499</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>07-May-09</td>
+              <td>912.75</td>
+              <td>912.25</td>
+              <td>602.993</td>
+              <td>605.342</td>
+              <td>685.402</td>
+              <td>680.276</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>06-May-09</td>
+              <td>903.50</td>
+              <td>910.00</td>
+              <td>599.536</td>
+              <td>605.657</td>
+              <td>678.609</td>
+              <td>685.241</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>05-May-09</td>
+              <td>903.00</td>
+              <td>910.00</td>
+              <td>598.251</td>
+              <td>603.088</td>
+              <td>674.132</td>
+              <td>679.612</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>01-May-09</td>
+              <td>881.50</td>
+              <td>884.50</td>
+              <td>591.650</td>
+              <td>594.822</td>
+              <td>664.781</td>
+              <td>666.541</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>30-Apr-09</td>
+              <td>889.00</td>
+              <td>883.25</td>
+              <td>598.976</td>
+              <td>599.789</td>
+              <td>667.919</td>
+              <td>668.218</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>29-Apr-09</td>
+              <td>894.50</td>
+              <td>898.25</td>
+              <td>605.866</td>
+              <td>608.529</td>
+              <td>676.166</td>
+              <td>678.078</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>28-Apr-09</td>
+              <td>897.00</td>
+              <td>891.00</td>
+              <td>617.046</td>
+              <td>606.907</td>
+              <td>689.576</td>
+              <td>681.610</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>27-Apr-09</td>
+              <td>911.75</td>
+              <td>907.50</td>
+              <td>627.193</td>
+              <td>621.916</td>
+              <td>693.715</td>
+              <td>693.013</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>24-Apr-09</td>
+              <td>909.00</td>
+              <td>907.50</td>
+              <td>621.496</td>
+              <td>614.588</td>
+              <td>686.504</td>
+              <td>683.719</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>23-Apr-09</td>
+              <td>894.50</td>
+              <td>897.50</td>
+              <td>613.848</td>
+              <td>617.688</td>
+              <td>684.811</td>
+              <td>689.695</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>22-Apr-09</td>
+              <td>885.00</td>
+              <td>886.00</td>
+              <td>608.457</td>
+              <td>610.908</td>
+              <td>684.032</td>
+              <td>680.805</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>21-Apr-09</td>
+              <td>888.75</td>
+              <td>888.75</td>
+              <td>609.067</td>
+              <td>608.233</td>
+              <td>685.447</td>
+              <td>685.817</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>20-Apr-09</td>
+              <td>870.00</td>
+              <td>877.00</td>
+              <td>597.527</td>
+              <td>603.745</td>
+              <td>671.607</td>
+              <td>678.950</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>17-Apr-09</td>
+              <td>872.00</td>
+              <td>870.50</td>
+              <td>590.866</td>
+              <td>586.195</td>
+              <td>667.279</td>
+              <td>666.488</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>16-Apr-09</td>
+              <td>889.00</td>
+              <td>880.50</td>
+              <td>597.366</td>
+              <td>590.147</td>
+              <td>676.869</td>
+              <td>666.793</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>15-Apr-09</td>
+              <td>892.25</td>
+              <td>891.00</td>
+              <td>597.822</td>
+              <td>595.270</td>
+              <td>673.498</td>
+              <td>675.870</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>14-Apr-09</td>
+              <td>895.00</td>
+              <td>887.50</td>
+              <td>601.317</td>
+              <td>596.639</td>
+              <td>673.540</td>
+              <td>668.903</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>09-Apr-09</td>
+              <td>883.75</td>
+              <td>880.50</td>
+              <td>602.420</td>
+              <td>597.963</td>
+              <td>664.924</td>
+              <td>663.127</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>08-Apr-09</td>
+              <td>887.25</td>
+              <td>880.00</td>
+              <td>604.311</td>
+              <td>600.683</td>
+              <td>671.396</td>
+              <td>664.904</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>07-Apr-09</td>
+              <td>879.25</td>
+              <td>879.75</td>
+              <td>600.909</td>
+              <td>597.981</td>
+              <td>662.385</td>
+              <td>663.361</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>06-Apr-09</td>
+              <td>879.50</td>
+              <td>870.25</td>
+              <td>589.477</td>
+              <td>586.857</td>
+              <td>650.422</td>
+              <td>646.930</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>03-Apr-09</td>
+              <td>901.50</td>
+              <td>905.00</td>
+              <td>610.111</td>
+              <td>610.085</td>
+              <td>670.410</td>
+              <td>674.668</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>02-Apr-09</td>
+              <td>914.75</td>
+              <td>897.75</td>
+              <td>625.513</td>
+              <td>610.964</td>
+              <td>687.989</td>
+              <td>668.068</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>01-Apr-09</td>
+              <td>919.50</td>
+              <td>924.50</td>
+              <td>639.430</td>
+              <td>643.713</td>
+              <td>696.274</td>
+              <td>697.315</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>31-Mar-09</td>
+              <td>918.50</td>
+              <td>916.50</td>
+              <td>643.523</td>
+              <td>640.909</td>
+              <td>691.433</td>
+              <td>688.994</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>30-Mar-09</td>
+              <td>923.00</td>
+              <td>928.00</td>
+              <td>652.297</td>
+              <td>655.691</td>
+              <td>700.463</td>
+              <td>706.456</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>27-Mar-09</td>
+              <td>927.00</td>
+              <td>924.00</td>
+              <td>647.799</td>
+              <td>644.801</td>
+              <td>690.606</td>
+              <td>694.163</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>26-Mar-09</td>
+              <td>935.50</td>
+              <td>938.25</td>
+              <td>643.575</td>
+              <td>647.114</td>
+              <td>689.236</td>
+              <td>692.129</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>25-Mar-09</td>
+              <td>921.25</td>
+              <td>929.00</td>
+              <td>630.432</td>
+              <td>635.214</td>
+              <td>682.205</td>
+              <td>684.497</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>24-Mar-09</td>
+              <td>928.75</td>
+              <td>923.75</td>
+              <td>633.786</td>
+              <td>629.901</td>
+              <td>685.576</td>
+              <td>682.591</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>23-Mar-09</td>
+              <td>952.75</td>
+              <td>949.25</td>
+              <td>653.240</td>
+              <td>656.012</td>
+              <td>697.321</td>
+              <td>701.123</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>20-Mar-09</td>
+              <td>957.00</td>
+              <td>954.00</td>
+              <td>660.364</td>
+              <td>661.260</td>
+              <td>702.282</td>
+              <td>703.332</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>19-Mar-09</td>
+              <td>937.25</td>
+              <td>956.50</td>
+              <td>655.190</td>
+              <td>656.937</td>
+              <td>694.105</td>
+              <td>698.481</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>18-Mar-09</td>
+              <td>910.75</td>
+              <td>893.25</td>
+              <td>655.122</td>
+              <td>638.629</td>
+              <td>697.839</td>
+              <td>680.053</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>17-Mar-09</td>
+              <td>920.00</td>
+              <td>915.50</td>
+              <td>653.548</td>
+              <td>653.695</td>
+              <td>707.203</td>
+              <td>705.805</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>16-Mar-09</td>
+              <td>923.00</td>
+              <td>919.50</td>
+              <td>649.086</td>
+              <td>652.128</td>
+              <td>708.528</td>
+              <td>706.818</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>13-Mar-09</td>
+              <td>920.00</td>
+              <td>928.00</td>
+              <td>655.271</td>
+              <td>663.473</td>
+              <td>713.953</td>
+              <td>718.377</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>12-Mar-09</td>
+              <td>914.50</td>
+              <td>925.25</td>
+              <td>664.366</td>
+              <td>671.737</td>
+              <td>715.291</td>
+              <td>724.777</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>11-Mar-09</td>
+              <td>900.00</td>
+              <td>899.50</td>
+              <td>653.215</td>
+              <td>654.039</td>
+              <td>707.380</td>
+              <td>703.999</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>10-Mar-09</td>
+              <td>911.50</td>
+              <td>901.50</td>
+              <td>657.506</td>
+              <td>650.198</td>
+              <td>717.208</td>
+              <td>705.675</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>09-Mar-09</td>
+              <td>934.75</td>
+              <td>923.75</td>
+              <td>671.516</td>
+              <td>669.675</td>
+              <td>741.100</td>
+              <td>731.278</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>06-Mar-09</td>
+              <td>937.75</td>
+              <td>936.00</td>
+              <td>659.319</td>
+              <td>655.922</td>
+              <td>740.017</td>
+              <td>737.356</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>05-Mar-09</td>
+              <td>913.25</td>
+              <td>913.00</td>
+              <td>644.655</td>
+              <td>646.143</td>
+              <td>725.954</td>
+              <td>728.942</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>04-Mar-09</td>
+              <td>911.00</td>
+              <td>908.50</td>
+              <td>646.650</td>
+              <td>642.958</td>
+              <td>727.810</td>
+              <td>722.695</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>03-Mar-09</td>
+              <td>924.75</td>
+              <td>913.75</td>
+              <td>656.689</td>
+              <td>651.608</td>
+              <td>732.475</td>
+              <td>726.409</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>02-Mar-09</td>
+              <td>949.50</td>
+              <td>937.25</td>
+              <td>668.333</td>
+              <td>665.944</td>
+              <td>753.571</td>
+              <td>742.965</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>27-Feb-09</td>
+              <td>943.75</td>
+              <td>952.00</td>
+              <td>666.020</td>
+              <td>669.809</td>
+              <td>745.046</td>
+              <td>752.807</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>26-Feb-09</td>
+              <td>945.00</td>
+              <td>936.50</td>
+              <td>663.298</td>
+              <td>653.068</td>
+              <td>740.480</td>
+              <td>735.029</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>25-Feb-09</td>
+              <td>956.25</td>
+              <td>978.50</td>
+              <td>660.850</td>
+              <td>685.560</td>
+              <td>744.743</td>
+              <td>767.571</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>24-Feb-09</td>
+              <td>989.75</td>
+              <td>984.25</td>
+              <td>681.881</td>
+              <td>683.175</td>
+              <td>773.726</td>
+              <td>774.268</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>23-Feb-09</td>
+              <td>987.00</td>
+              <td>985.75</td>
+              <td>674.641</td>
+              <td>677.678</td>
+              <td>768.093</td>
+              <td>771.866</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>20-Feb-09</td>
+              <td>981.00</td>
+              <td>989.00</td>
+              <td>687.842</td>
+              <td>690.353</td>
+              <td>778.201</td>
+              <td>782.437</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>19-Feb-09</td>
+              <td>973.50</td>
+              <td>980.50</td>
+              <td>677.925</td>
+              <td>684.133</td>
+              <td>768.169</td>
+              <td>771.561</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>18-Feb-09</td>
+              <td>964.75</td>
+              <td>964.00</td>
+              <td>680.648</td>
+              <td>679.447</td>
+              <td>767.014</td>
+              <td>767.944</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>17-Feb-09</td>
+              <td>962.25</td>
+              <td>968.00</td>
+              <td>674.932</td>
+              <td>678.584</td>
+              <td>761.515</td>
+              <td>766.976</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>16-Feb-09</td>
+              <td>943.00</td>
+              <td>942.50</td>
+              <td>661.198</td>
+              <td>659.091</td>
+              <td>738.970</td>
+              <td>735.696</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>13-Feb-09</td>
+              <td>939.25</td>
+              <td>935.50</td>
+              <td>645.843</td>
+              <td>649.022</td>
+              <td>728.327</td>
+              <td>727.732</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>12-Feb-09</td>
+              <td>944.00</td>
+              <td>943.25</td>
+              <td>666.337</td>
+              <td>663.746</td>
+              <td>737.039</td>
+              <td>740.094</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>11-Feb-09</td>
+              <td>922.00</td>
+              <td>938.00</td>
+              <td>637.180</td>
+              <td>653.795</td>
+              <td>711.804</td>
+              <td>727.583</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>10-Feb-09</td>
+              <td>896.00</td>
+              <td>909.75</td>
+              <td>603.936</td>
+              <td>617.575</td>
+              <td>691.732</td>
+              <td>699.270</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>09-Feb-09</td>
+              <td>901.00</td>
+              <td>895.00</td>
+              <td>606.857</td>
+              <td>599.866</td>
+              <td>696.075</td>
+              <td>686.244</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>06-Feb-09</td>
+              <td>914.00</td>
+              <td>913.00</td>
+              <td>622.107</td>
+              <td>621.511</td>
+              <td>713.060</td>
+              <td>709.126</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>05-Feb-09</td>
+              <td>914.75</td>
+              <td>920.00</td>
+              <td>629.430</td>
+              <td>628.544</td>
+              <td>709.438</td>
+              <td>719.199</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>04-Feb-09</td>
+              <td>902.25</td>
+              <td>905.00</td>
+              <td>626.128</td>
+              <td>623.708</td>
+              <td>695.912</td>
+              <td>701.877</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>03-Feb-09</td>
+              <td>902.00</td>
+              <td>904.50</td>
+              <td>636.017</td>
+              <td>631.458</td>
+              <td>702.930</td>
+              <td>699.536</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>02-Feb-09</td>
+              <td>913.75</td>
+              <td>918.25</td>
+              <td>642.581</td>
+              <td>649.123</td>
+              <td>717.736</td>
+              <td>717.831</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>30-Jan-09</td>
+              <td>918.50</td>
+              <td>919.50</td>
+              <td>641.635</td>
+              <td>642.288</td>
+              <td>713.398</td>
+              <td>715.620</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>29-Jan-09</td>
+              <td>878.50</td>
+              <td>892.25</td>
+              <td>618.531</td>
+              <td>625.921</td>
+              <td>672.974</td>
+              <td>681.419</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>28-Jan-09</td>
+              <td>891.25</td>
+              <td>895.25</td>
+              <td>624.737</td>
+              <td>627.409</td>
+              <td>673.302</td>
+              <td>676.069</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>27-Jan-09</td>
+              <td>896.00</td>
+              <td>897.50</td>
+              <td>633.753</td>
+              <td>638.745</td>
+              <td>676.584</td>
+              <td>683.133</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>26-Jan-09</td>
+              <td>906.50</td>
+              <td>910.25</td>
+              <td>656.646</td>
+              <td>653.821</td>
+              <td>699.676</td>
+              <td>691.627</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>23-Jan-09</td>
+              <td>873.00</td>
+              <td>875.75</td>
+              <td>644.233</td>
+              <td>641.012</td>
+              <td>681.339</td>
+              <td>682.420</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>22-Jan-09</td>
+              <td>847.75</td>
+              <td>860.00</td>
+              <td>612.669</td>
+              <td>626.138</td>
+              <td>651.064</td>
+              <td>663.376</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>21-Jan-09</td>
+              <td>860.50</td>
+              <td>849.25</td>
+              <td>624.592</td>
+              <td>614.108</td>
+              <td>666.022</td>
+              <td>656.450</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>20-Jan-09</td>
+              <td>835.00</td>
+              <td>853.25</td>
+              <td>595.450</td>
+              <td>612.307</td>
+              <td>643.545</td>
+              <td>661.383</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>19-Jan-09</td>
+              <td>842.50</td>
+              <td>833.00</td>
+              <td>573.285</td>
+              <td>575.475</td>
+              <td>634.891</td>
+              <td>633.605</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>16-Jan-09</td>
+              <td>824.25</td>
+              <td>833.75</td>
+              <td>551.670</td>
+              <td>560.617</td>
+              <td>622.029</td>
+              <td>628.392</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>15-Jan-09</td>
+              <td>813.00</td>
+              <td>810.00</td>
+              <td>556.126</td>
+              <td>557.582</td>
+              <td>617.453</td>
+              <td>618.509</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>14-Jan-09</td>
+              <td>827.25</td>
+              <td>821.50</td>
+              <td>568.400</td>
+              <td>562.440</td>
+              <td>624.670</td>
+              <td>625.143</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>13-Jan-09</td>
+              <td>815.50</td>
+              <td>826.50</td>
+              <td>556.200</td>
+              <td>566.406</td>
+              <td>612.467</td>
+              <td>625.142</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>12-Jan-09</td>
+              <td>848.50</td>
+              <td>827.00</td>
+              <td>567.938</td>
+              <td>556.528</td>
+              <td>634.345</td>
+              <td>618.688</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>09-Jan-09</td>
+              <td>854.00</td>
+              <td>847.25</td>
+              <td>560.257</td>
+              <td>559.167</td>
+              <td>622.721</td>
+              <td>626.479</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>08-Jan-09</td>
+              <td>842.50</td>
+              <td>855.75</td>
+              <td>560.657</td>
+              <td>561.516</td>
+              <td>621.129</td>
+              <td>623.270</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>07-Jan-09</td>
+              <td>864.00</td>
+              <td>848.50</td>
+              <td>581.348</td>
+              <td>561.958</td>
+              <td>635.855</td>
+              <td>621.794</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>06-Jan-09</td>
+              <td>844.00</td>
+              <td>848.25</td>
+              <td>574.854</td>
+              <td>580.397</td>
+              <td>630.321</td>
+              <td>632.456</td>
+            </tr>
+            <tr class='odd'>
+              <td class='left'>05-Jan-09</td>
+              <td>860.00</td>
+              <td>853.50</td>
+              <td>591.797</td>
+              <td>587.729</td>
+              <td>628.885</td>
+              <td>626.514</td>
+            </tr>
+            <tr class='even'>
+              <td class='left'>02-Jan-09</td>
+              <td>869.75</td>
+              <td>874.50</td>
+              <td>598.795</td>
+              <td>601.651</td>
+              <td>623.656</td>
+              <td>627.106</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-  
-      </div>
-      <div style="clear:both"></div>
-</div>
-<div style="clear:both"></div>  
     </div>
-    <div style="clear:both"></div>
   </div>
-  <div style="clear:both"></div>
-  <div id="footer">
-    <div> 
-&copy; 2010 - The London Bullion Market Association - 
-<a href="index.cfm?page_id=10&amp;title=contact">Contact</a> |
-<a href="index.cfm?page_id=11&amp;title=legal_information">Legal Information</a> |
-<a href="index.cfm?page_id=12&amp;title=links">Links</a> |
-<a href="index.cfm?page_id=13&amp;title=site_map">Site Map</a> |
-<script language="JavaScript" type="text/javascript">
-<!--
-function openPrinterFriendly() {
-newWin=window.open('printerFriendly.cfm?thisURL=index.cfm&title=gold_fixings&page_id=53&type=daily&show=2009','newWin','width=540,height=400,location=no,toolbar=no,scrollbars=yes');
-}
-//-->
-</script>
-<a href="javascript:openPrinterFriendly();" title="Click to view a printer friendly version of this page">Printer Friendly Version</a> | 
- Website: <a href="http://www.imaginit.net" target="_blank">imaginit</a>
-</div>
-  </div>
-</div>
-<div id="wrapper_terminal"></div>
-<div style="clear:both"></div>
-<script type="text/javascript"> 
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-6300977-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
 </body>
-</html> 
+<script>
+  var bbb = "";
+</script>
+<script src='/js/js.js'></script>

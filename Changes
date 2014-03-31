@@ -1,5 +1,10 @@
 Revision history for LBMA-Statistics
 
+0.060 2014-03-31 
+    Updated the URL - see RT https://rt.cpan.org/Ticket/Display.html?id=94348
+    Updated the parsing of HTML - this changed,too
+    Updated tests
+
 0.056   2013-03-04/time
     MYMETA.yml and MYMETA.json
     See http://weblog.bulknews.net/post/44251476706/stop-shipping-mymeta-to-cpan

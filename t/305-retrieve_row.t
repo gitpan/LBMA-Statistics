@@ -29,17 +29,17 @@ $lbma = LBMA::Statistics::SilverFixing::Daily->new(
 my @fixings = $lbma->retrieve_row();
 
 ok($fixings[0] eq '04-Feb-00');
-ok($fixings[1] ==  523.000, 'Silver USD' );
-ok($fixings[2] ==  329.345, 'Silver GBP' );
-ok($fixings[3] ==  530.695, 'Silver EUR');
+ok($fixings[1] ==  5.23000, 'Silver USD' );
+ok($fixings[2] ==  3.29345, 'Silver GBP' );
+ok($fixings[3] ==  5.30695, 'Silver EUR');
 
 my $fixings = $lbma->retrieve_row();
 
 @fixings = @$fixings;
 ok($fixings[0] eq '04-Feb-00');
-ok($fixings[1] ==  523.000, 'Silver USD' );
-ok($fixings[2] ==  329.345, 'Silver GBP' );
-ok($fixings[3] ==  530.695, 'Silver EUR');
+ok($fixings[1] ==  5.23000, 'Silver USD' );
+ok($fixings[2] ==  3.29345, 'Silver GBP' );
+ok($fixings[3] ==  5.30695, 'Silver EUR');
 
 #05-Feb-68      82.917
 $year = 1968;
@@ -50,6 +50,6 @@ $lbma = LBMA::Statistics::SilverFixing::Daily->new(
 ) or die $!;
 @fixings = $lbma->retrieve_row();
 ok($fixings[0] eq '05-Feb-68');
-isnt($fixings[1], defined, 'Silver USD undef' );
-ok($fixings[2] ==  82.917, 'Silver GBP' );
+ok($fixings[1] ==  2.00000, 'Silver USD' );
+ok($fixings[2] ==  0.82917, 'Silver GBP' );
 

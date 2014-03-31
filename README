@@ -1,66 +1,312 @@
-LBMA-Statistics
+NAME
+    LBMA::Statistics - Obtain Gold and Silver Fixings (Prices) from London
+    Bullion Market
 
-Web data extraction from Statistics of the London Bullion Market (London Gold Fixing, London Silver Fixing).
+DESCRIPTION
+    This module obtains Gold and Silver Fixings (Prices) from Statistics of
+    the London Bullion Market
+    <http://www.lbma.org.uk/pricing-and-statistics> and the underlying table
+    <http://lbma.oblive.co.uk/table>.
 
-See http://www.lbma.org.uk/pages/index.cfm?page_id=48 for details on London Bullion Market and available Statistics.
+    Information returned by this module is governed by LBMA's terms and
+    conditions.
 
-Information returned by this module is governed by LBMA's terms and conditions.
+    "If you wish to use the gold or silver Fixing prices for commercial
+    purposes, including to incorporate them into commercial products which
+    you intend to market, sell or otherwise provide to third parties, you
+    must pay the required fee and obtain a licence from The London Gold
+    Market Fixing Limited and / or The London Silver Market Fixing Limited
+    as appropriate. See www.goldfixing.com and www.silverfixing.com for full
+    details."
 
-"If you wish to use the gold or silver Fixing prices for commercial purposes,
- including to incorporate them into commercial products which you intend to market,
- sell or otherwise provide to third parties, you must pay the required fee and obtain
- a licence from The London Gold Market Fixing Limited and / or The London Silver Market
- Fixing Limited as appropriate. See www.goldfixing.com and www.silverfixing.com for full details."
+    It's designed to use with cron to retrieve data on a daily basis in the
+    evening.
 
-http://www.lbma.org.uk/pages/?page_id=53&title=gold_fixings
+  London Gold Fixing
+    From Wikipedia (<http://en.wikipedia.org/wiki/Gold_Fixing>):
 
+    *The Gold Fixing (also known as the London Gold Fixing or Gold Fix) is
+    the procedure by which the price of gold is set on the London market by
+    the five members of the London Gold Pool. It is designed to fix a price
+    for settling contracts between members of the London bullion market, but
+    informally the Gold Fixing provides a recognized rate that is used as a
+    benchmark for pricing the majority of gold products and derivatives
+    throughout the world's markets. The Gold Fixing is conducted twice a day
+    by telephone, at 10:30 GMT and 15:00 GMT.*
 
-INSTALLATION
+    Gold prices are fixed in United States dollars (USD), Pound sterling
+    (GBP) and since 1999 European euros (EUR).
 
-To install this module, run the following commands:
+    Historic daily prices are available back to 1968.
 
-	perl Makefile.PL
-	make
-	make test
-	make install
+  London Silver Fixing
+    Silver prices are fixed in United States dollars (USD), Pound sterling
+    (GBP) and since 1999 European euros (EUR).
 
-EXTENDED NETWORK TESTS
+    Published once a day at 12:00 GMT.
 
-To enable extended tests set the NETWORK_TEST enviroment variable
-e.g. 
-    $ NETWORK_TEST=1 make test
-or
-    $ NETWORK_TEST=1 prove -l -v t/*
+    Historic daily prices are available back to 1968.
 
-These tests require a working internet connection.
+SYNOPSIS
+  new - Constructor
+        use strict;
 
-SUPPORT AND DOCUMENTATION
+        use warnings;
 
-After installing, you can find documentation for this module with the perldoc command.
+        use LBMA::Statistics;
 
-    perldoc LBMA::Statistics
+        my $lbma = LBMA::Statistics->new() or die $!;
 
-Have a look at the examples directory, too.
+  dailygoldfixing
+   Parameters
+    Parameters are all lowercase.
 
-You can also look for information at:
+    *   year - four digit year (1968 .. )
 
-    RT, CPAN's request tracker
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=LBMA-Statistics
+    *   month - one or two digit month (1 .. 12)
 
-    AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/LBMA-Statistics
+    *   day - one or two digit day (1 .. 31)
 
-    CPAN Ratings
-        http://cpanratings.perl.org/d/LBMA-Statistics
+        my @fixings = $lbma->dailygoldfixing(
+                                   year  => $year,
+                                   month => $month,
+                                   day   => $day,
+                                  ) or die;
 
-    Search CPAN
-        http://search.cpan.org/dist/LBMA-Statistics/
+    If no parameters are passed to this method, today is assumed.
 
+    Today is determined using UTC. In doubt pass a valid date.
 
-COPYRIGHT AND LICENCE
+        my @fixings = $lbma->dailygoldfixing( );
 
-Copyright (C) 2009, 2010, 2012 Thomas Fahle
+    Dies if supplied date ain't valid or before 1968.
 
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+   return values
+    Returns an array of fixings.
+
+    The number and order of elements varies depending on the year data is
+    retrieved. There is no EUR before 1999.
+
+            # @fixings 1999 --  
+            # 0 date (DD-MMM-YY)
+            # 1 GOLD A.M. USD 
+            # 2 GOLD A.M. GBP
+            # 3 GOLD A.M. EUR
+            # 4 GOLD P.M. USD
+            # 5 GOLD P.M. GBP
+            # 6 GOLD P.M. EUR 
+            #
+            # @fixings 1968 -- 1998  
+            # 0 date (DD-MMM-YY)
+            # 1 GOLD A.M. USD 
+            # 2 GOLD A.M. GBP
+            # 3 GOLD P.M. USD
+            # 4 GOLD P.M. GBP
+
+    In scalar context a reference to an array is returned.
+
+    Returns undef or empty list if data can't be retrieved e.g. dates
+    without fixing like holidays.
+
+    Returns an array with the date slot filled and undef for all other slots
+    if you're trying to fetch data before A.M. fixing.
+
+    Returns an array with the date and A.M. slots filled and whitespace for
+    all other slots if you're trying to fetch data before P.M. and after
+    A.M. fixing.
+
+  dailygoldfixing_am
+    same as dailygoldfixing but returns just the A.M. Fixing Data
+
+            my @fixings = $lbma->dailygoldfixing_am( );
+
+            my @fixings = $lbma->dailygoldfixing_am(
+                                   year  => $year,
+                                   month => $month,
+                                   day   => $day,
+                                  ) or die;
+
+            # @fixings 1999 - ... 
+            # 0 date
+            # 1 GOLD A.M. USD 
+            # 2 GOLD A.M. GBP
+            # 3 GOLD A.M. EUR
+            # @fixings 1968 - 1998 
+            # 0 date
+            # 1 GOLD A.M. USD 
+            # 2 GOLD A.M. GBP
+
+  dailysilverfixing
+   Parameters
+    Parameters are all lowercase.
+
+    *   year - four digit year (1968 .. )
+
+    *   month - one or two digit month (1 .. 12)
+
+    *   day - one or two digit day (1 .. 31)
+
+            my @fixings = $lbma->dailysilverfixing(
+                                     year  => $year,
+                                     month => $month,
+                                     day   => $day,
+                                  ) or die;
+
+    If no parameters are passed to this class, today is assumed. Today is
+    determined using UTC. In doubt pass a valid date.
+
+            my @fixings = $lbma->dailysilverfixing( );
+
+    Dies if supplied date ain't valid or before 1968.
+
+   return values
+    Returns an array of fixings The number and order of elements varies
+    depending on the year data is retrieved. There is no EUR before 1999.
+
+            # @fixings 1999 -- 
+            # 0 date
+            # 1 SILVER USD 
+            # 2 SILVER GBP
+            # 3 SILVER EUR
+            #
+            # @fixings 1968 -- 1998  
+            # 0 date
+            # 1 SILVER USD 
+            # 2 SILVER GBP
+
+    In scalar context a reference to an array is returned.
+
+    Returns undef or empty list if data can't be retrieved e.g. dates
+    without fixing like holidays.
+
+    Returns an array(ref) with the date slot filled and undef for all other
+    slots if you're trying to fetch data before the fixing.
+
+EXAMPLES
+  Example 1 Daily Gold Fixing
+            #!/usr/bin/perl
+            use warnings;
+            use strict;
+
+            use LBMA::Statistics;
+
+            use Log::Log4perl qw/:easy/;
+
+            Log::Log4perl->easy_init();
+
+            my $lbma =  LBMA::Statistics->new();
+
+            print join("|",$lbma->dailygoldfixing() ) ,"\n";
+            print join("|",$lbma->dailygoldfixing( year => 2009, month => 2, day => 2) ) , "\n";
+            print join("|",$lbma->dailygoldfixing( year => 2000, month => 1, day => 4) ) , "\n";
+
+  Example 2 Daily Goldy Fixing A.M. data
+        #!/usr/bin/perl
+        use warnings;
+        use strict;
+
+        use LBMA::Statistics;
+
+        use Log::Log4perl qw/:easy/;
+
+        Log::Log4perl->easy_init();
+
+        my $lbma =  LBMA::Statistics->new();
+
+            # @fixings 
+            # 0 date
+            # 1 GOLD A.M. USD 
+            # 2 GOLD A.M. GBP
+            # 3 GOLD A.M. EUR
+        print join("|",$lbma->dailygoldfixing_am() ) ,"\n";
+        print join("|",$lbma->dailygoldfixing_am( year => 2009, month => 2, day => 2) ) , "\n";
+        print join("|",$lbma->dailygoldfixing_am( year => 2000, month => 1, day => 4) ) , "\n";
+
+  Example 3 Daily Silver Fixing
+            #!/usr/bin/perl
+            use warnings;
+            use strict;
+
+            use LBMA::Statistics;
+
+            use Log::Log4perl qw/:easy/;
+
+            Log::Log4perl->easy_init();
+
+            my $lbma =  LBMA::Statistics->new();
+
+            print join("|",$lbma->dailysilverfixing() ) ,"\n";
+            print join("|",$lbma->dailysilverfixing( year => 2009, month => 2, day => 2) ) , "\n";
+            print join("|",$lbma->dailysilverfixing( year => 2000, month => 1, day => 4) ) , "\n";
+
+SEE ALSO
+    *   Statistics of the London Bullion Market
+        <http://www.lbma.org.uk/pages/index.cfm?page_id=48&title=historical_
+        statistics>
+
+    *   LBMA Statistics Gold Fixing
+        <http://lbma.oblive.co.uk/table?metal=gold>
+
+    *   LBMA Statistics Silver Fixing
+        <http://lbma.oblive.co.uk/table?metal=silver>
+
+    *   Finance::Quote::GoldMoney
+        <http://search.cpan.org/perldoc?Finance::Quote::GoldMoney>
+
+PREREQUISITES
+    *   DateTime <http://search.cpan.org/perldoc?DateTime>
+
+    *   WWW::Mechanize <http://search.cpan.org/perldoc?WWW::Mechanize>
+
+    *   HTML::TableExtract
+        <http://search.cpan.org/perldoc?HTML::TableExtract>
+
+    *   Log::Log4perl <http://search.cpan.org/perldoc?Log::Log4perl>
+
+TODO
+    *   Write more tests
+
+    *   Find a solution for handling years before 1999 (the years before the
+        european EUR)
+
+    *   Add methods to return hashes for data rows
+
+AUTHOR
+    Thomas Fahle, "<cpan at thomas-fahle.de>"
+
+BUGS
+    Please report any bugs or feature requests to "bug-lbma-statistics at
+    rt.cpan.org", or through the web interface at
+    <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=LBMA-Statistics>. I will
+    be notified, and then you'll automatically be notified of progress on
+    your bug as I make changes.
+
+SUPPORT
+    You can find documentation for this module with the perldoc command.
+
+        perldoc LBMA::Statistics
+
+    You can also look for information at:
+
+    *   RT: CPAN's request tracker
+
+        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=LBMA-Statistics>
+
+    *   AnnoCPAN: Annotated CPAN documentation
+
+        <http://annocpan.org/dist/LBMA-Statistics>
+
+    *   CPAN Ratings
+
+        <http://cpanratings.perl.org/d/LBMA-Statistics>
+
+    *   Search CPAN
+
+        <http://search.cpan.org/dist/LBMA-Statistics/>
+
+COPYRIGHT & LICENSE
+    Copyright 2009, 2010, 2012, 2014 Thomas Fahle
+
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
 
