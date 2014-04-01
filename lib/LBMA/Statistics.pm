@@ -3,7 +3,7 @@ package LBMA::Statistics;
 use warnings;
 use strict;
 
-our $VERSION = '0.060';
+our $VERSION = '0.061';
 
 use LBMA::Statistics::Date;
 use LBMA::Statistics::GoldFixing::Daily;

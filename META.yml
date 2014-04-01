@@ -1,17 +1,17 @@
 ---
 abstract: 'Obtain Gold and Silver Fixings (Prices) from London Bullion Market '
 author:
-  - 'Thomas Fahle, C<< <cpan at thomas-fahle.de> >>'
-  - 'Thomas Fahle <cpan@thomas-fahle.de>'
+  - 'Thomas Fahle, C<< <cpan at thomas-fahle.de> >>, Thomas Fahle <cpan@thomas-fahle.de>'
 build_requires:
   ExtUtils::MakeMaker: 6.42
   Test::Exception: 0.25
   Test::More: 0
   Test::Warn: 0.22
 configure_requires:
-  ExtUtils::MakeMaker: 6.42
+  ExtUtils::MakeMaker: 0
 distribution_type: module
-generated_by: 'Module::Install version 1.00'
+dynamic_config: 0
+generated_by: 'ExtUtils::MakeMaker version 6.57_05'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -19,9 +19,8 @@ meta-spec:
 name: LBMA-Statistics
 no_index:
   directory:
-    - examples
-    - inc
     - t
+    - inc
 requires:
   DateTime: 0.41
   Encode: 2.23
@@ -31,4 +30,4 @@ requires:
 resources:
   license: http://dev.perl.org/licenses/
   repository: http://github.com/tomfahle/LBMA-Statistics
-version: 0.053
+version: 0.061

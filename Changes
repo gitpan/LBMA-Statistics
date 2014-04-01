@@ -1,5 +1,8 @@
 Revision history for LBMA-Statistics
 
+0.061 2014-04-01 
+    Bumped version number and fixed META.yml
+
 0.060 2014-03-31 
     Updated the URL - see RT https://rt.cpan.org/Ticket/Display.html?id=94348
     Updated the parsing of HTML - this changed,too

@@ -3,7 +3,7 @@ package LBMA::Statistics::GoldFixing::Daily;
 use warnings;
 use strict;
 
-our $VERSION = '0.060';
+our $VERSION = '0.061';
 
 use WWW::Mechanize;
 use HTML::TableExtract;
